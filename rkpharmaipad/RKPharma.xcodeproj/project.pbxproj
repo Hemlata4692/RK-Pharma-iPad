@@ -1,0 +1,1347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0F0D8E188654DB00C5820E /* bg_image_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F0D8D188654DB00C5820E /* bg_image_new.png */; };
+		4A0F0D90188656A700C5820E /* background_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F0D8F188656A700C5820E /* background_new.png */; };
+		4A262BB017E8114E00C88297 /* ViewReturnSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A262BAF17E8114E00C88297 /* ViewReturnSample.m */; };
+		4A262BB317E816DF00C88297 /* EditReturnSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A262BB217E816DF00C88297 /* EditReturnSample.m */; };
+		4A34FDF91885507E00F1AB37 /* selectedbg_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A34FDF61885507E00F1AB37 /* selectedbg_new.png */; };
+		4A44D85D17CDF26500A6D69C /* ReturnSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D85C17CDF26500A6D69C /* ReturnSample.m */; };
+		4AD3A97E17D5AD4500E45068 /* ReturnSampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD3A97D17D5AD4500E45068 /* ReturnSampleList.m */; };
+		4AD64B3A18FE5793002C4C6A /* selectedbg_new1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD64B3918FE5793002C4C6A /* selectedbg_new1.png */; };
+		4AEA8C5717AE965A0058D085 /* SampleRequestListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5117AE96590058D085 /* SampleRequestListViewController.m */; };
+		4AEA8C5817AE965A0058D085 /* EditSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5317AE96590058D085 /* EditSample.m */; };
+		4AEA8C5917AE965A0058D085 /* AddSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5517AE96590058D085 /* AddSample.m */; };
+		4AEA8C5C17AE96B10058D085 /* SampleRequestDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5A17AE96B10058D085 /* SampleRequestDomain.m */; };
+		4AEA8C5F17AE96CF0058D085 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5D17AE96CF0058D085 /* DataModel.m */; };
+		4AEA8C6817AEA0D00058D085 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6617AEA0D00058D085 /* Order.m */; };
+		4AEA8C6B17AEA0EB0058D085 /* OrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6917AEA0EB0058D085 /* OrderManager.m */; };
+		B736A2E219C6C45A001A5E2E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E119C6C45A001A5E2E /* CoreData.framework */; };
+		B736A2E419C6C5D5001A5E2E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E319C6C5D5001A5E2E /* libz.dylib */; };
+		B736A2E619C6C69B001A5E2E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E519C6C69B001A5E2E /* EventKit.framework */; };
+		B75A2B5719DD51FF004A2C49 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B75A2B5619DD51FF004A2C49 /* libGoogleAnalyticsServices.a */; };
+		B7FD56ED19C81FB600A17387 /* table-sep copy.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FD56EC19C81FB600A17387 /* table-sep copy.png */; };
+		B7FEDFD317BE06EE00112C2A /* ViewSample.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FEDFD217BE06EE00112C2A /* ViewSample.m */; };
+		CB0481771727F82400DBD015 /* arrow_image.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481711727F82400DBD015 /* arrow_image.png */; };
+		CB0481781727F82400DBD015 /* bg_image.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481721727F82400DBD015 /* bg_image.png */; };
+		CB0481791727F82400DBD015 /* Login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481731727F82400DBD015 /* Login_button.png */; };
+		CB04817A1727F82400DBD015 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481741727F82400DBD015 /* logo.png */; };
+		CB04817B1727F82400DBD015 /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481751727F82400DBD015 /* password.png */; };
+		CB04817C1727F82400DBD015 /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0481761727F82400DBD015 /* username.png */; };
+		CB05D844172A3663004761D7 /* add-clinic-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D831172A3663004761D7 /* add-clinic-btn.png */; };
+		CB05D845172A3663004761D7 /* announcement-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D832172A3663004761D7 /* announcement-icon.png */; };
+		CB05D846172A3663004761D7 /* blue-strip.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D833172A3663004761D7 /* blue-strip.png */; };
+		CB05D84C172A3663004761D7 /* date-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D839172A3663004761D7 /* date-bg.png */; };
+		CB05D84F172A3663004761D7 /* fill-summary-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D83C172A3663004761D7 /* fill-summary-icon.png */; };
+		CB05D861172A60EC004761D7 /* announc-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D85D172A60EB004761D7 /* announc-arrow.png */; };
+		CB05D862172A60EC004761D7 /* sep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D85E172A60EB004761D7 /* sep.png */; };
+		CB05D863172A60EC004761D7 /* table-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D85F172A60EB004761D7 /* table-bg.png */; };
+		CB05D864172A60EC004761D7 /* table-sep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D860172A60EC004761D7 /* table-sep.png */; };
+		CB05D87E172A9B3A004761D7 /* announc-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D87C172A9B37004761D7 /* announc-bg.png */; };
+		CB05D87F172A9B3A004761D7 /* heading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB05D87D172A9B38004761D7 /* heading-bg.png */; };
+		CB05D886172AB357004761D7 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB05D885172AB357004761D7 /* DejalActivityView.m */; };
+		CB09007B174FA2C700278F8F /* faxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB09007A174FA2C700278F8F /* faxicon.png */; };
+		CB1C39DD1760A62400DEEABF /* EditCallSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1C39DC1760A62400DEEABF /* EditCallSummaryViewController.m */; };
+		CB3FED6C175E227F00DCD441 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3FED6A175E227F00DCD441 /* background.png */; };
+		CB3FED6D175E227F00DCD441 /* leftpanelbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3FED6B175E227F00DCD441 /* leftpanelbg.png */; };
+		CB47BBE5173BC40600ABF8B6 /* addclinicbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBE4173BC40600ABF8B6 /* addclinicbg.png */; };
+		CB47BBE8173BC6E700ABF8B6 /* AddClinicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47BBE7173BC6E400ABF8B6 /* AddClinicViewController.m */; };
+		CB47BBEE173BD7FF00ABF8B6 /* ALPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47BBEB173BD7FF00ABF8B6 /* ALPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CB47BBEF173BD7FF00ABF8B6 /* ALPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47BBED173BD7FF00ABF8B6 /* ALPickerViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CB47BBF8173BD87900ABF8B6 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF1173BD87900ABF8B6 /* check@2x.png */; };
+		CB47BBF9173BD87900ABF8B6 /* check_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF2173BD87900ABF8B6 /* check_selected@2x.png */; };
+		CB47BBFA173BD87900ABF8B6 /* frame_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF3173BD87900ABF8B6 /* frame_left@2x.png */; };
+		CB47BBFB173BD87900ABF8B6 /* frame_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF4173BD87900ABF8B6 /* frame_middle@2x.png */; };
+		CB47BBFC173BD87900ABF8B6 /* frame_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF5173BD87900ABF8B6 /* frame_right@2x.png */; };
+		CB47BBFD173BD87900ABF8B6 /* wheel_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF6173BD87900ABF8B6 /* wheel_bg@2x.png */; };
+		CB47BBFE173BD87900ABF8B6 /* wheel_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB47BBF7173BD87900ABF8B6 /* wheel_shadow@2x.png */; };
+		CB4896B71740FD2D00CC34D5 /* CallCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4896B61740FD2C00CC34D5 /* CallCardViewController.m */; };
+		CB4D7D811755CF920070F269 /* DailyClinicPlannedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4D7D801755CF920070F269 /* DailyClinicPlannedViewController.m */; };
+		CB4D7D9A1755FDC40070F269 /* YHCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4D7D991755FDC40070F269 /* YHCPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CB810B15172D54F600542189 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0C172D54F600542189 /* arrow.png */; };
+		CB810B16172D54F600542189 /* inputfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0D172D54F600542189 /* inputfield.jpg */; };
+		CB810B17172D54F600542189 /* inputfield.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0E172D54F600542189 /* inputfield.png */; };
+		CB810B18172D54F600542189 /* listingbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0F172D54F600542189 /* listingbg.png */; };
+		CB810B19172D54F600542189 /* listingbgtop.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B10172D54F600542189 /* listingbgtop.png */; };
+		CB810B1B172D54F600542189 /* searchbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B12172D54F600542189 /* searchbutton.png */; };
+		CB810B1C172D54F600542189 /* selectbox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB810B13172D54F600542189 /* selectbox.jpg */; };
+		CB810B1D172D54F600542189 /* selectbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B14172D54F600542189 /* selectbox.png */; };
+		CBAEFF1E19CB0ECF00913790 /* AddOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAEFF1C19CB0ECF00913790 /* AddOrderViewController.m */; };
+		CBAEFF2119CB10E100913790 /* NewOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAEFF1F19CB10E100913790 /* NewOrderListViewController.m */; };
+		CBB2945117A7DD2100D5AA9E /* sample-request.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB2945017A7DD2100D5AA9E /* sample-request.png */; };
+		CBB29A8B17843DE100A7207B /* kivicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB29A8A17843DE000A7207B /* kivicon.png */; };
+		CBB55631178C05BA00025813 /* KIVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB55630178C05BA00025813 /* KIVViewController.m */; };
+		CBBF0740173A939F00A16828 /* resultfield.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBF073F173A939F00A16828 /* resultfield.png */; };
+		CBBF0743173A940900A16828 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBF0742173A940900A16828 /* AnnouncementViewController.m */; };
+		CBBF0746173A945200A16828 /* LeftSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBF0745173A945200A16828 /* LeftSidebarViewController.m */; };
+		CBC3C594174DE799005779F2 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC3C593174DE799005779F2 /* back.png */; };
+		CBC3E6A01754C57800D54EBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC3E69F1754C57800D54EBF /* QuartzCore.framework */; };
+		CBC6350417450E9500A56056 /* Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6350117450E9500A56056 /* Internet.m */; };
+		CBC6350517450E9500A56056 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6350317450E9500A56056 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBC6A0681743B9A000CB7F33 /* plusicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC6A0661743B9A000CB7F33 /* plusicon.png */; };
+		CBC6A0691743B9A000CB7F33 /* selectbox_new.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC6A0671743B9A000CB7F33 /* selectbox_new.png */; };
+		CBC6C44E173903B5005E74F3 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C443173903B5005E74F3 /* NSObject+SBJSON.m */; };
+		CBC6C44F173903B5005E74F3 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C445173903B5005E74F3 /* NSString+SBJSON.m */; };
+		CBC6C450173903B5005E74F3 /* SBJSON1.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C447173903B5005E74F3 /* SBJSON1.m */; };
+		CBC6C451173903B5005E74F3 /* SBJsonBase1.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C449173903B5005E74F3 /* SBJsonBase1.m */; };
+		CBC6C452173903B5005E74F3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C44B173903B5005E74F3 /* SBJsonParser.m */; };
+		CBC6C453173903B5005E74F3 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC6C44D173903B5005E74F3 /* SBJsonWriter.m */; };
+		CBC6C45E17394D24005E74F3 /* businesshours.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC6C45C17394D24005E74F3 /* businesshours.png */; };
+		CBC6C45F17394D24005E74F3 /* doctors.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC6C45D17394D24005E74F3 /* doctors.png */; };
+		CBC8A825173B6CC6008D87C6 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8A822173B6CC6008D87C6 /* image.png */; };
+		CBC8A826173B6CC6008D87C6 /* textfield_calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8A823173B6CC6008D87C6 /* textfield_calculator.png */; };
+		CBC8A827173B6CC6008D87C6 /* textfield_calculator2.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8A824173B6CC6008D87C6 /* textfield_calculator2.png */; };
+		CBC8D52B1740AE4B00A85A35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC8D52A1740AE4B00A85A35 /* SystemConfiguration.framework */; };
+		CBC8D5321740C8A700A85A35 /* selectedbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8D52F1740C8A700A85A35 /* selectedbg.png */; };
+		CBC8D5331740C8A700A85A35 /* dashboard_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8D5301740C8A700A85A35 /* dashboard_logo.png */; };
+		CBCA715D173A6E5700360FF7 /* primarydoctortag.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA715C173A6E5700360FF7 /* primarydoctortag.png */; };
+		CBCA7160173A84A700360FF7 /* businessbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA715E173A84A700360FF7 /* businessbg.png */; };
+		CBCA7163173A859D00360FF7 /* mapbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA7162173A859D00360FF7 /* mapbg.png */; };
+		CBCAD11D1737B3460054C116 /* inner_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD11C1737B3460054C116 /* inner_logo.png */; };
+		CBCAD1261737B6350054C116 /* calculatoricon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD11E1737B6310054C116 /* calculatoricon.png */; };
+		CBCAD1271737B6350054C116 /* clinicsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD11F1737B6310054C116 /* clinicsicon.png */; };
+		CBCAD1281737B6350054C116 /* dailyplanicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1201737B6320054C116 /* dailyplanicon.png */; };
+		CBCAD1291737B6350054C116 /* dashboardicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1211737B6320054C116 /* dashboardicon.png */; };
+		CBCAD12A1737B6350054C116 /* logouticon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1221737B6320054C116 /* logouticon.png */; };
+		CBCAD12B1737B6350054C116 /* ordersicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1231737B6330054C116 /* ordersicon.png */; };
+		CBCAD12C1737B6350054C116 /* productsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1241737B6330054C116 /* productsicon.png */; };
+		CBCAD12D1737B6350054C116 /* remindersicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD1251737B6340054C116 /* remindersicon.png */; };
+		CBCCCAD41733C6E300B3A72B /* addalertbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCCCAD11733C6E300B3A72B /* addalertbg.png */; };
+		CBCCCAD61733C6E300B3A72B /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCCCAD31733C6E300B3A72B /* textbox.png */; };
+		CBCEB3DC1753392000F69026 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCEB3DB1753392000F69026 /* calender.png */; };
+		CBCEB3E01753392F00F69026 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCEB3DE1753392F00F69026 /* next.png */; };
+		CBCEB3E11753392F00F69026 /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCEB3DF1753392F00F69026 /* previous.png */; };
+		CBD0E0D71735FA1C00B4AB93 /* dashedline.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD0E0C41735FA1C00B4AB93 /* dashedline.png */; };
+		CBD2654F173B7300005FA294 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD2654E173B7300005FA294 /* MapKit.framework */; };
+		CBD26558173B7437005FA294 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD26557173B7437005FA294 /* CoreLocation.framework */; };
+		CBD6D11E174D0AD7006C34A6 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD6D11C174D0AD7006C34A6 /* checkbox.png */; };
+		CBD6D11F174D0AD7006C34A6 /* checkedbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD6D11D174D0AD7006C34A6 /* checkedbox.png */; };
+		CBDBA8C9173D07A4001C3F7A /* tablebg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8C6173D07A4001C3F7A /* tablebg.png */; };
+		CBDBA8CA173D07A4001C3F7A /* tablehead.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8C7173D07A4001C3F7A /* tablehead.png */; };
+		CBDBA8CB173D07A4001C3F7A /* tableseparator.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8C8173D07A4001C3F7A /* tableseparator.png */; };
+		CBDBA8CF173D08BE001C3F7A /* CallSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBA8CE173D08BD001C3F7A /* CallSummaryViewController.m */; };
+		CBDBA8D1173D120D001C3F7A /* orderinfofield.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8D0173D120D001C3F7A /* orderinfofield.png */; };
+		CBDBA8D4173D1656001C3F7A /* radiobutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8D2173D1654001C3F7A /* radiobutton1.png */; };
+		CBDBA8D5173D1656001C3F7A /* radiobutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8D3173D1655001C3F7A /* radiobutton2.png */; };
+		CBE167B31746705600497A95 /* RKPharmaAdoptingAnAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE167B21746705500497A95 /* RKPharmaAdoptingAnAnnotation.m */; };
+		CBE42459173F94A70096B3E2 /* callcardicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42456173F94A70096B3E2 /* callcardicon.png */; };
+		CBE4245A173F94A70096B3E2 /* timingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42457173F94A70096B3E2 /* timingsicon.png */; };
+		CBE4245E173F98A80096B3E2 /* listingbg_new.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE4245C173F98A80096B3E2 /* listingbg_new.png */; };
+		CBE4245F173F98A80096B3E2 /* listingbg_top.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE4245D173F98A80096B3E2 /* listingbg_top.png */; };
+		CBE42466173FDD430096B3E2 /* callicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42460173FDD430096B3E2 /* callicon.png */; };
+		CBE42467173FDD430096B3E2 /* cardiologisticon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42461173FDD430096B3E2 /* cardiologisticon.png */; };
+		CBE42468173FDD430096B3E2 /* doctoricon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42462173FDD430096B3E2 /* doctoricon.png */; };
+		CBE42469173FDD430096B3E2 /* locationicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42463173FDD430096B3E2 /* locationicon.png */; };
+		CBE4246A173FDD430096B3E2 /* mailicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42464173FDD430096B3E2 /* mailicon.png */; };
+		CBE4246B173FDD430096B3E2 /* pincodeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42465173FDD430096B3E2 /* pincodeicon.png */; };
+		CBE4246D173FE4A60096B3E2 /* submitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE4246C173FE4A60096B3E2 /* submitbutton.png */; };
+		CBE42470173FE6410096B3E2 /* businesshoursbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE4246E173FE6400096B3E2 /* businesshoursbg.png */; };
+		CBE42471173FE6410096B3E2 /* clinicdetails_listingbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE4246F173FE6400096B3E2 /* clinicdetails_listingbg.png */; };
+		CBE42474173FE6AA0096B3E2 /* titlebg1.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42472173FE6AA0096B3E2 /* titlebg1.png */; };
+		CBE42475173FE6AA0096B3E2 /* titlebg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE42473173FE6AA0096B3E2 /* titlebg2.png */; };
+		CBE904A81732233400A264D7 /* Default-LandscapeRight.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE904A71732233400A264D7 /* Default-LandscapeRight.png */; };
+		CBE904B71732888100A264D7 /* reseticon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE904B61732888100A264D7 /* reseticon.png */; };
+		CBE904BA173295E400A264D7 /* selectboxbig.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE904B9173295E400A264D7 /* selectboxbig.png */; };
+		CBF23B72172697A80013DB64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF23B71172697A80013DB64 /* UIKit.framework */; };
+		CBF23B74172697A80013DB64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF23B73172697A80013DB64 /* Foundation.framework */; };
+		CBF23B76172697A80013DB64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF23B75172697A80013DB64 /* CoreGraphics.framework */; };
+		CBF23B7C172697A80013DB64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBF23B7A172697A80013DB64 /* InfoPlist.strings */; };
+		CBF23B7E172697A80013DB64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF23B7D172697A80013DB64 /* main.m */; };
+		CBF23B82172697A80013DB64 /* RKPharmaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF23B81172697A80013DB64 /* RKPharmaAppDelegate.m */; };
+		CBF23B85172697A80013DB64 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF23B83172697A80013DB64 /* MainStoryboard.storyboard */; };
+		CBF250BD17421B2400CB0CFA /* blueline.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF250BA17421B2400CB0CFA /* blueline.png */; };
+		CBF250BE17421B2400CB0CFA /* createplanbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF250BB17421B2400CB0CFA /* createplanbutton.png */; };
+		CBF250BF17421B2400CB0CFA /* tableseparator_large.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF250BC17421B2400CB0CFA /* tableseparator_large.png */; };
+		CBF250C31742216F00CB0CFA /* tablebg_large.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF250C21742216F00CB0CFA /* tablebg_large.png */; };
+		CBF343E3172E3E180080B2F3 /* deleteicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF343E2172E3E180080B2F3 /* deleteicon.png */; };
+		CBF7ACD3172B9D0600B5847A /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACD2172B9D0600B5847A /* WebService.m */; };
+		CBF7ACEF172BCCD500B5847A /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACE0172BCCD500B5847A /* AlertManager.m */; };
+		CBF7ACF0172BCCD500B5847A /* AnnouncementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACE2172BCCD500B5847A /* AnnouncementManager.m */; };
+		CBF7ACF1172BCCD500B5847A /* ClinicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACE4172BCCD500B5847A /* ClinicManager.m */; };
+		CBF7ACF2172BCCD500B5847A /* DailyPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACE6172BCCD500B5847A /* DailyPlanManager.m */; };
+		CBF7ACF4172BCCD500B5847A /* PriceCalculatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACEA172BCCD500B5847A /* PriceCalculatorManager.m */; };
+		CBF7ACF5172BCCD500B5847A /* ProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACEC172BCCD500B5847A /* ProductManager.m */; };
+		CBF7ACF6172BCCD500B5847A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACEE172BCCD500B5847A /* UserManager.m */; };
+		CBF7AD07172BCCE300B5847A /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACF8172BCCE300B5847A /* Alert.m */; };
+		CBF7AD08172BCCE300B5847A /* Announcement.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACFA172BCCE300B5847A /* Announcement.m */; };
+		CBF7AD09172BCCE300B5847A /* Clinic.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACFC172BCCE300B5847A /* Clinic.m */; };
+		CBF7AD0A172BCCE300B5847A /* DailyPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7ACFE172BCCE300B5847A /* DailyPlan.m */; };
+		CBF7AD0C172BCCE300B5847A /* PriceCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD02172BCCE300B5847A /* PriceCalculator.m */; };
+		CBF7AD0D172BCCE300B5847A /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD04172BCCE300B5847A /* Product.m */; };
+		CBF7AD0E172BCCE300B5847A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD06172BCCE300B5847A /* User.m */; };
+		CBF7AD29172BCCFA00B5847A /* AdminAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD10172BCCFA00B5847A /* AdminAlertViewController.m */; };
+		CBF7AD2A172BCCFA00B5847A /* ClinicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD12172BCCFA00B5847A /* ClinicDetailViewController.m */; };
+		CBF7AD2B172BCCFA00B5847A /* ClinicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD14172BCCFA00B5847A /* ClinicListViewController.m */; };
+		CBF7AD2C172BCCFA00B5847A /* CreatePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD16172BCCFA00B5847A /* CreatePlanViewController.m */; };
+		CBF7AD2E172BCCFA00B5847A /* DailyPlanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD1A172BCCFA00B5847A /* DailyPlanListViewController.m */; };
+		CBF7AD2F172BCCFA00B5847A /* DailyPlanReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD1C172BCCFA00B5847A /* DailyPlanReportViewController.m */; };
+		CBF7AD30172BCCFA00B5847A /* DailyPlanSummaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD1E172BCCFA00B5847A /* DailyPlanSummaryListViewController.m */; };
+		CBF7AD31172BCCFA00B5847A /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD20172BCCFA00B5847A /* DashboardViewController.m */; };
+		CBF7AD32172BCCFA00B5847A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD22172BCCFA00B5847A /* LoginViewController.m */; };
+		CBF7AD33172BCCFA00B5847A /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD24172BCCFA00B5847A /* OrderListViewController.m */; };
+		CBF7AD34172BCCFA00B5847A /* PriceCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD26172BCCFA00B5847A /* PriceCalculatorViewController.m */; };
+		CBF7AD35172BCCFA00B5847A /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7AD28172BCCFA00B5847A /* ProductListViewController.m */; };
+		CBF93B8A172E935700BF46A2 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF93B89172E935700BF46A2 /* Icon-72.png */; };
+		CBF9B167172CFA9200F15EA2 /* appicon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF9B166172CFA9200F15EA2 /* appicon_large.png */; };
+		CBF9B169172CFAA700F15EA2 /* appicon_medium.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF9B168172CFAA700F15EA2 /* appicon_medium.png */; };
+		CBF9B16C172CFAB300F15EA2 /* appicon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF9B16A172CFAB300F15EA2 /* appicon_small.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A0F0D8D188654DB00C5820E /* bg_image_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_image_new.png; sourceTree = "<group>"; };
+		4A0F0D8F188656A700C5820E /* background_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_new.png; sourceTree = "<group>"; };
+		4A262BAE17E8114E00C88297 /* ViewReturnSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewReturnSample.h; sourceTree = "<group>"; };
+		4A262BAF17E8114E00C88297 /* ViewReturnSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewReturnSample.m; sourceTree = "<group>"; };
+		4A262BB117E816DF00C88297 /* EditReturnSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditReturnSample.h; sourceTree = "<group>"; };
+		4A262BB217E816DF00C88297 /* EditReturnSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditReturnSample.m; sourceTree = "<group>"; };
+		4A34FDF318852FEF00F1AB37 /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
+		4A34FDF61885507E00F1AB37 /* selectedbg_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedbg_new.png; sourceTree = "<group>"; };
+		4A44D85B17CDF26500A6D69C /* ReturnSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReturnSample.h; path = Presentation/ReturnSample.h; sourceTree = "<group>"; };
+		4A44D85C17CDF26500A6D69C /* ReturnSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReturnSample.m; path = Presentation/ReturnSample.m; sourceTree = "<group>"; };
+		4AD3A97C17D5AD4500E45068 /* ReturnSampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnSampleList.h; sourceTree = "<group>"; };
+		4AD3A97D17D5AD4500E45068 /* ReturnSampleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnSampleList.m; sourceTree = "<group>"; };
+		4AD64B3918FE5793002C4C6A /* selectedbg_new1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedbg_new1.png; sourceTree = "<group>"; };
+		4AEA8C5117AE96590058D085 /* SampleRequestListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestListViewController.m; sourceTree = "<group>"; };
+		4AEA8C5217AE96590058D085 /* SampleRequestListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestListViewController.h; sourceTree = "<group>"; };
+		4AEA8C5317AE96590058D085 /* EditSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSample.m; sourceTree = "<group>"; };
+		4AEA8C5417AE96590058D085 /* EditSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSample.h; sourceTree = "<group>"; };
+		4AEA8C5517AE96590058D085 /* AddSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSample.m; sourceTree = "<group>"; };
+		4AEA8C5617AE96590058D085 /* AddSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSample.h; sourceTree = "<group>"; };
+		4AEA8C5A17AE96B10058D085 /* SampleRequestDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestDomain.m; sourceTree = "<group>"; };
+		4AEA8C5B17AE96B10058D085 /* SampleRequestDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestDomain.h; sourceTree = "<group>"; };
+		4AEA8C5D17AE96CF0058D085 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		4AEA8C5E17AE96CF0058D085 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		4AEA8C6617AEA0D00058D085 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		4AEA8C6717AEA0D00058D085 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		4AEA8C6917AEA0EB0058D085 /* OrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManager.m; sourceTree = "<group>"; };
+		4AEA8C6A17AEA0EB0058D085 /* OrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManager.h; sourceTree = "<group>"; };
+		B736A2E119C6C45A001A5E2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B736A2E319C6C5D5001A5E2E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B736A2E519C6C69B001A5E2E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		B75A2B4C19DD505C004A2C49 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		B75A2B4D19DD505C004A2C49 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		B75A2B4E19DD505C004A2C49 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		B75A2B4F19DD505C004A2C49 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		B75A2B5019DD505C004A2C49 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		B75A2B5119DD505C004A2C49 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		B75A2B5219DD505C004A2C49 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		B75A2B5319DD505C004A2C49 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		B75A2B5419DD505C004A2C49 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		B75A2B5519DD505C004A2C49 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		B75A2B5619DD51FF004A2C49 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		B7FD56EC19C81FB600A17387 /* table-sep copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-sep copy.png"; sourceTree = "<group>"; };
+		B7FEDFD117BE06EE00112C2A /* ViewSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSample.h; sourceTree = "<group>"; };
+		B7FEDFD217BE06EE00112C2A /* ViewSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSample.m; sourceTree = "<group>"; };
+		CB0481711727F82400DBD015 /* arrow_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_image.png; path = "Login Images/arrow_image.png"; sourceTree = "<group>"; };
+		CB0481721727F82400DBD015 /* bg_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_image.png; path = "Login Images/bg_image.png"; sourceTree = "<group>"; };
+		CB0481731727F82400DBD015 /* Login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login_button.png; path = "Login Images/Login_button.png"; sourceTree = "<group>"; };
+		CB0481741727F82400DBD015 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "Login Images/logo.png"; sourceTree = "<group>"; };
+		CB0481751727F82400DBD015 /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = password.png; path = "Login Images/password.png"; sourceTree = "<group>"; };
+		CB0481761727F82400DBD015 /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = username.png; path = "Login Images/username.png"; sourceTree = "<group>"; };
+		CB05D831172A3663004761D7 /* add-clinic-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-clinic-btn.png"; path = "Dasboard Images/add-clinic-btn.png"; sourceTree = "<group>"; };
+		CB05D832172A3663004761D7 /* announcement-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "announcement-icon.png"; path = "Dasboard Images/announcement-icon.png"; sourceTree = "<group>"; };
+		CB05D833172A3663004761D7 /* blue-strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-strip.png"; path = "Dasboard Images/blue-strip.png"; sourceTree = "<group>"; };
+		CB05D839172A3663004761D7 /* date-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "date-bg.png"; path = "Dasboard Images/date-bg.png"; sourceTree = "<group>"; };
+		CB05D83C172A3663004761D7 /* fill-summary-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fill-summary-icon.png"; path = "Dasboard Images/fill-summary-icon.png"; sourceTree = "<group>"; };
+		CB05D85D172A60EB004761D7 /* announc-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "announc-arrow.png"; path = "Dasboard Images/announc-arrow.png"; sourceTree = "<group>"; };
+		CB05D85E172A60EB004761D7 /* sep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sep.png; path = "Dasboard Images/sep.png"; sourceTree = "<group>"; };
+		CB05D85F172A60EB004761D7 /* table-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-bg.png"; path = "Dasboard Images/table-bg.png"; sourceTree = "<group>"; };
+		CB05D860172A60EC004761D7 /* table-sep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-sep.png"; path = "Dasboard Images/table-sep.png"; sourceTree = "<group>"; };
+		CB05D87C172A9B37004761D7 /* announc-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "announc-bg.png"; path = "Dasboard Images/announc-bg.png"; sourceTree = "<group>"; };
+		CB05D87D172A9B38004761D7 /* heading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heading-bg.png"; path = "Dasboard Images/heading-bg.png"; sourceTree = "<group>"; };
+		CB05D884172AB357004761D7 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalActivityView.h; path = DejalActivity/DejalActivityView.h; sourceTree = "<group>"; };
+		CB05D885172AB357004761D7 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DejalActivityView.m; path = DejalActivity/DejalActivityView.m; sourceTree = "<group>"; };
+		CB09007A174FA2C700278F8F /* faxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = faxicon.png; path = "Clinics Images/faxicon.png"; sourceTree = "<group>"; };
+		CB1C39DB1760A62400DEEABF /* EditCallSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditCallSummaryViewController.h; path = Presentation/EditCallSummaryViewController.h; sourceTree = "<group>"; };
+		CB1C39DC1760A62400DEEABF /* EditCallSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditCallSummaryViewController.m; path = Presentation/EditCallSummaryViewController.m; sourceTree = "<group>"; };
+		CB3FED6A175E227F00DCD441 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "Dasboard Images/background.png"; sourceTree = "<group>"; };
+		CB3FED6B175E227F00DCD441 /* leftpanelbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftpanelbg.png; path = "Dasboard Images/leftpanelbg.png"; sourceTree = "<group>"; };
+		CB47BBE4173BC40600ABF8B6 /* addclinicbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addclinicbg.png; path = "Clinics Images/addclinicbg.png"; sourceTree = "<group>"; };
+		CB47BBE6173BC6E300ABF8B6 /* AddClinicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddClinicViewController.h; path = Presentation/AddClinicViewController.h; sourceTree = "<group>"; };
+		CB47BBE7173BC6E400ABF8B6 /* AddClinicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddClinicViewController.m; path = Presentation/AddClinicViewController.m; sourceTree = "<group>"; };
+		CB47BBEA173BD7FF00ABF8B6 /* ALPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerView.h; sourceTree = "<group>"; };
+		CB47BBEB173BD7FF00ABF8B6 /* ALPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerView.m; sourceTree = "<group>"; };
+		CB47BBEC173BD7FF00ABF8B6 /* ALPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerViewCell.h; sourceTree = "<group>"; };
+		CB47BBED173BD7FF00ABF8B6 /* ALPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerViewCell.m; sourceTree = "<group>"; };
+		CB47BBF1173BD87900ABF8B6 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		CB47BBF2173BD87900ABF8B6 /* check_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_selected@2x.png"; sourceTree = "<group>"; };
+		CB47BBF3173BD87900ABF8B6 /* frame_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_left@2x.png"; sourceTree = "<group>"; };
+		CB47BBF4173BD87900ABF8B6 /* frame_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_middle@2x.png"; sourceTree = "<group>"; };
+		CB47BBF5173BD87900ABF8B6 /* frame_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_right@2x.png"; sourceTree = "<group>"; };
+		CB47BBF6173BD87900ABF8B6 /* wheel_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_bg@2x.png"; sourceTree = "<group>"; };
+		CB47BBF7173BD87900ABF8B6 /* wheel_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_shadow@2x.png"; sourceTree = "<group>"; };
+		CB4896B51740FD2C00CC34D5 /* CallCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallCardViewController.h; path = Presentation/CallCardViewController.h; sourceTree = "<group>"; };
+		CB4896B61740FD2C00CC34D5 /* CallCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallCardViewController.m; path = Presentation/CallCardViewController.m; sourceTree = "<group>"; };
+		CB4D7D7F1755CF920070F269 /* DailyClinicPlannedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyClinicPlannedViewController.h; path = Presentation/DailyClinicPlannedViewController.h; sourceTree = "<group>"; };
+		CB4D7D801755CF920070F269 /* DailyClinicPlannedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyClinicPlannedViewController.m; path = Presentation/DailyClinicPlannedViewController.m; sourceTree = "<group>"; };
+		CB4D7D981755FDC40070F269 /* YHCPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHCPickerView.h; sourceTree = "<group>"; };
+		CB4D7D991755FDC40070F269 /* YHCPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHCPickerView.m; sourceTree = "<group>"; };
+		CB810B0C172D54F600542189 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = "Clinics Images/arrow.png"; sourceTree = "<group>"; };
+		CB810B0D172D54F600542189 /* inputfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = inputfield.jpg; path = "Clinics Images/inputfield.jpg"; sourceTree = "<group>"; };
+		CB810B0E172D54F600542189 /* inputfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inputfield.png; path = "Clinics Images/inputfield.png"; sourceTree = "<group>"; };
+		CB810B0F172D54F600542189 /* listingbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listingbg.png; path = "Clinics Images/listingbg.png"; sourceTree = "<group>"; };
+		CB810B10172D54F600542189 /* listingbgtop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listingbgtop.png; path = "Clinics Images/listingbgtop.png"; sourceTree = "<group>"; };
+		CB810B12172D54F600542189 /* searchbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchbutton.png; path = "Clinics Images/searchbutton.png"; sourceTree = "<group>"; };
+		CB810B13172D54F600542189 /* selectbox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = selectbox.jpg; path = "Clinics Images/selectbox.jpg"; sourceTree = "<group>"; };
+		CB810B14172D54F600542189 /* selectbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectbox.png; path = "Clinics Images/selectbox.png"; sourceTree = "<group>"; };
+		CBAEFF1C19CB0ECF00913790 /* AddOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrderViewController.m; sourceTree = "<group>"; };
+		CBAEFF1D19CB0ECF00913790 /* AddOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrderViewController.h; sourceTree = "<group>"; };
+		CBAEFF1F19CB10E100913790 /* NewOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderListViewController.m; sourceTree = "<group>"; };
+		CBAEFF2019CB10E100913790 /* NewOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderListViewController.h; sourceTree = "<group>"; };
+		CBB2945017A7DD2100D5AA9E /* sample-request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-request.png"; path = "Dasboard Images/sample-request.png"; sourceTree = "<group>"; };
+		CBB29A8A17843DE000A7207B /* kivicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kivicon.png; path = "Dasboard Images/kivicon.png"; sourceTree = "<group>"; };
+		CBB5562F178C05BA00025813 /* KIVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KIVViewController.h; path = Presentation/KIVViewController.h; sourceTree = "<group>"; };
+		CBB55630178C05BA00025813 /* KIVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KIVViewController.m; path = Presentation/KIVViewController.m; sourceTree = "<group>"; };
+		CBBF073F173A939F00A16828 /* resultfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resultfield.png; sourceTree = "<group>"; };
+		CBBF0741173A940800A16828 /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnouncementViewController.h; path = Presentation/AnnouncementViewController.h; sourceTree = "<group>"; };
+		CBBF0742173A940900A16828 /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnouncementViewController.m; path = Presentation/AnnouncementViewController.m; sourceTree = "<group>"; };
+		CBBF0744173A945100A16828 /* LeftSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftSidebarViewController.h; path = Presentation/LeftSidebarViewController.h; sourceTree = "<group>"; };
+		CBBF0745173A945200A16828 /* LeftSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftSidebarViewController.m; path = Presentation/LeftSidebarViewController.m; sourceTree = "<group>"; };
+		CBC3C593174DE799005779F2 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		CBC3E69F1754C57800D54EBF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CBC3E6A21754C58400D54EBF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CBC6350017450E9500A56056 /* Internet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Internet.h; sourceTree = "<group>"; };
+		CBC6350117450E9500A56056 /* Internet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Internet.m; sourceTree = "<group>"; };
+		CBC6350217450E9500A56056 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CBC6350317450E9500A56056 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CBC6A0661743B9A000CB7F33 /* plusicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plusicon.png; path = "Clinics Images/plusicon.png"; sourceTree = "<group>"; };
+		CBC6A0671743B9A000CB7F33 /* selectbox_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectbox_new.png; path = "Clinics Images/selectbox_new.png"; sourceTree = "<group>"; };
+		CBC6C441173903B5005E74F3 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		CBC6C442173903B5005E74F3 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		CBC6C443173903B5005E74F3 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		CBC6C444173903B5005E74F3 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		CBC6C445173903B5005E74F3 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		CBC6C446173903B5005E74F3 /* SBJSON1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON1.h; sourceTree = "<group>"; };
+		CBC6C447173903B5005E74F3 /* SBJSON1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON1.m; sourceTree = "<group>"; };
+		CBC6C448173903B5005E74F3 /* SBJsonBase1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase1.h; sourceTree = "<group>"; };
+		CBC6C449173903B5005E74F3 /* SBJsonBase1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase1.m; sourceTree = "<group>"; };
+		CBC6C44A173903B5005E74F3 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		CBC6C44B173903B5005E74F3 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		CBC6C44C173903B5005E74F3 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		CBC6C44D173903B5005E74F3 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		CBC6C45C17394D24005E74F3 /* businesshours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = businesshours.png; path = "Clinics Images/businesshours.png"; sourceTree = "<group>"; };
+		CBC6C45D17394D24005E74F3 /* doctors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = doctors.png; path = "Clinics Images/doctors.png"; sourceTree = "<group>"; };
+		CBC8A822173B6CC6008D87C6 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		CBC8A823173B6CC6008D87C6 /* textfield_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield_calculator.png; sourceTree = "<group>"; };
+		CBC8A824173B6CC6008D87C6 /* textfield_calculator2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield_calculator2.png; sourceTree = "<group>"; };
+		CBC8D52A1740AE4B00A85A35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CBC8D52D1740AE5C00A85A35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CBC8D52F1740C8A700A85A35 /* selectedbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedbg.png; path = "Dasboard Images/selectedbg.png"; sourceTree = "<group>"; };
+		CBC8D5301740C8A700A85A35 /* dashboard_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard_logo.png; path = "Dasboard Images/dashboard_logo.png"; sourceTree = "<group>"; };
+		CBCA715C173A6E5700360FF7 /* primarydoctortag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = primarydoctortag.png; path = "Clinics Images/primarydoctortag.png"; sourceTree = "<group>"; };
+		CBCA715E173A84A700360FF7 /* businessbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = businessbg.png; path = "Clinics Images/businessbg.png"; sourceTree = "<group>"; };
+		CBCA7162173A859D00360FF7 /* mapbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapbg.png; path = "Clinics Images/mapbg.png"; sourceTree = "<group>"; };
+		CBCAD11C1737B3460054C116 /* inner_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inner_logo.png; path = "Dasboard Images/inner_logo.png"; sourceTree = "<group>"; };
+		CBCAD11E1737B6310054C116 /* calculatoricon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calculatoricon.png; path = "Dasboard Images/calculatoricon.png"; sourceTree = "<group>"; };
+		CBCAD11F1737B6310054C116 /* clinicsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clinicsicon.png; path = "Dasboard Images/clinicsicon.png"; sourceTree = "<group>"; };
+		CBCAD1201737B6320054C116 /* dailyplanicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dailyplanicon.png; path = "Dasboard Images/dailyplanicon.png"; sourceTree = "<group>"; };
+		CBCAD1211737B6320054C116 /* dashboardicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboardicon.png; path = "Dasboard Images/dashboardicon.png"; sourceTree = "<group>"; };
+		CBCAD1221737B6320054C116 /* logouticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logouticon.png; path = "Dasboard Images/logouticon.png"; sourceTree = "<group>"; };
+		CBCAD1231737B6330054C116 /* ordersicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ordersicon.png; path = "Dasboard Images/ordersicon.png"; sourceTree = "<group>"; };
+		CBCAD1241737B6330054C116 /* productsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = productsicon.png; path = "Dasboard Images/productsicon.png"; sourceTree = "<group>"; };
+		CBCAD1251737B6340054C116 /* remindersicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remindersicon.png; path = "Dasboard Images/remindersicon.png"; sourceTree = "<group>"; };
+		CBCCCAD11733C6E300B3A72B /* addalertbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addalertbg.png; path = "Alert Images/addalertbg.png"; sourceTree = "<group>"; };
+		CBCCCAD31733C6E300B3A72B /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = textbox.png; path = "Alert Images/textbox.png"; sourceTree = "<group>"; };
+		CBCEB3DB1753392000F69026 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calender.png; path = "Clinics Images/calender.png"; sourceTree = "<group>"; };
+		CBCEB3DE1753392F00F69026 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		CBCEB3DF1753392F00F69026 /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
+		CBD0E0C41735FA1C00B4AB93 /* dashedline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashedline.png; path = "Dasboard Images/dashedline.png"; sourceTree = "<group>"; };
+		CBD2654E173B7300005FA294 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CBD26551173B73B1005FA294 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CBD26557173B7437005FA294 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CBD2655A173B743F005FA294 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CBD6D11C174D0AD7006C34A6 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		CBD6D11D174D0AD7006C34A6 /* checkedbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedbox.png; sourceTree = "<group>"; };
+		CBDBA8C6173D07A4001C3F7A /* tablebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tablebg.png; sourceTree = "<group>"; };
+		CBDBA8C7173D07A4001C3F7A /* tablehead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tablehead.png; sourceTree = "<group>"; };
+		CBDBA8C8173D07A4001C3F7A /* tableseparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableseparator.png; sourceTree = "<group>"; };
+		CBDBA8CD173D08BD001C3F7A /* CallSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallSummaryViewController.h; path = Presentation/CallSummaryViewController.h; sourceTree = "<group>"; };
+		CBDBA8CE173D08BD001C3F7A /* CallSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallSummaryViewController.m; path = Presentation/CallSummaryViewController.m; sourceTree = "<group>"; };
+		CBDBA8D0173D120D001C3F7A /* orderinfofield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderinfofield.png; sourceTree = "<group>"; };
+		CBDBA8D2173D1654001C3F7A /* radiobutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiobutton1.png; sourceTree = "<group>"; };
+		CBDBA8D3173D1655001C3F7A /* radiobutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiobutton2.png; sourceTree = "<group>"; };
+		CBE167B11746705400497A95 /* RKPharmaAdoptingAnAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKPharmaAdoptingAnAnnotation.h; path = Presentation/RKPharmaAdoptingAnAnnotation.h; sourceTree = "<group>"; };
+		CBE167B21746705500497A95 /* RKPharmaAdoptingAnAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKPharmaAdoptingAnAnnotation.m; path = Presentation/RKPharmaAdoptingAnAnnotation.m; sourceTree = "<group>"; };
+		CBE42456173F94A70096B3E2 /* callcardicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callcardicon.png; path = "Dasboard Images/callcardicon.png"; sourceTree = "<group>"; };
+		CBE42457173F94A70096B3E2 /* timingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timingsicon.png; path = "Dasboard Images/timingsicon.png"; sourceTree = "<group>"; };
+		CBE4245C173F98A80096B3E2 /* listingbg_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listingbg_new.png; path = "Dasboard Images/listingbg_new.png"; sourceTree = "<group>"; };
+		CBE4245D173F98A80096B3E2 /* listingbg_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listingbg_top.png; path = "Dasboard Images/listingbg_top.png"; sourceTree = "<group>"; };
+		CBE42460173FDD430096B3E2 /* callicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callicon.png; path = "Clinics Images/callicon.png"; sourceTree = "<group>"; };
+		CBE42461173FDD430096B3E2 /* cardiologisticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardiologisticon.png; path = "Clinics Images/cardiologisticon.png"; sourceTree = "<group>"; };
+		CBE42462173FDD430096B3E2 /* doctoricon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = doctoricon.png; path = "Clinics Images/doctoricon.png"; sourceTree = "<group>"; };
+		CBE42463173FDD430096B3E2 /* locationicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locationicon.png; path = "Clinics Images/locationicon.png"; sourceTree = "<group>"; };
+		CBE42464173FDD430096B3E2 /* mailicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mailicon.png; path = "Clinics Images/mailicon.png"; sourceTree = "<group>"; };
+		CBE42465173FDD430096B3E2 /* pincodeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pincodeicon.png; path = "Clinics Images/pincodeicon.png"; sourceTree = "<group>"; };
+		CBE4246C173FE4A60096B3E2 /* submitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submitbutton.png; path = "Alert Images/submitbutton.png"; sourceTree = "<group>"; };
+		CBE4246E173FE6400096B3E2 /* businesshoursbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = businesshoursbg.png; path = "Clinics Images/businesshoursbg.png"; sourceTree = "<group>"; };
+		CBE4246F173FE6400096B3E2 /* clinicdetails_listingbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clinicdetails_listingbg.png; path = "Clinics Images/clinicdetails_listingbg.png"; sourceTree = "<group>"; };
+		CBE42472173FE6AA0096B3E2 /* titlebg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = titlebg1.png; path = "Clinics Images/titlebg1.png"; sourceTree = "<group>"; };
+		CBE42473173FE6AA0096B3E2 /* titlebg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = titlebg2.png; path = "Clinics Images/titlebg2.png"; sourceTree = "<group>"; };
+		CBE904A71732233400A264D7 /* Default-LandscapeRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeRight.png"; path = "App icons/Default-LandscapeRight.png"; sourceTree = "<group>"; };
+		CBE904B61732888100A264D7 /* reseticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reseticon.png; path = "Clinics Images/reseticon.png"; sourceTree = "<group>"; };
+		CBE904B9173295E400A264D7 /* selectboxbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectboxbig.png; path = "Order Images/selectboxbig.png"; sourceTree = "<group>"; };
+		CBF23B6D172697A80013DB64 /* RKPharma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RKPharma.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF23B71172697A80013DB64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CBF23B73172697A80013DB64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CBF23B75172697A80013DB64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CBF23B79172697A80013DB64 /* RKPharma-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RKPharma-Info.plist"; sourceTree = "<group>"; };
+		CBF23B7B172697A80013DB64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CBF23B7D172697A80013DB64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBF23B7F172697A80013DB64 /* RKPharma-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKPharma-Prefix.pch"; sourceTree = "<group>"; };
+		CBF23B80172697A80013DB64 /* RKPharmaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKPharmaAppDelegate.h; sourceTree = "<group>"; };
+		CBF23B81172697A80013DB64 /* RKPharmaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKPharmaAppDelegate.m; sourceTree = "<group>"; };
+		CBF23B84172697A80013DB64 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CBF250BA17421B2400CB0CFA /* blueline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueline.png; sourceTree = "<group>"; };
+		CBF250BB17421B2400CB0CFA /* createplanbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createplanbutton.png; sourceTree = "<group>"; };
+		CBF250BC17421B2400CB0CFA /* tableseparator_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableseparator_large.png; sourceTree = "<group>"; };
+		CBF250C21742216F00CB0CFA /* tablebg_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tablebg_large.png; sourceTree = "<group>"; };
+		CBF343E2172E3E180080B2F3 /* deleteicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteicon.png; path = "Dasboard Images/deleteicon.png"; sourceTree = "<group>"; };
+		CBF7ACD1172B9D0600B5847A /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebService.h; path = WebService/WebService.h; sourceTree = "<group>"; };
+		CBF7ACD2172B9D0600B5847A /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebService.m; path = WebService/WebService.m; sourceTree = "<group>"; };
+		CBF7ACDF172BCCD500B5847A /* AlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertManager.h; path = BusinessManager/AlertManager.h; sourceTree = "<group>"; };
+		CBF7ACE0172BCCD500B5847A /* AlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertManager.m; path = BusinessManager/AlertManager.m; sourceTree = "<group>"; };
+		CBF7ACE1172BCCD500B5847A /* AnnouncementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnouncementManager.h; path = BusinessManager/AnnouncementManager.h; sourceTree = "<group>"; };
+		CBF7ACE2172BCCD500B5847A /* AnnouncementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnouncementManager.m; path = BusinessManager/AnnouncementManager.m; sourceTree = "<group>"; };
+		CBF7ACE3172BCCD500B5847A /* ClinicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClinicManager.h; path = BusinessManager/ClinicManager.h; sourceTree = "<group>"; };
+		CBF7ACE4172BCCD500B5847A /* ClinicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClinicManager.m; path = BusinessManager/ClinicManager.m; sourceTree = "<group>"; };
+		CBF7ACE5172BCCD500B5847A /* DailyPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPlanManager.h; path = BusinessManager/DailyPlanManager.h; sourceTree = "<group>"; };
+		CBF7ACE6172BCCD500B5847A /* DailyPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPlanManager.m; path = BusinessManager/DailyPlanManager.m; sourceTree = "<group>"; };
+		CBF7ACE9172BCCD500B5847A /* PriceCalculatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceCalculatorManager.h; path = BusinessManager/PriceCalculatorManager.h; sourceTree = "<group>"; };
+		CBF7ACEA172BCCD500B5847A /* PriceCalculatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceCalculatorManager.m; path = BusinessManager/PriceCalculatorManager.m; sourceTree = "<group>"; };
+		CBF7ACEB172BCCD500B5847A /* ProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductManager.h; path = BusinessManager/ProductManager.h; sourceTree = "<group>"; };
+		CBF7ACEC172BCCD500B5847A /* ProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductManager.m; path = BusinessManager/ProductManager.m; sourceTree = "<group>"; };
+		CBF7ACED172BCCD500B5847A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = BusinessManager/UserManager.h; sourceTree = "<group>"; };
+		CBF7ACEE172BCCD500B5847A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = BusinessManager/UserManager.m; sourceTree = "<group>"; };
+		CBF7ACF7172BCCE300B5847A /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alert.h; path = Domain/Alert.h; sourceTree = "<group>"; };
+		CBF7ACF8172BCCE300B5847A /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alert.m; path = Domain/Alert.m; sourceTree = "<group>"; };
+		CBF7ACF9172BCCE300B5847A /* Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Announcement.h; path = Domain/Announcement.h; sourceTree = "<group>"; };
+		CBF7ACFA172BCCE300B5847A /* Announcement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Announcement.m; path = Domain/Announcement.m; sourceTree = "<group>"; };
+		CBF7ACFB172BCCE300B5847A /* Clinic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Clinic.h; path = Domain/Clinic.h; sourceTree = "<group>"; };
+		CBF7ACFC172BCCE300B5847A /* Clinic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Clinic.m; path = Domain/Clinic.m; sourceTree = "<group>"; };
+		CBF7ACFD172BCCE300B5847A /* DailyPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPlan.h; path = Domain/DailyPlan.h; sourceTree = "<group>"; };
+		CBF7ACFE172BCCE300B5847A /* DailyPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPlan.m; path = Domain/DailyPlan.m; sourceTree = "<group>"; };
+		CBF7AD01172BCCE300B5847A /* PriceCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceCalculator.h; path = Domain/PriceCalculator.h; sourceTree = "<group>"; };
+		CBF7AD02172BCCE300B5847A /* PriceCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceCalculator.m; path = Domain/PriceCalculator.m; sourceTree = "<group>"; };
+		CBF7AD03172BCCE300B5847A /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Domain/Product.h; sourceTree = "<group>"; };
+		CBF7AD04172BCCE300B5847A /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Domain/Product.m; sourceTree = "<group>"; };
+		CBF7AD05172BCCE300B5847A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Domain/User.h; sourceTree = "<group>"; };
+		CBF7AD06172BCCE300B5847A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Domain/User.m; sourceTree = "<group>"; };
+		CBF7AD0F172BCCFA00B5847A /* AdminAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminAlertViewController.h; path = Presentation/AdminAlertViewController.h; sourceTree = "<group>"; };
+		CBF7AD10172BCCFA00B5847A /* AdminAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminAlertViewController.m; path = Presentation/AdminAlertViewController.m; sourceTree = "<group>"; };
+		CBF7AD11172BCCFA00B5847A /* ClinicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClinicDetailViewController.h; path = Presentation/ClinicDetailViewController.h; sourceTree = "<group>"; };
+		CBF7AD12172BCCFA00B5847A /* ClinicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClinicDetailViewController.m; path = Presentation/ClinicDetailViewController.m; sourceTree = "<group>"; };
+		CBF7AD13172BCCFA00B5847A /* ClinicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClinicListViewController.h; path = Presentation/ClinicListViewController.h; sourceTree = "<group>"; };
+		CBF7AD14172BCCFA00B5847A /* ClinicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClinicListViewController.m; path = Presentation/ClinicListViewController.m; sourceTree = "<group>"; };
+		CBF7AD15172BCCFA00B5847A /* CreatePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePlanViewController.h; path = Presentation/CreatePlanViewController.h; sourceTree = "<group>"; };
+		CBF7AD16172BCCFA00B5847A /* CreatePlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePlanViewController.m; path = Presentation/CreatePlanViewController.m; sourceTree = "<group>"; };
+		CBF7AD19172BCCFA00B5847A /* DailyPlanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPlanListViewController.h; path = Presentation/DailyPlanListViewController.h; sourceTree = "<group>"; };
+		CBF7AD1A172BCCFA00B5847A /* DailyPlanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPlanListViewController.m; path = Presentation/DailyPlanListViewController.m; sourceTree = "<group>"; };
+		CBF7AD1B172BCCFA00B5847A /* DailyPlanReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPlanReportViewController.h; path = Presentation/DailyPlanReportViewController.h; sourceTree = "<group>"; };
+		CBF7AD1C172BCCFA00B5847A /* DailyPlanReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPlanReportViewController.m; path = Presentation/DailyPlanReportViewController.m; sourceTree = "<group>"; };
+		CBF7AD1D172BCCFA00B5847A /* DailyPlanSummaryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPlanSummaryListViewController.h; path = Presentation/DailyPlanSummaryListViewController.h; sourceTree = "<group>"; };
+		CBF7AD1E172BCCFA00B5847A /* DailyPlanSummaryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPlanSummaryListViewController.m; path = Presentation/DailyPlanSummaryListViewController.m; sourceTree = "<group>"; };
+		CBF7AD1F172BCCFA00B5847A /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashboardViewController.h; path = Presentation/DashboardViewController.h; sourceTree = "<group>"; };
+		CBF7AD20172BCCFA00B5847A /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashboardViewController.m; path = Presentation/DashboardViewController.m; sourceTree = "<group>"; };
+		CBF7AD21172BCCFA00B5847A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Presentation/LoginViewController.h; sourceTree = "<group>"; };
+		CBF7AD22172BCCFA00B5847A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Presentation/LoginViewController.m; sourceTree = "<group>"; };
+		CBF7AD23172BCCFA00B5847A /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListViewController.h; path = Presentation/OrderListViewController.h; sourceTree = "<group>"; };
+		CBF7AD24172BCCFA00B5847A /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListViewController.m; path = Presentation/OrderListViewController.m; sourceTree = "<group>"; };
+		CBF7AD25172BCCFA00B5847A /* PriceCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceCalculatorViewController.h; path = Presentation/PriceCalculatorViewController.h; sourceTree = "<group>"; };
+		CBF7AD26172BCCFA00B5847A /* PriceCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceCalculatorViewController.m; path = Presentation/PriceCalculatorViewController.m; sourceTree = "<group>"; };
+		CBF7AD27172BCCFA00B5847A /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductListViewController.h; path = Presentation/ProductListViewController.h; sourceTree = "<group>"; };
+		CBF7AD28172BCCFA00B5847A /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductListViewController.m; path = Presentation/ProductListViewController.m; sourceTree = "<group>"; };
+		CBF93B89172E935700BF46A2 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "App icons/Icon-72.png"; sourceTree = "<group>"; };
+		CBF9B166172CFA9200F15EA2 /* appicon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon_large.png; path = "App icons/appicon_large.png"; sourceTree = "<group>"; };
+		CBF9B168172CFAA700F15EA2 /* appicon_medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon_medium.png; path = "App icons/appicon_medium.png"; sourceTree = "<group>"; };
+		CBF9B16A172CFAB300F15EA2 /* appicon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon_small.png; path = "App icons/appicon_small.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBF23B6A172697A70013DB64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B736A2E619C6C69B001A5E2E /* EventKit.framework in Frameworks */,
+				B736A2E419C6C5D5001A5E2E /* libz.dylib in Frameworks */,
+				B736A2E219C6C45A001A5E2E /* CoreData.framework in Frameworks */,
+				CBC3E6A01754C57800D54EBF /* QuartzCore.framework in Frameworks */,
+				CBC8D52B1740AE4B00A85A35 /* SystemConfiguration.framework in Frameworks */,
+				CBD26558173B7437005FA294 /* CoreLocation.framework in Frameworks */,
+				CBD2654F173B7300005FA294 /* MapKit.framework in Frameworks */,
+				CBF23B72172697A80013DB64 /* UIKit.framework in Frameworks */,
+				B75A2B5719DD51FF004A2C49 /* libGoogleAnalyticsServices.a in Frameworks */,
+				CBF23B74172697A80013DB64 /* Foundation.framework in Frameworks */,
+				CBF23B76172697A80013DB64 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB0481701727F7FD00DBD015 /* Login Images */ = {
+			isa = PBXGroup;
+			children = (
+				4A0F0D8D188654DB00C5820E /* bg_image_new.png */,
+				CB0481711727F82400DBD015 /* arrow_image.png */,
+				CB0481721727F82400DBD015 /* bg_image.png */,
+				CB0481731727F82400DBD015 /* Login_button.png */,
+				CB0481741727F82400DBD015 /* logo.png */,
+				CB0481751727F82400DBD015 /* password.png */,
+				CB0481761727F82400DBD015 /* username.png */,
+			);
+			name = "Login Images";
+			sourceTree = "<group>";
+		};
+		CB05D82F172A3642004761D7 /* Dashboard Images */ = {
+			isa = PBXGroup;
+			children = (
+				B7FD56EC19C81FB600A17387 /* table-sep copy.png */,
+				4AD64B3918FE5793002C4C6A /* selectedbg_new1.png */,
+				4A0F0D8F188656A700C5820E /* background_new.png */,
+				4A34FDF61885507E00F1AB37 /* selectedbg_new.png */,
+				CBB2945017A7DD2100D5AA9E /* sample-request.png */,
+				CBB29A8A17843DE000A7207B /* kivicon.png */,
+				CB3FED6A175E227F00DCD441 /* background.png */,
+				CB3FED6B175E227F00DCD441 /* leftpanelbg.png */,
+				CBC8D52F1740C8A700A85A35 /* selectedbg.png */,
+				CBC8D5301740C8A700A85A35 /* dashboard_logo.png */,
+				CBE4245C173F98A80096B3E2 /* listingbg_new.png */,
+				CBE4245D173F98A80096B3E2 /* listingbg_top.png */,
+				CBE42456173F94A70096B3E2 /* callcardicon.png */,
+				CBE42457173F94A70096B3E2 /* timingsicon.png */,
+				CB05D831172A3663004761D7 /* add-clinic-btn.png */,
+				CBCAD11E1737B6310054C116 /* calculatoricon.png */,
+				CBCAD11F1737B6310054C116 /* clinicsicon.png */,
+				CBCAD1201737B6320054C116 /* dailyplanicon.png */,
+				CBCAD1211737B6320054C116 /* dashboardicon.png */,
+				CBCAD1221737B6320054C116 /* logouticon.png */,
+				CBCAD1231737B6330054C116 /* ordersicon.png */,
+				CBCAD1241737B6330054C116 /* productsicon.png */,
+				CBCAD1251737B6340054C116 /* remindersicon.png */,
+				CBD0E0C41735FA1C00B4AB93 /* dashedline.png */,
+				CBF343E2172E3E180080B2F3 /* deleteicon.png */,
+				CB05D87C172A9B37004761D7 /* announc-bg.png */,
+				CB05D87D172A9B38004761D7 /* heading-bg.png */,
+				CB05D85D172A60EB004761D7 /* announc-arrow.png */,
+				CB05D85E172A60EB004761D7 /* sep.png */,
+				CB05D85F172A60EB004761D7 /* table-bg.png */,
+				CB05D860172A60EC004761D7 /* table-sep.png */,
+				CBCAD11C1737B3460054C116 /* inner_logo.png */,
+				CB05D832172A3663004761D7 /* announcement-icon.png */,
+				CB05D833172A3663004761D7 /* blue-strip.png */,
+				CB05D839172A3663004761D7 /* date-bg.png */,
+				CB05D83C172A3663004761D7 /* fill-summary-icon.png */,
+			);
+			name = "Dashboard Images";
+			sourceTree = "<group>";
+		};
+		CB05D883172AB349004761D7 /* DejalActivity */ = {
+			isa = PBXGroup;
+			children = (
+				CB05D884172AB357004761D7 /* DejalActivityView.h */,
+				CB05D885172AB357004761D7 /* DejalActivityView.m */,
+			);
+			name = DejalActivity;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CB47BBE9173BD7FE00ABF8B6 /* MultiplePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CB47BBEA173BD7FF00ABF8B6 /* ALPickerView.h */,
+				CB47BBEB173BD7FF00ABF8B6 /* ALPickerView.m */,
+				CB47BBEC173BD7FF00ABF8B6 /* ALPickerViewCell.h */,
+				CB47BBED173BD7FF00ABF8B6 /* ALPickerViewCell.m */,
+			);
+			path = MultiplePickerView;
+			sourceTree = SOURCE_ROOT;
+		};
+		CB47BBF0173BD87700ABF8B6 /* MultiplePickerImages */ = {
+			isa = PBXGroup;
+			children = (
+				CB47BBF1173BD87900ABF8B6 /* check@2x.png */,
+				CB47BBF2173BD87900ABF8B6 /* check_selected@2x.png */,
+				CB47BBF3173BD87900ABF8B6 /* frame_left@2x.png */,
+				CB47BBF4173BD87900ABF8B6 /* frame_middle@2x.png */,
+				CB47BBF5173BD87900ABF8B6 /* frame_right@2x.png */,
+				CB47BBF6173BD87900ABF8B6 /* wheel_bg@2x.png */,
+				CB47BBF7173BD87900ABF8B6 /* wheel_shadow@2x.png */,
+			);
+			path = MultiplePickerImages;
+			sourceTree = "<group>";
+		};
+		CB4D7D971755FDC30070F269 /* SearchPicker */ = {
+			isa = PBXGroup;
+			children = (
+				CB4D7D981755FDC40070F269 /* YHCPickerView.h */,
+				CB4D7D991755FDC40070F269 /* YHCPickerView.m */,
+			);
+			path = SearchPicker;
+			sourceTree = SOURCE_ROOT;
+		};
+		CB810B0A172D54E100542189 /* Clinic Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBCEB3DB1753392000F69026 /* calender.png */,
+				CB09007A174FA2C700278F8F /* faxicon.png */,
+				CBC6A0661743B9A000CB7F33 /* plusicon.png */,
+				CBC6A0671743B9A000CB7F33 /* selectbox_new.png */,
+				CBE42472173FE6AA0096B3E2 /* titlebg1.png */,
+				CBE42473173FE6AA0096B3E2 /* titlebg2.png */,
+				CBE4246E173FE6400096B3E2 /* businesshoursbg.png */,
+				CBE4246F173FE6400096B3E2 /* clinicdetails_listingbg.png */,
+				CBE42460173FDD430096B3E2 /* callicon.png */,
+				CBE42461173FDD430096B3E2 /* cardiologisticon.png */,
+				CBE42462173FDD430096B3E2 /* doctoricon.png */,
+				CBE42463173FDD430096B3E2 /* locationicon.png */,
+				CBE42464173FDD430096B3E2 /* mailicon.png */,
+				CBE42465173FDD430096B3E2 /* pincodeicon.png */,
+				CBC6C45C17394D24005E74F3 /* businesshours.png */,
+				CB47BBE4173BC40600ABF8B6 /* addclinicbg.png */,
+				CBCA7162173A859D00360FF7 /* mapbg.png */,
+				CBCA715E173A84A700360FF7 /* businessbg.png */,
+				CBCA715C173A6E5700360FF7 /* primarydoctortag.png */,
+				CBC6C45D17394D24005E74F3 /* doctors.png */,
+				CB810B0C172D54F600542189 /* arrow.png */,
+				CBE904B61732888100A264D7 /* reseticon.png */,
+				CB810B0D172D54F600542189 /* inputfield.jpg */,
+				CB810B0E172D54F600542189 /* inputfield.png */,
+				CB810B0F172D54F600542189 /* listingbg.png */,
+				CB810B10172D54F600542189 /* listingbgtop.png */,
+				CB810B12172D54F600542189 /* searchbutton.png */,
+				CB810B13172D54F600542189 /* selectbox.jpg */,
+				CB810B14172D54F600542189 /* selectbox.png */,
+			);
+			name = "Clinic Images";
+			sourceTree = "<group>";
+		};
+		CBBF073E173A939F00A16828 /* Calculator Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBCEB3DE1753392F00F69026 /* next.png */,
+				CBCEB3DF1753392F00F69026 /* previous.png */,
+				CBBF073F173A939F00A16828 /* resultfield.png */,
+				CBC8A822173B6CC6008D87C6 /* image.png */,
+				CBC8A823173B6CC6008D87C6 /* textfield_calculator.png */,
+				CBC8A824173B6CC6008D87C6 /* textfield_calculator2.png */,
+			);
+			path = "Calculator Images";
+			sourceTree = "<group>";
+		};
+		CBC634FF17450E7B00A56056 /* Internet */ = {
+			isa = PBXGroup;
+			children = (
+				CBC6350017450E9500A56056 /* Internet.h */,
+				CBC6350117450E9500A56056 /* Internet.m */,
+				CBC6350217450E9500A56056 /* Reachability.h */,
+				CBC6350317450E9500A56056 /* Reachability.m */,
+			);
+			name = Internet;
+			sourceTree = "<group>";
+		};
+		CBC6C440173903B5005E74F3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				CBC6C441173903B5005E74F3 /* JSON.h */,
+				CBC6C442173903B5005E74F3 /* NSObject+SBJSON.h */,
+				CBC6C443173903B5005E74F3 /* NSObject+SBJSON.m */,
+				CBC6C444173903B5005E74F3 /* NSString+SBJSON.h */,
+				CBC6C445173903B5005E74F3 /* NSString+SBJSON.m */,
+				CBC6C446173903B5005E74F3 /* SBJSON1.h */,
+				CBC6C447173903B5005E74F3 /* SBJSON1.m */,
+				CBC6C448173903B5005E74F3 /* SBJsonBase1.h */,
+				CBC6C449173903B5005E74F3 /* SBJsonBase1.m */,
+				CBC6C44A173903B5005E74F3 /* SBJsonParser.h */,
+				CBC6C44B173903B5005E74F3 /* SBJsonParser.m */,
+				CBC6C44C173903B5005E74F3 /* SBJsonWriter.h */,
+				CBC6C44D173903B5005E74F3 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = SOURCE_ROOT;
+		};
+		CBCCCAD01733C6D300B3A72B /* Alert Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBE4246C173FE4A60096B3E2 /* submitbutton.png */,
+				CBCCCAD11733C6E300B3A72B /* addalertbg.png */,
+				CBCCCAD31733C6E300B3A72B /* textbox.png */,
+			);
+			name = "Alert Images";
+			sourceTree = "<group>";
+		};
+		CBDBA8C5173D07A4001C3F7A /* Daily Plan Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3C593174DE799005779F2 /* back.png */,
+				CBD6D11C174D0AD7006C34A6 /* checkbox.png */,
+				CBD6D11D174D0AD7006C34A6 /* checkedbox.png */,
+				CBF250C21742216F00CB0CFA /* tablebg_large.png */,
+				CBF250BA17421B2400CB0CFA /* blueline.png */,
+				CBF250BB17421B2400CB0CFA /* createplanbutton.png */,
+				CBF250BC17421B2400CB0CFA /* tableseparator_large.png */,
+				CBDBA8D2173D1654001C3F7A /* radiobutton1.png */,
+				CBDBA8D3173D1655001C3F7A /* radiobutton2.png */,
+				CBDBA8D0173D120D001C3F7A /* orderinfofield.png */,
+				CBDBA8C6173D07A4001C3F7A /* tablebg.png */,
+				CBDBA8C7173D07A4001C3F7A /* tablehead.png */,
+				CBDBA8C8173D07A4001C3F7A /* tableseparator.png */,
+			);
+			path = "Daily Plan Images";
+			sourceTree = "<group>";
+		};
+		CBE904B8173295DA00A264D7 /* Order Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBE904B9173295E400A264D7 /* selectboxbig.png */,
+			);
+			name = "Order Images";
+			sourceTree = "<group>";
+		};
+		CBF23B62172697A70013DB64 = {
+			isa = PBXGroup;
+			children = (
+				CBC3E69F1754C57800D54EBF /* QuartzCore.framework */,
+				CBC8D52A1740AE4B00A85A35 /* SystemConfiguration.framework */,
+				CBD26557173B7437005FA294 /* CoreLocation.framework */,
+				CBD2654E173B7300005FA294 /* MapKit.framework */,
+				CBF7AD36172BCEFF00B5847A /* Images */,
+				CBF23B77172697A80013DB64 /* RKPharma */,
+				CBF23B70172697A80013DB64 /* Frameworks */,
+				CBF23B6E172697A80013DB64 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBF23B6E172697A80013DB64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBF23B6D172697A80013DB64 /* RKPharma.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBF23B70172697A80013DB64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B736A2E519C6C69B001A5E2E /* EventKit.framework */,
+				B736A2E319C6C5D5001A5E2E /* libz.dylib */,
+				B75A2B5619DD51FF004A2C49 /* libGoogleAnalyticsServices.a */,
+				B736A2E119C6C45A001A5E2E /* CoreData.framework */,
+				CBC3E6A21754C58400D54EBF /* QuartzCore.framework */,
+				CBC8D52D1740AE5C00A85A35 /* SystemConfiguration.framework */,
+				CBD2655A173B743F005FA294 /* CoreLocation.framework */,
+				CBD26551173B73B1005FA294 /* MapKit.framework */,
+				CBF23B71172697A80013DB64 /* UIKit.framework */,
+				CBF23B73172697A80013DB64 /* Foundation.framework */,
+				CBF23B75172697A80013DB64 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBF23B77172697A80013DB64 /* RKPharma */ = {
+			isa = PBXGroup;
+			children = (
+				B75A2B4C19DD505C004A2C49 /* GAI.h */,
+				B75A2B4D19DD505C004A2C49 /* GAIDictionaryBuilder.h */,
+				B75A2B4E19DD505C004A2C49 /* GAIEcommerceFields.h */,
+				B75A2B4F19DD505C004A2C49 /* GAIEcommerceProduct.h */,
+				B75A2B5019DD505C004A2C49 /* GAIEcommerceProductAction.h */,
+				B75A2B5119DD505C004A2C49 /* GAIEcommercePromotion.h */,
+				B75A2B5219DD505C004A2C49 /* GAIFields.h */,
+				B75A2B5319DD505C004A2C49 /* GAILogger.h */,
+				B75A2B5419DD505C004A2C49 /* GAITrackedViewController.h */,
+				B75A2B5519DD505C004A2C49 /* GAITracker.h */,
+				CB4D7D971755FDC30070F269 /* SearchPicker */,
+				CBC634FF17450E7B00A56056 /* Internet */,
+				CB47BBE9173BD7FE00ABF8B6 /* MultiplePickerView */,
+				CBC6C440173903B5005E74F3 /* JSON */,
+				CB05D883172AB349004761D7 /* DejalActivity */,
+				CBF7ACD0172B9C8700B5847A /* WebService */,
+				CBF7ACDD172BCB6E00B5847A /* Domain */,
+				CBF7ACDE172BCB7500B5847A /* Presentation */,
+				CBF7ACDC172BCB6400B5847A /* BusinessManager */,
+				CBF23B80172697A80013DB64 /* RKPharmaAppDelegate.h */,
+				CBF23B81172697A80013DB64 /* RKPharmaAppDelegate.m */,
+				4A34FDF318852FEF00F1AB37 /* GlobalVariable.h */,
+				CBF23B83172697A80013DB64 /* MainStoryboard.storyboard */,
+				CBF23B78172697A80013DB64 /* Supporting Files */,
+			);
+			path = RKPharma;
+			sourceTree = "<group>";
+		};
+		CBF23B78172697A80013DB64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBF23B79172697A80013DB64 /* RKPharma-Info.plist */,
+				CBF23B7A172697A80013DB64 /* InfoPlist.strings */,
+				CBF23B7D172697A80013DB64 /* main.m */,
+				CBF23B7F172697A80013DB64 /* RKPharma-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBF7ACD0172B9C8700B5847A /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7ACD1172B9D0600B5847A /* WebService.h */,
+				CBF7ACD2172B9D0600B5847A /* WebService.m */,
+			);
+			name = WebService;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CBF7ACDC172BCB6400B5847A /* BusinessManager */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7ACDF172BCCD500B5847A /* AlertManager.h */,
+				CBF7ACE0172BCCD500B5847A /* AlertManager.m */,
+				CBF7ACE1172BCCD500B5847A /* AnnouncementManager.h */,
+				CBF7ACE2172BCCD500B5847A /* AnnouncementManager.m */,
+				CBF7ACE3172BCCD500B5847A /* ClinicManager.h */,
+				CBF7ACE4172BCCD500B5847A /* ClinicManager.m */,
+				CBF7ACE5172BCCD500B5847A /* DailyPlanManager.h */,
+				CBF7ACE6172BCCD500B5847A /* DailyPlanManager.m */,
+				4AEA8C6917AEA0EB0058D085 /* OrderManager.m */,
+				4AEA8C6A17AEA0EB0058D085 /* OrderManager.h */,
+				CBF7ACE9172BCCD500B5847A /* PriceCalculatorManager.h */,
+				CBF7ACEA172BCCD500B5847A /* PriceCalculatorManager.m */,
+				CBF7ACEB172BCCD500B5847A /* ProductManager.h */,
+				CBF7ACEC172BCCD500B5847A /* ProductManager.m */,
+				CBF7ACED172BCCD500B5847A /* UserManager.h */,
+				CBF7ACEE172BCCD500B5847A /* UserManager.m */,
+				4AEA8C5D17AE96CF0058D085 /* DataModel.m */,
+				4AEA8C5E17AE96CF0058D085 /* DataModel.h */,
+			);
+			name = BusinessManager;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CBF7ACDD172BCB6E00B5847A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7ACF7172BCCE300B5847A /* Alert.h */,
+				CBF7ACF8172BCCE300B5847A /* Alert.m */,
+				CBF7ACF9172BCCE300B5847A /* Announcement.h */,
+				CBF7ACFA172BCCE300B5847A /* Announcement.m */,
+				CBF7ACFB172BCCE300B5847A /* Clinic.h */,
+				CBF7ACFC172BCCE300B5847A /* Clinic.m */,
+				CBF7ACFD172BCCE300B5847A /* DailyPlan.h */,
+				CBF7ACFE172BCCE300B5847A /* DailyPlan.m */,
+				4AEA8C6617AEA0D00058D085 /* Order.m */,
+				4AEA8C6717AEA0D00058D085 /* Order.h */,
+				CBF7AD01172BCCE300B5847A /* PriceCalculator.h */,
+				CBF7AD02172BCCE300B5847A /* PriceCalculator.m */,
+				CBF7AD03172BCCE300B5847A /* Product.h */,
+				CBF7AD04172BCCE300B5847A /* Product.m */,
+				CBF7AD05172BCCE300B5847A /* User.h */,
+				CBF7AD06172BCCE300B5847A /* User.m */,
+				4AEA8C5A17AE96B10058D085 /* SampleRequestDomain.m */,
+				4AEA8C5B17AE96B10058D085 /* SampleRequestDomain.h */,
+			);
+			name = Domain;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CBF7ACDE172BCB7500B5847A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7AD0F172BCCFA00B5847A /* AdminAlertViewController.h */,
+				CBF7AD10172BCCFA00B5847A /* AdminAlertViewController.m */,
+				CBF7AD11172BCCFA00B5847A /* ClinicDetailViewController.h */,
+				CBF7AD12172BCCFA00B5847A /* ClinicDetailViewController.m */,
+				CBF7AD13172BCCFA00B5847A /* ClinicListViewController.h */,
+				CBF7AD14172BCCFA00B5847A /* ClinicListViewController.m */,
+				CBF7AD15172BCCFA00B5847A /* CreatePlanViewController.h */,
+				CBF7AD16172BCCFA00B5847A /* CreatePlanViewController.m */,
+				CBF7AD19172BCCFA00B5847A /* DailyPlanListViewController.h */,
+				CBF7AD1A172BCCFA00B5847A /* DailyPlanListViewController.m */,
+				CBF7AD1B172BCCFA00B5847A /* DailyPlanReportViewController.h */,
+				CBF7AD1C172BCCFA00B5847A /* DailyPlanReportViewController.m */,
+				CBF7AD1D172BCCFA00B5847A /* DailyPlanSummaryListViewController.h */,
+				CBF7AD1E172BCCFA00B5847A /* DailyPlanSummaryListViewController.m */,
+				CBF7AD1F172BCCFA00B5847A /* DashboardViewController.h */,
+				CBF7AD20172BCCFA00B5847A /* DashboardViewController.m */,
+				CBF7AD21172BCCFA00B5847A /* LoginViewController.h */,
+				CBF7AD22172BCCFA00B5847A /* LoginViewController.m */,
+				CBF7AD23172BCCFA00B5847A /* OrderListViewController.h */,
+				CBF7AD24172BCCFA00B5847A /* OrderListViewController.m */,
+				CBF7AD25172BCCFA00B5847A /* PriceCalculatorViewController.h */,
+				CBF7AD26172BCCFA00B5847A /* PriceCalculatorViewController.m */,
+				CBF7AD27172BCCFA00B5847A /* ProductListViewController.h */,
+				CBF7AD28172BCCFA00B5847A /* ProductListViewController.m */,
+				CBBF0741173A940800A16828 /* AnnouncementViewController.h */,
+				CBBF0742173A940900A16828 /* AnnouncementViewController.m */,
+				CBBF0744173A945100A16828 /* LeftSidebarViewController.h */,
+				CBBF0745173A945200A16828 /* LeftSidebarViewController.m */,
+				CB47BBE6173BC6E300ABF8B6 /* AddClinicViewController.h */,
+				CB47BBE7173BC6E400ABF8B6 /* AddClinicViewController.m */,
+				CBDBA8CD173D08BD001C3F7A /* CallSummaryViewController.h */,
+				CBDBA8CE173D08BD001C3F7A /* CallSummaryViewController.m */,
+				CB4896B51740FD2C00CC34D5 /* CallCardViewController.h */,
+				CB4896B61740FD2C00CC34D5 /* CallCardViewController.m */,
+				CBE167B11746705400497A95 /* RKPharmaAdoptingAnAnnotation.h */,
+				CBE167B21746705500497A95 /* RKPharmaAdoptingAnAnnotation.m */,
+				CB4D7D7F1755CF920070F269 /* DailyClinicPlannedViewController.h */,
+				CB4D7D801755CF920070F269 /* DailyClinicPlannedViewController.m */,
+				CB1C39DB1760A62400DEEABF /* EditCallSummaryViewController.h */,
+				CB1C39DC1760A62400DEEABF /* EditCallSummaryViewController.m */,
+				CBB5562F178C05BA00025813 /* KIVViewController.h */,
+				CBB55630178C05BA00025813 /* KIVViewController.m */,
+				CBAEFF1F19CB10E100913790 /* NewOrderListViewController.m */,
+				CBAEFF2019CB10E100913790 /* NewOrderListViewController.h */,
+				CBAEFF1C19CB0ECF00913790 /* AddOrderViewController.m */,
+				CBAEFF1D19CB0ECF00913790 /* AddOrderViewController.h */,
+				4AEA8C5117AE96590058D085 /* SampleRequestListViewController.m */,
+				4AEA8C5217AE96590058D085 /* SampleRequestListViewController.h */,
+				4AEA8C5317AE96590058D085 /* EditSample.m */,
+				4AEA8C5417AE96590058D085 /* EditSample.h */,
+				B7FEDFD117BE06EE00112C2A /* ViewSample.h */,
+				B7FEDFD217BE06EE00112C2A /* ViewSample.m */,
+				4AEA8C5517AE96590058D085 /* AddSample.m */,
+				4AEA8C5617AE96590058D085 /* AddSample.h */,
+				4A44D85B17CDF26500A6D69C /* ReturnSample.h */,
+				4A44D85C17CDF26500A6D69C /* ReturnSample.m */,
+				4AD3A97C17D5AD4500E45068 /* ReturnSampleList.h */,
+				4AD3A97D17D5AD4500E45068 /* ReturnSampleList.m */,
+				4A262BAE17E8114E00C88297 /* ViewReturnSample.h */,
+				4A262BAF17E8114E00C88297 /* ViewReturnSample.m */,
+				4A262BB117E816DF00C88297 /* EditReturnSample.h */,
+				4A262BB217E816DF00C88297 /* EditReturnSample.m */,
+			);
+			name = Presentation;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CBF7AD36172BCEFF00B5847A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBDBA8C5173D07A4001C3F7A /* Daily Plan Images */,
+				CB47BBF0173BD87700ABF8B6 /* MultiplePickerImages */,
+				CBBF073E173A939F00A16828 /* Calculator Images */,
+				CBCCCAD01733C6D300B3A72B /* Alert Images */,
+				CBE904B8173295DA00A264D7 /* Order Images */,
+				CB810B0A172D54E100542189 /* Clinic Images */,
+				CBF9B164172CFA6600F15EA2 /* App Icons */,
+				CB0481701727F7FD00DBD015 /* Login Images */,
+				CB05D82F172A3642004761D7 /* Dashboard Images */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CBF9B164172CFA6600F15EA2 /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CBF9B16A172CFAB300F15EA2 /* appicon_small.png */,
+				CBE904A71732233400A264D7 /* Default-LandscapeRight.png */,
+				CBF93B89172E935700BF46A2 /* Icon-72.png */,
+				CBF9B168172CFAA700F15EA2 /* appicon_medium.png */,
+				CBF9B166172CFA9200F15EA2 /* appicon_large.png */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBF23B6C172697A70013DB64 /* RKPharma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBF23B8B172697A80013DB64 /* Build configuration list for PBXNativeTarget "RKPharma" */;
+			buildPhases = (
+				CBF23B69172697A70013DB64 /* Sources */,
+				CBF23B6A172697A70013DB64 /* Frameworks */,
+				CBF23B6B172697A70013DB64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RKPharma;
+			productName = RKPharma;
+			productReference = CBF23B6D172697A80013DB64 /* RKPharma.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBF23B64172697A70013DB64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RKPharma;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "shivendra@ranosys.com";
+				TargetAttributes = {
+					CBF23B6C172697A70013DB64 = {
+						DevelopmentTeam = 6S3AL87NGN;
+					};
+				};
+			};
+			buildConfigurationList = CBF23B67172697A70013DB64 /* Build configuration list for PBXProject "RKPharma" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CBF23B62172697A70013DB64;
+			productRefGroup = CBF23B6E172697A80013DB64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBF23B6C172697A70013DB64 /* RKPharma */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBF23B6B172697A70013DB64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF23B7C172697A80013DB64 /* InfoPlist.strings in Resources */,
+				CBF23B85172697A80013DB64 /* MainStoryboard.storyboard in Resources */,
+				CB0481771727F82400DBD015 /* arrow_image.png in Resources */,
+				B7FD56ED19C81FB600A17387 /* table-sep copy.png in Resources */,
+				CB0481781727F82400DBD015 /* bg_image.png in Resources */,
+				CB0481791727F82400DBD015 /* Login_button.png in Resources */,
+				CB04817A1727F82400DBD015 /* logo.png in Resources */,
+				CB04817B1727F82400DBD015 /* password.png in Resources */,
+				CB04817C1727F82400DBD015 /* username.png in Resources */,
+				CB05D844172A3663004761D7 /* add-clinic-btn.png in Resources */,
+				CB05D845172A3663004761D7 /* announcement-icon.png in Resources */,
+				CB05D846172A3663004761D7 /* blue-strip.png in Resources */,
+				CB05D84C172A3663004761D7 /* date-bg.png in Resources */,
+				CB05D84F172A3663004761D7 /* fill-summary-icon.png in Resources */,
+				CB05D861172A60EC004761D7 /* announc-arrow.png in Resources */,
+				CB05D862172A60EC004761D7 /* sep.png in Resources */,
+				4A0F0D8E188654DB00C5820E /* bg_image_new.png in Resources */,
+				CB05D863172A60EC004761D7 /* table-bg.png in Resources */,
+				CB05D864172A60EC004761D7 /* table-sep.png in Resources */,
+				CB05D87E172A9B3A004761D7 /* announc-bg.png in Resources */,
+				CB05D87F172A9B3A004761D7 /* heading-bg.png in Resources */,
+				CBF9B167172CFA9200F15EA2 /* appicon_large.png in Resources */,
+				CBF9B169172CFAA700F15EA2 /* appicon_medium.png in Resources */,
+				CBF9B16C172CFAB300F15EA2 /* appicon_small.png in Resources */,
+				CB810B15172D54F600542189 /* arrow.png in Resources */,
+				CB810B16172D54F600542189 /* inputfield.jpg in Resources */,
+				CB810B17172D54F600542189 /* inputfield.png in Resources */,
+				CB810B18172D54F600542189 /* listingbg.png in Resources */,
+				CB810B19172D54F600542189 /* listingbgtop.png in Resources */,
+				CB810B1B172D54F600542189 /* searchbutton.png in Resources */,
+				CB810B1C172D54F600542189 /* selectbox.jpg in Resources */,
+				CB810B1D172D54F600542189 /* selectbox.png in Resources */,
+				CBF343E3172E3E180080B2F3 /* deleteicon.png in Resources */,
+				CBF93B8A172E935700BF46A2 /* Icon-72.png in Resources */,
+				CBE904A81732233400A264D7 /* Default-LandscapeRight.png in Resources */,
+				CBE904B71732888100A264D7 /* reseticon.png in Resources */,
+				CBE904BA173295E400A264D7 /* selectboxbig.png in Resources */,
+				CBCCCAD41733C6E300B3A72B /* addalertbg.png in Resources */,
+				CBCCCAD61733C6E300B3A72B /* textbox.png in Resources */,
+				CBD0E0D71735FA1C00B4AB93 /* dashedline.png in Resources */,
+				CBCAD11D1737B3460054C116 /* inner_logo.png in Resources */,
+				CBCAD1261737B6350054C116 /* calculatoricon.png in Resources */,
+				CBCAD1271737B6350054C116 /* clinicsicon.png in Resources */,
+				CBCAD1281737B6350054C116 /* dailyplanicon.png in Resources */,
+				CBCAD1291737B6350054C116 /* dashboardicon.png in Resources */,
+				CBCAD12A1737B6350054C116 /* logouticon.png in Resources */,
+				CBCAD12B1737B6350054C116 /* ordersicon.png in Resources */,
+				CBCAD12C1737B6350054C116 /* productsicon.png in Resources */,
+				4A0F0D90188656A700C5820E /* background_new.png in Resources */,
+				CBCAD12D1737B6350054C116 /* remindersicon.png in Resources */,
+				CBC6C45E17394D24005E74F3 /* businesshours.png in Resources */,
+				CBC6C45F17394D24005E74F3 /* doctors.png in Resources */,
+				CBCA715D173A6E5700360FF7 /* primarydoctortag.png in Resources */,
+				CBCA7160173A84A700360FF7 /* businessbg.png in Resources */,
+				CBCA7163173A859D00360FF7 /* mapbg.png in Resources */,
+				CBBF0740173A939F00A16828 /* resultfield.png in Resources */,
+				CBC8A825173B6CC6008D87C6 /* image.png in Resources */,
+				CBC8A826173B6CC6008D87C6 /* textfield_calculator.png in Resources */,
+				4A34FDF91885507E00F1AB37 /* selectedbg_new.png in Resources */,
+				CBC8A827173B6CC6008D87C6 /* textfield_calculator2.png in Resources */,
+				CB47BBE5173BC40600ABF8B6 /* addclinicbg.png in Resources */,
+				CB47BBF8173BD87900ABF8B6 /* check@2x.png in Resources */,
+				CB47BBF9173BD87900ABF8B6 /* check_selected@2x.png in Resources */,
+				CB47BBFA173BD87900ABF8B6 /* frame_left@2x.png in Resources */,
+				CB47BBFB173BD87900ABF8B6 /* frame_middle@2x.png in Resources */,
+				CB47BBFC173BD87900ABF8B6 /* frame_right@2x.png in Resources */,
+				CB47BBFD173BD87900ABF8B6 /* wheel_bg@2x.png in Resources */,
+				CB47BBFE173BD87900ABF8B6 /* wheel_shadow@2x.png in Resources */,
+				CBDBA8C9173D07A4001C3F7A /* tablebg.png in Resources */,
+				CBDBA8CA173D07A4001C3F7A /* tablehead.png in Resources */,
+				CBDBA8CB173D07A4001C3F7A /* tableseparator.png in Resources */,
+				CBDBA8D1173D120D001C3F7A /* orderinfofield.png in Resources */,
+				CBDBA8D4173D1656001C3F7A /* radiobutton1.png in Resources */,
+				CBDBA8D5173D1656001C3F7A /* radiobutton2.png in Resources */,
+				CBE42459173F94A70096B3E2 /* callcardicon.png in Resources */,
+				4AD64B3A18FE5793002C4C6A /* selectedbg_new1.png in Resources */,
+				CBE4245A173F94A70096B3E2 /* timingsicon.png in Resources */,
+				CBE4245E173F98A80096B3E2 /* listingbg_new.png in Resources */,
+				CBE4245F173F98A80096B3E2 /* listingbg_top.png in Resources */,
+				CBE42466173FDD430096B3E2 /* callicon.png in Resources */,
+				CBE42467173FDD430096B3E2 /* cardiologisticon.png in Resources */,
+				CBE42468173FDD430096B3E2 /* doctoricon.png in Resources */,
+				CBE42469173FDD430096B3E2 /* locationicon.png in Resources */,
+				CBE4246A173FDD430096B3E2 /* mailicon.png in Resources */,
+				CBE4246B173FDD430096B3E2 /* pincodeicon.png in Resources */,
+				CBE4246D173FE4A60096B3E2 /* submitbutton.png in Resources */,
+				CBE42470173FE6410096B3E2 /* businesshoursbg.png in Resources */,
+				CBE42471173FE6410096B3E2 /* clinicdetails_listingbg.png in Resources */,
+				CBE42474173FE6AA0096B3E2 /* titlebg1.png in Resources */,
+				CBE42475173FE6AA0096B3E2 /* titlebg2.png in Resources */,
+				CBC8D5321740C8A700A85A35 /* selectedbg.png in Resources */,
+				CBC8D5331740C8A700A85A35 /* dashboard_logo.png in Resources */,
+				CBF250BD17421B2400CB0CFA /* blueline.png in Resources */,
+				CBF250BE17421B2400CB0CFA /* createplanbutton.png in Resources */,
+				CBF250BF17421B2400CB0CFA /* tableseparator_large.png in Resources */,
+				CBF250C31742216F00CB0CFA /* tablebg_large.png in Resources */,
+				CBC6A0681743B9A000CB7F33 /* plusicon.png in Resources */,
+				CBC6A0691743B9A000CB7F33 /* selectbox_new.png in Resources */,
+				CBD6D11E174D0AD7006C34A6 /* checkbox.png in Resources */,
+				CBD6D11F174D0AD7006C34A6 /* checkedbox.png in Resources */,
+				CBC3C594174DE799005779F2 /* back.png in Resources */,
+				CB09007B174FA2C700278F8F /* faxicon.png in Resources */,
+				CBCEB3DC1753392000F69026 /* calender.png in Resources */,
+				CBCEB3E01753392F00F69026 /* next.png in Resources */,
+				CBCEB3E11753392F00F69026 /* previous.png in Resources */,
+				CB3FED6C175E227F00DCD441 /* background.png in Resources */,
+				CB3FED6D175E227F00DCD441 /* leftpanelbg.png in Resources */,
+				CBB29A8B17843DE100A7207B /* kivicon.png in Resources */,
+				CBB2945117A7DD2100D5AA9E /* sample-request.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBF23B69172697A70013DB64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF23B7E172697A80013DB64 /* main.m in Sources */,
+				CBF23B82172697A80013DB64 /* RKPharmaAppDelegate.m in Sources */,
+				CB05D886172AB357004761D7 /* DejalActivityView.m in Sources */,
+				CBF7ACD3172B9D0600B5847A /* WebService.m in Sources */,
+				CBF7ACEF172BCCD500B5847A /* AlertManager.m in Sources */,
+				CBF7ACF0172BCCD500B5847A /* AnnouncementManager.m in Sources */,
+				CBF7ACF1172BCCD500B5847A /* ClinicManager.m in Sources */,
+				CBF7ACF2172BCCD500B5847A /* DailyPlanManager.m in Sources */,
+				CBF7ACF4172BCCD500B5847A /* PriceCalculatorManager.m in Sources */,
+				CBF7ACF5172BCCD500B5847A /* ProductManager.m in Sources */,
+				CBF7ACF6172BCCD500B5847A /* UserManager.m in Sources */,
+				CBF7AD07172BCCE300B5847A /* Alert.m in Sources */,
+				CBF7AD08172BCCE300B5847A /* Announcement.m in Sources */,
+				CBF7AD09172BCCE300B5847A /* Clinic.m in Sources */,
+				CBF7AD0A172BCCE300B5847A /* DailyPlan.m in Sources */,
+				CBF7AD0C172BCCE300B5847A /* PriceCalculator.m in Sources */,
+				CBF7AD0D172BCCE300B5847A /* Product.m in Sources */,
+				CBF7AD0E172BCCE300B5847A /* User.m in Sources */,
+				CBF7AD29172BCCFA00B5847A /* AdminAlertViewController.m in Sources */,
+				CBF7AD2A172BCCFA00B5847A /* ClinicDetailViewController.m in Sources */,
+				CBF7AD2B172BCCFA00B5847A /* ClinicListViewController.m in Sources */,
+				CBF7AD2C172BCCFA00B5847A /* CreatePlanViewController.m in Sources */,
+				CBF7AD2E172BCCFA00B5847A /* DailyPlanListViewController.m in Sources */,
+				CBF7AD2F172BCCFA00B5847A /* DailyPlanReportViewController.m in Sources */,
+				CBF7AD30172BCCFA00B5847A /* DailyPlanSummaryListViewController.m in Sources */,
+				CBF7AD31172BCCFA00B5847A /* DashboardViewController.m in Sources */,
+				CBF7AD32172BCCFA00B5847A /* LoginViewController.m in Sources */,
+				CBF7AD33172BCCFA00B5847A /* OrderListViewController.m in Sources */,
+				CBF7AD34172BCCFA00B5847A /* PriceCalculatorViewController.m in Sources */,
+				CBF7AD35172BCCFA00B5847A /* ProductListViewController.m in Sources */,
+				CBC6C44E173903B5005E74F3 /* NSObject+SBJSON.m in Sources */,
+				CBC6C44F173903B5005E74F3 /* NSString+SBJSON.m in Sources */,
+				CBC6C450173903B5005E74F3 /* SBJSON1.m in Sources */,
+				CBC6C451173903B5005E74F3 /* SBJsonBase1.m in Sources */,
+				CBC6C452173903B5005E74F3 /* SBJsonParser.m in Sources */,
+				CBC6C453173903B5005E74F3 /* SBJsonWriter.m in Sources */,
+				CBBF0743173A940900A16828 /* AnnouncementViewController.m in Sources */,
+				CBBF0746173A945200A16828 /* LeftSidebarViewController.m in Sources */,
+				CB47BBE8173BC6E700ABF8B6 /* AddClinicViewController.m in Sources */,
+				CB47BBEE173BD7FF00ABF8B6 /* ALPickerView.m in Sources */,
+				CB47BBEF173BD7FF00ABF8B6 /* ALPickerViewCell.m in Sources */,
+				CBDBA8CF173D08BE001C3F7A /* CallSummaryViewController.m in Sources */,
+				CB4896B71740FD2D00CC34D5 /* CallCardViewController.m in Sources */,
+				CBC6350417450E9500A56056 /* Internet.m in Sources */,
+				CBC6350517450E9500A56056 /* Reachability.m in Sources */,
+				CBE167B31746705600497A95 /* RKPharmaAdoptingAnAnnotation.m in Sources */,
+				CB4D7D811755CF920070F269 /* DailyClinicPlannedViewController.m in Sources */,
+				CB4D7D9A1755FDC40070F269 /* YHCPickerView.m in Sources */,
+				CB1C39DD1760A62400DEEABF /* EditCallSummaryViewController.m in Sources */,
+				CBB55631178C05BA00025813 /* KIVViewController.m in Sources */,
+				4AEA8C5717AE965A0058D085 /* SampleRequestListViewController.m in Sources */,
+				4AEA8C5817AE965A0058D085 /* EditSample.m in Sources */,
+				4AEA8C5917AE965A0058D085 /* AddSample.m in Sources */,
+				4AEA8C5C17AE96B10058D085 /* SampleRequestDomain.m in Sources */,
+				4AEA8C5F17AE96CF0058D085 /* DataModel.m in Sources */,
+				CBAEFF1E19CB0ECF00913790 /* AddOrderViewController.m in Sources */,
+				CBAEFF2119CB10E100913790 /* NewOrderListViewController.m in Sources */,
+				4AEA8C6817AEA0D00058D085 /* Order.m in Sources */,
+				4AEA8C6B17AEA0EB0058D085 /* OrderManager.m in Sources */,
+				B7FEDFD317BE06EE00112C2A /* ViewSample.m in Sources */,
+				4A44D85D17CDF26500A6D69C /* ReturnSample.m in Sources */,
+				4AD3A97E17D5AD4500E45068 /* ReturnSampleList.m in Sources */,
+				4A262BB017E8114E00C88297 /* ViewReturnSample.m in Sources */,
+				4A262BB317E816DF00C88297 /* EditReturnSample.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CBF23B7A172697A80013DB64 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBF23B7B172697A80013DB64 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CBF23B83172697A80013DB64 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBF23B84172697A80013DB64 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBF23B89172697A80013DB64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		CBF23B8A172697A80013DB64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBF23B8C172697A80013DB64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shivendra Rathore (PYG3AD9HUF)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
+				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CBF23B8D172697A80013DB64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shivendra Rathore (PYG3AD9HUF)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
+				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBF23B67172697A70013DB64 /* Build configuration list for PBXProject "RKPharma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBF23B89172697A80013DB64 /* Debug */,
+				CBF23B8A172697A80013DB64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBF23B8B172697A80013DB64 /* Build configuration list for PBXNativeTarget "RKPharma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBF23B8C172697A80013DB64 /* Debug */,
+				CBF23B8D172697A80013DB64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBF23B64172697A70013DB64 /* Project object */;
+}
