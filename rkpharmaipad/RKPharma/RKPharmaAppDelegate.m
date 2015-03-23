@@ -43,9 +43,9 @@ NSTimer *timer;
                                             repeats: YES];
     
     SampleDictionary = [NSDictionary new];
-   NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
-   // NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
-   // NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
+    //  NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
+    //   NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+    NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -64,6 +64,16 @@ NSTimer *timer;
         DashboardViewController *rvc = [storyboard instantiateViewControllerWithIdentifier:@"leftsidebar_screen"];
         self.window.rootViewController = rvc;
     }
+    
+//     UIApplication *app = [UIApplication sharedApplication];
+//    if ([app respondsToSelector:@selector(registerUserNotificationSettings:)])
+//    {
+//        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+//        [app registerUserNotificationSettings:settings];
+//        [app registerForRemoteNotifications];
+//    }
+
+    
    
     
     // Override point for customization after application launch.
@@ -210,9 +220,9 @@ NSTimer *timer;
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
+   // NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
     // NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
-    //NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
+    NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
 //    [defaults setInteger:0 forKey:@"incrementNotify"];

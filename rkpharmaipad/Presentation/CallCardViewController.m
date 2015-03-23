@@ -454,7 +454,26 @@ NSString *issuedbycompany_checked = @"1";
     {
         [cell setBackgroundColor:[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1]];
     }
+    
+//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [cell setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//    
+//    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [cell setLayoutMargins:UIEdgeInsetsZero];
+//    }
 }
+
+//-(void)viewDidLayoutSubviews
+//{
+//    if ([self.callcard_table respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [self.callcard_table setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//    
+//    if ([self.callcard_table respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [self.callcard_table setLayoutMargins:UIEdgeInsetsZero];
+//    }
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

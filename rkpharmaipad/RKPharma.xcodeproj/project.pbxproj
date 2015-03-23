@@ -64,6 +64,7 @@
 		CB4896B71740FD2D00CC34D5 /* CallCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4896B61740FD2C00CC34D5 /* CallCardViewController.m */; };
 		CB4D7D811755CF920070F269 /* DailyClinicPlannedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4D7D801755CF920070F269 /* DailyClinicPlannedViewController.m */; };
 		CB4D7D9A1755FDC40070F269 /* YHCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4D7D991755FDC40070F269 /* YHCPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CB5D6B861AB6FC4C0000DC42 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5D6B851AB6FC4C0000DC42 /* CustomTextField.m */; };
 		CB810B15172D54F600542189 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0C172D54F600542189 /* arrow.png */; };
 		CB810B16172D54F600542189 /* inputfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0D172D54F600542189 /* inputfield.jpg */; };
 		CB810B17172D54F600542189 /* inputfield.png in Resources */ = {isa = PBXBuildFile; fileRef = CB810B0E172D54F600542189 /* inputfield.png */; };
@@ -76,6 +77,7 @@
 		CBAEFF2119CB10E100913790 /* NewOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAEFF1F19CB10E100913790 /* NewOrderListViewController.m */; };
 		CBB2945117A7DD2100D5AA9E /* sample-request.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB2945017A7DD2100D5AA9E /* sample-request.png */; };
 		CBB29A8B17843DE100A7207B /* kivicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB29A8A17843DE000A7207B /* kivicon.png */; };
+		CBB2D2041AB996EF00A7EBEB /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2D2031AB996EF00A7EBEB /* CustomButton.m */; };
 		CBB55631178C05BA00025813 /* KIVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB55630178C05BA00025813 /* KIVViewController.m */; };
 		CBBF0740173A939F00A16828 /* resultfield.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBF073F173A939F00A16828 /* resultfield.png */; };
 		CBBF0743173A940900A16828 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBF0742173A940900A16828 /* AnnouncementViewController.m */; };
@@ -282,6 +284,8 @@
 		CB4D7D801755CF920070F269 /* DailyClinicPlannedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyClinicPlannedViewController.m; path = Presentation/DailyClinicPlannedViewController.m; sourceTree = "<group>"; };
 		CB4D7D981755FDC40070F269 /* YHCPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHCPickerView.h; sourceTree = "<group>"; };
 		CB4D7D991755FDC40070F269 /* YHCPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHCPickerView.m; sourceTree = "<group>"; };
+		CB5D6B841AB6FC4C0000DC42 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		CB5D6B851AB6FC4C0000DC42 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		CB810B0C172D54F600542189 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = "Clinics Images/arrow.png"; sourceTree = "<group>"; };
 		CB810B0D172D54F600542189 /* inputfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = inputfield.jpg; path = "Clinics Images/inputfield.jpg"; sourceTree = "<group>"; };
 		CB810B0E172D54F600542189 /* inputfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inputfield.png; path = "Clinics Images/inputfield.png"; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		CBAEFF2019CB10E100913790 /* NewOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderListViewController.h; sourceTree = "<group>"; };
 		CBB2945017A7DD2100D5AA9E /* sample-request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-request.png"; path = "Dasboard Images/sample-request.png"; sourceTree = "<group>"; };
 		CBB29A8A17843DE000A7207B /* kivicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kivicon.png; path = "Dasboard Images/kivicon.png"; sourceTree = "<group>"; };
+		CBB2D2021AB996EF00A7EBEB /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		CBB2D2031AB996EF00A7EBEB /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		CBB5562F178C05BA00025813 /* KIVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KIVViewController.h; path = Presentation/KIVViewController.h; sourceTree = "<group>"; };
 		CBB55630178C05BA00025813 /* KIVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KIVViewController.m; path = Presentation/KIVViewController.m; sourceTree = "<group>"; };
 		CBBF073F173A939F00A16828 /* resultfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resultfield.png; sourceTree = "<group>"; };
@@ -896,6 +902,10 @@
 				CBAEFF2019CB10E100913790 /* NewOrderListViewController.h */,
 				CBAEFF1C19CB0ECF00913790 /* AddOrderViewController.m */,
 				CBAEFF1D19CB0ECF00913790 /* AddOrderViewController.h */,
+				CB5D6B851AB6FC4C0000DC42 /* CustomTextField.m */,
+				CB5D6B841AB6FC4C0000DC42 /* CustomTextField.h */,
+				CBB2D2021AB996EF00A7EBEB /* CustomButton.h */,
+				CBB2D2031AB996EF00A7EBEB /* CustomButton.m */,
 				4AEA8C5117AE96590058D085 /* SampleRequestListViewController.m */,
 				4AEA8C5217AE96590058D085 /* SampleRequestListViewController.h */,
 				4AEA8C5317AE96590058D085 /* EditSample.m */,
@@ -1169,6 +1179,8 @@
 				CBE167B31746705600497A95 /* RKPharmaAdoptingAnAnnotation.m in Sources */,
 				CB4D7D811755CF920070F269 /* DailyClinicPlannedViewController.m in Sources */,
 				CB4D7D9A1755FDC40070F269 /* YHCPickerView.m in Sources */,
+				CBB2D2041AB996EF00A7EBEB /* CustomButton.m in Sources */,
+				CB5D6B861AB6FC4C0000DC42 /* CustomTextField.m in Sources */,
 				CB1C39DD1760A62400DEEABF /* EditCallSummaryViewController.m in Sources */,
 				CBB55631178C05BA00025813 /* KIVViewController.m in Sources */,
 				4AEA8C5717AE965A0058D085 /* SampleRequestListViewController.m in Sources */,
@@ -1221,8 +1233,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1241,8 +1253,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1259,8 +1271,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ranosys Technologies Pte Ltd (T7GN63HCDX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1272,8 +1284,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1284,7 +1296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shivendra Rathore (PYG3AD9HUF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
 				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";
@@ -1294,8 +1306,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "203172D5-398E-4741-9E42-C101B77DCE9F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				PROVISIONING_PROFILE = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1304,7 +1316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shivendra Rathore (PYG3AD9HUF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
 				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";
@@ -1314,8 +1326,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "203172D5-398E-4741-9E42-C101B77DCE9F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "203172D5-398E-4741-9E42-C101B77DCE9F";
+				PROVISIONING_PROFILE = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7f4df13b-cef0-4db4-acac-f5bdb35339e3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

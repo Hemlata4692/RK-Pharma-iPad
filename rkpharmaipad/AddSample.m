@@ -9,11 +9,13 @@
 #import "AddSample.h"
 #import "ProductManager.h"
 #import "JSON.h"
+#import "CustomTextField.h"
 
 @interface AddSample ()
 {
     IBOutlet UITableView *add_table;
-    UITextField *products,*DeliveryQty,*batchNo,*expiryDate;
+    UITextField *batchNo,*expiryDate;
+   // UITextField *products,*DeliveryQty;
     UIButton *Delete;
     IBOutlet UIButton *OrderDate,*AddMore, *DeliveryButton;
     IBOutlet UITextView *Remarks;
@@ -39,6 +41,8 @@
 
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
+    
     
     NSDateFormatter *df = [NSDateFormatter new];
     [df setDateFormat:@"dd-MMM-yyyy"];
@@ -113,12 +117,19 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    products = (UITextField *)[cell viewWithTag:1];
+   CustomTextField *products = (CustomTextField *)[cell viewWithTag:1];
     products.delegate = self;
+    products.Tag1 = (int)indexPath.row;
+
     batchNo = (UITextField *)[cell viewWithTag:2];
     expiryDate = (UITextField *)[cell viewWithTag:3];
-    DeliveryQty = (UITextField *)[cell viewWithTag:4];
+    
+    CustomTextField *DeliveryQty = (CustomTextField *)[cell viewWithTag:4];
     DeliveryQty.delegate = self;
+    DeliveryQty.Tag1 = (int)indexPath.row;
+    
+    
+    
     Delete = (UIButton *)[cell viewWithTag:5];
     
     batchNo.userInteractionEnabled = NO;
@@ -158,7 +169,16 @@
 {
     [main_scroll setContentOffset:CGPointMake(0, 0) animated:YES];
 }
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+
+-(void)onKeyboardHide:(NSNotification *)notification
+{
+    //keyboard will hide
+    [main_scroll setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
+
+
+- (BOOL)textFieldShouldBeginEditing:(CustomTextField *)textField
 {
     if (textField.tag == 1) {
         //rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
@@ -172,7 +192,10 @@
             
         {
             
-            rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+         //   rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
             
         }
         [Product_Picker removeFromSuperview];
@@ -216,7 +239,7 @@
     }
     return YES;
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == 4) {
         //rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
@@ -230,7 +253,11 @@
             
         {
             
-            rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            //rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+
             
         }
         if ([[Product_Dictionary objectAtIndex:rowIndex.row] isKindOfClass:[NSDictionary class]]) {

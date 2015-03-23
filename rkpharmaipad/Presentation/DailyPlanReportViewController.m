@@ -123,7 +123,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+     	// Do any additional setup after loading the view.
     
 //    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateFormat:@"dd-MMM-yyyy"];
@@ -158,7 +159,6 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-   
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -198,7 +198,8 @@
     else 
     {
         [cell setBackgroundColor:[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1]];
-    } 
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,6 +277,9 @@
     // To show custom separator
     UIColor *color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableseparator_large.png"]];
     [self.dailyreport_table setSeparatorColor:color];
+    
+
+  
     
     UIImage *background_first = [UIImage imageNamed:@"tablebg_large.png"];
     UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background_first];

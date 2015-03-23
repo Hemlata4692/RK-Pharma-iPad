@@ -222,7 +222,8 @@ NSString *dailyplandatetostring_selected = @"";
 {
     [super viewDidLoad];
     
-    
+  
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSLog(@"ROLE %@",[defaults objectForKey:@"Role"]);
@@ -387,6 +388,8 @@ NSString *dailyplandatetostring_selected = @"";
     {
         [cell setBackgroundColor:[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1]];
     }
+    
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -458,6 +461,7 @@ NSString *dailyplandatetostring_selected = @"";
     
     return cell;
 }
+
 
 - (void)clinics_planned:(UIButton *)sender
 {

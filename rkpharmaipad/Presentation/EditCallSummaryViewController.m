@@ -14,6 +14,7 @@
 #import "DailyPlanReportViewController.h"
 #import "ProductManager.h"
 #import "GlobalVariable.h"
+#import "CustomTextField.h"
 
 NSString *editdatestring_selected = @"";
 NSString *editcalltype_selected = @"";
@@ -21,12 +22,15 @@ NSString *editcallsummaryplandate_selected = @"";
 NSString *editcallsummaryassistant_selected = @"0";
 int editcallsummaryproductoffset = 0;
 
-@interface EditCallSummaryViewController ()
+@interface EditCallSummaryViewController (){
+    CustomTextField *quantity;
+}
+
 
 @end
 
 @implementation EditCallSummaryViewController
-@synthesize product_table,date_picker,clinic_name,product_name,available_quantity,expiry_date,location_label,order_textview,remarks_textview,date_button,post_radio,current_radio,plan_id,location_string,clinicname_string,quantity,samplechitno,plan_date,call_assistant,back,summary_id,chitno,product_button;
+@synthesize product_table,date_picker,clinic_name,product_name,available_quantity,expiry_date,location_label,order_textview,remarks_textview,date_button,post_radio,current_radio,plan_id,location_string,clinicname_string,samplechitno,plan_date,call_assistant,back,summary_id,chitno,product_button;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -447,50 +451,61 @@ int editcallsummaryproductoffset = 0;
     NSLog(@"Sumary ID View Did Appear: %@",summary_id);
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+-(BOOL)textField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     //UITableViewCell *cell = (UITableViewCell *)[[textField superview] superview];
     
-    UITableViewCell *cell;
+//    UITableViewCell *cell;
+//    
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//        
+//        cell=(UITableViewCell *)[[textField superview] superview];
+//        
+//    }
+//    else
+//    {
+//        cell =(UITableViewCell *)[[[textField superview] superview] superview];
+//        
+//    }
+//    
+//    //UITableView *table = (UITableView *)[cell superview];
+//    
+//    UITableView *table;
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+//    {
+//        NSLog(@" iOS6 and Below");
+//        
+//        table =(UITableView *)[cell superview];
+//        
+//    }
+//    
+//    else
+//        
+//    {
+//        NSLog(@" iOS7 ");
+//        
+//        table =(UITableView *)[[cell superview] superview];
+//        
+//    }
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+  //  NSIndexPath *textFieldIndexPath = [table indexPathForCell:cell];
+    NSIndexPath *indexPath;
+    
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+        indexPath =[product_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
         
-        cell=(UITableViewCell *)[[textField superview] superview];
+        // indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
         
     }
     else
     {
-        cell =(UITableViewCell *)[[[textField superview] superview] superview];
-        
-    }
-    
-    //UITableView *table = (UITableView *)[cell superview];
-    
-    UITableView *table;
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
-    {
-        NSLog(@" iOS6 and Below");
-        
-        table =(UITableView *)[cell superview];
-        
-    }
-    
-    else
-        
-    {
-        NSLog(@" iOS7 ");
-        
-        table =(UITableView *)[[cell superview] superview];
-        
-    }
-    
-    NSIndexPath *textFieldIndexPath = [table indexPathForCell:cell];
+        indexPath=[product_table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        // indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+    }  
     
     
-    
-    
-    [total_value removeObjectAtIndex:textFieldIndexPath.row];
-    [total_value insertObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndex:textFieldIndexPath.row];
+    [total_value removeObjectAtIndex:indexPath.row];
+    [total_value insertObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndex:indexPath.row];
     
     //samplechitno
     if (textField == samplechitno)
@@ -565,7 +580,7 @@ int editcallsummaryproductoffset = 0;
     
     UIView *QuantitypaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 17)];
     
-    quantity=(UITextField *)[cell viewWithTag:2];
+    quantity=(CustomTextField *)[cell viewWithTag:2];
     quantity.leftView = QuantitypaddingView;
     quantity.leftViewMode = UITextFieldViewModeAlways;
     quantity.delegate=self;

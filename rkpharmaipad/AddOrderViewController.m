@@ -14,7 +14,11 @@
 #import "Order.h"
 #import "DejalActivityView.h"
 #import "NewOrderListViewController.h"
-@interface AddOrderViewController ()
+#import "CustomTextField.h"
+@interface AddOrderViewController (){
+    BOOL deleteSelection;
+    int rowChecker;
+}
 
 @end
 
@@ -528,6 +532,8 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
 -(void)viewDidAppear:(BOOL)animated
 {
     OT = @"100";
+    deleteSelection=NO;
+    rowChecker= -2;
 }
 
 -(IBAction)done_clicked:(id)sender
@@ -587,6 +593,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
      clinic_picker_toolbar.hidden=YES;
     toolBar.hidden=YES;
     NSLog(@"add");
+    rowChecker=page;
     
     d=[[NSMutableDictionary alloc]init];
     [d setValue:@"" forKey:@"p_name"];
@@ -605,7 +612,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     [d setValue:@"0" forKey:@"Old_OrderType"];
     [arr addObject:d];
     page++;
-    /* [table beginUpdates];
+      /* [table beginUpdates];
      NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:page-1 inSection:0]];
      [table insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
      [table endUpdates];
@@ -620,6 +627,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
 }
 - (void)DeleteButtonAction:(id)sender
 {
+    deleteSelection=YES;
     area_picker_toolbar.hidden  =YES;
     productPicker.hidden=YES;
     datePicker.hidden=YES;
@@ -633,6 +641,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     toolBar.hidden=YES;
     if(page==1)
     {
+        deleteSelection=NO;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -640,36 +649,64 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         if(orderId.length!=0)
         {
             NSIndexPath *indexPath;
-            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
-            {
-                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+//            {
+//                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//            }
+//            else
+//            {
+//                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview]];
+//            }
+            
+            if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+                indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview] superview]];
+                
+                //        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+                
             }
             else
             {
-                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview]];
+                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+                //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
             }
+            rowChecker=indexPath.row;
+            
             NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
             NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:indexPath.row];
             [newDict addEntriesFromDictionary:oldDict];
             [newDict setValue:@"true" forKey:@"delete"];
             [arr replaceObjectAtIndex:indexPath.row withObject:newDict];
-            if([[[arr objectAtIndex:indexPath.row]valueForKey:@"p_id"]isEqualToString:@""])
-            {
+           // if([[[arr objectAtIndex:indexPath.row]valueForKey:@"p_id"]isEqualToString:@""])
+           // {
                 page--;
                 [arr removeObjectAtIndex:indexPath.row];
-            }
+           // }
         }
         else{
             page--;
             NSIndexPath *indexPath;
-            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
-            {
-                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+//            {
+//                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//            }
+//            else
+//            {
+//                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview]];
+//            }
+            
+            if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+                indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview] superview]];
+                
+                //        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+                
             }
             else
             {
-                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview]];
+                indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+                //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
             }
+            rowChecker=indexPath.row;
+            
             [arr removeObjectAtIndex:indexPath.row];
         }
         //[table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -688,12 +725,24 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     //NSIndexPath *indexPath =[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
     
     NSIndexPath *indexPath;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
-        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+//        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//    }
+//    else
+//    {
+//        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview ]];
+//    }
+
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview] superview]];
+        
+        //        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        
     }
     else
     {
-        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview ]];
+        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+        //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
     }
     
     UITableViewCell *cell = [table cellForRowAtIndexPath:indexPath];
@@ -803,29 +852,38 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     UIButton *repeat = (UIButton *)[cell viewWithTag:9];
     [repeat addTarget:self action:@selector(repeatProduct:) forControlEvents:UIControlEventTouchUpInside];
     
-    UITextField *selectProduct=(UITextField *)[cell viewWithTag:1];
+    CustomTextField *selectProduct=(CustomTextField *)[cell viewWithTag:1];
     selectProduct.delegate=self;
+    selectProduct.Tag1 = (int)indexPath.row;
+   
     
-    UITextField *expiryDate=(UITextField *)[cell viewWithTag:3];
+    
+   CustomTextField *expiryDate=(CustomTextField *)[cell viewWithTag:3];
     expiryDate.delegate=self;
     expiryDate.inputView = datePicker;
     
     UITextField *batch=(UITextField *)[cell viewWithTag:2];
     batch.delegate=self;
-    UITextField *deliveryQty=(UITextField *)[cell viewWithTag:4];
+    
+    CustomTextField *deliveryQty=(CustomTextField *)[cell viewWithTag:4];
     deliveryQty.delegate=self;
+    deliveryQty.Tag1 = (int)indexPath.row;
     
-    UITextField *orderQty=(UITextField *)[cell viewWithTag:5];
+    CustomTextField *orderQty=(CustomTextField *)[cell viewWithTag:5];
     orderQty.delegate=self;
+    orderQty.Tag1 = (int)indexPath.row;
     
-    UITextField *bonusQty=(UITextField *)[cell viewWithTag:6];
+    CustomTextField *bonusQty=(CustomTextField *)[cell viewWithTag:6];
     bonusQty.delegate=self;
+    bonusQty.Tag1 = (int)indexPath.row;
     
-    UITextField *unofficial=(UITextField *)[cell viewWithTag:7];
+    CustomTextField *unofficial=(CustomTextField *)[cell viewWithTag:7];
     unofficial.delegate=self;
+    unofficial.Tag1 = (int)indexPath.row;
     
-    UITextField *netprice=(UITextField *)[cell viewWithTag:10];
+    CustomTextField *netprice=(CustomTextField *)[cell viewWithTag:10];
     netprice.delegate=self;
+    netprice.Tag1 = (int)indexPath.row;
     
     UIButton *generalPrice=(UIButton*)[cell viewWithTag:12];
     UIButton *netPrice=(UIButton*)[cell viewWithTag:13];
@@ -930,8 +988,10 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     orderDatepicker1.hidden=YES;
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+-(BOOL)textFieldShouldBeginEditing:(CustomTextField *)textField
 {
+    deleteSelection=NO;
+    rowChecker=-2;
     if(textField.tag==1 || textField.tag==3)
     {
         productPicker.hidden=YES;
@@ -958,8 +1018,8 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         else
             
         {
-            
-            rowIndex =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+             NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
             
         }
         switch (textField.tag) {
@@ -985,8 +1045,8 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     }
     else
     {
-        [textField setInputAccessoryView:toolBar1];
-        toolBar1.hidden=NO;
+      //  [textField setInputAccessoryView:toolBar1];
+       // toolBar1.hidden=NO;
         return YES;
     }
     return YES;
@@ -1003,19 +1063,43 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     
     NSIndexPath *indexPath;
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+//        
+//        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+//        
+//    }
+//    else
+//    {
+//        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+//    }
+    
+    
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
         
-        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        //        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
         
     }
     else
     {
-        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+    }
+    if (rowChecker!=indexPath.row) {
+    NSLog(@"same");
+    if (deleteSelection==YES) {
+        if (rowChecker>indexPath.row) {
+            rowChecker=indexPath.row;
+        }
+        else
+            rowChecker=indexPath.row-1;
+          }
+    else{
+        rowChecker=indexPath.row;
     }
     
-    NSLog(@"same");
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
-    NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:indexPath.row];
+    NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:rowChecker];
     [newDict addEntriesFromDictionary:oldDict];
     
     switch (textField.tag)
@@ -1048,7 +1132,10 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         default:
             break;
     }
-    [arr replaceObjectAtIndex:indexPath.row withObject:newDict];
+    [arr replaceObjectAtIndex:rowChecker withObject:newDict];
+    }
+    rowChecker=-2;
+    deleteSelection=NO;
     
     
     //[table reloadData];
@@ -1587,7 +1674,7 @@ NSString *error=@"no";
         product_namestring = [product_namestring stringByAppendingString:[itemAtIndex objectForKey:@"ProductName"]];
         
         UITableViewCell *cell = [table cellForRowAtIndexPath:rowIndex];
-        UITextField *textField = (UITextField *)[cell viewWithTag:1];
+        CustomTextField *textField = (CustomTextField *)[cell viewWithTag:1];
         
         textField.text=[itemAtIndex objectForKey:@"ProductName"];;
         
@@ -1601,7 +1688,7 @@ NSString *error=@"no";
         }
         else
         {
-            indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            indexPath =rowIndex;
         }
         
         NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];

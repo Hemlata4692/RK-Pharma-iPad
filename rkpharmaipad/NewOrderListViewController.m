@@ -984,8 +984,9 @@ float newtotal = 0.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
                    {
-                      // NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://rkpharma.com/invoice.ashx?id=%@",[[Order_List_Array objectAtIndex:indexPath.row]valueForKey:@"OrderId"]]];
-                       NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://ranosys.info/rkpharma/invoice.ashx?id=%@",[[Order_List_Array objectAtIndex:indexPath.row]valueForKey:@"OrderId"]]];
+                       NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://rkpharma.com/invoice.ashx?id=%@",[[Order_List_Array objectAtIndex:indexPath.row]valueForKey:@"OrderId"]]];
+                    //   NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://ranosys.info/rkpharma/invoice.ashx?id=%@",[[Order_List_Array objectAtIndex:indexPath.row]valueForKey:@"OrderId"]]];
+                       
                        NSLog(@"URL %@",[NSString stringWithFormat:@"http://rkpharma.com/invoice.ashx?id=%@",[[Order_List_Array objectAtIndex:indexPath.row]valueForKey:@"OrderId"]]);
                        
                        NSURLRequest *newrequest = [NSURLRequest requestWithURL:url1 cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];

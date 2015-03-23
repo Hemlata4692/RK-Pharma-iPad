@@ -62,7 +62,7 @@ DailyClinicPlannedViewController *plannedcliniccontroller;
     BOOL checkBoxSelected;
     BOOL radioBoxSelected;
     IBOutlet NSString *plan_id,*location_string,*clinicname_string;
-    IBOutlet UITextField *quantity,*samplechitno;
+  //  IBOutlet UITextField *quantity,*samplechitno;
     NSMutableArray *total_value;
     
     ALPickerView *product_picker;
@@ -77,7 +77,8 @@ DailyClinicPlannedViewController *plannedcliniccontroller;
 @property(nonatomic,retain)UIButton *date_button,*post_radio,*current_radio,*call_assistant,*back,*product_button;
 @property(nonatomic,retain)UITextView *order_textview,*remarks_textview;
 @property(nonatomic,retain)NSString *plan_id,*location_string,*clinicname_string;
-@property(nonatomic,retain) UITextField *quantity,*samplechitno;
+@property(nonatomic,retain) UITextField *samplechitno;
+//@property(nonatomic,retain) UITextField *quantity;
 
 -(IBAction)togglecall;
 -(IBAction)toggleassistant;

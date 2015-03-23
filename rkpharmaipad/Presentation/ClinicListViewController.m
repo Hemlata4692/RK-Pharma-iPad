@@ -263,10 +263,27 @@ int offset = 0;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     dictglobdate=[NSMutableDictionary new];
     dictglobFromTime=[NSMutableDictionary new];
     dictglobToTime=[NSMutableDictionary new];
+    
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+        // iOS 6 and later
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (granted) {
+                // code here for when the user allows your app to access the calendar
+                //[self performCalendarActivity:eventStore];
+            } else {
+                // code here for when the user does NOT allow your app to access the calendar
+            }
+        }];
+    } else {
+        // code here for iOS < 6.0
+        //[self performCalendarActivity:eventStore];
+    }
+
     
 }
 
@@ -540,21 +557,21 @@ int offset = 0;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    EKEventStore *eventStore = [[EKEventStore alloc] init];
-    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
-        // iOS 6 and later
-        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-            if (granted) {
-                // code here for when the user allows your app to access the calendar
-                //[self performCalendarActivity:eventStore];
-            } else {
-                // code here for when the user does NOT allow your app to access the calendar
-            }
-        }];
-    } else {
-        // code here for iOS < 6.0
-        //[self performCalendarActivity:eventStore];
-    }
+//    EKEventStore *eventStore = [[EKEventStore alloc] init];
+//    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+//        // iOS 6 and later
+//        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+//            if (granted) {
+//                // code here for when the user allows your app to access the calendar
+//                //[self performCalendarActivity:eventStore];
+//            } else {
+//                // code here for when the user does NOT allow your app to access the calendar
+//            }
+//        }];
+//    } else {
+//        // code here for iOS < 6.0
+//        //[self performCalendarActivity:eventStore];
+//    }
 }
 
 - (void)viewDidUnload

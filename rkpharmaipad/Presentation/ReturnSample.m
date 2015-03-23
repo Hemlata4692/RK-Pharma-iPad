@@ -11,11 +11,13 @@
 #import "DailyPlanManager.h"
 #import "DailyPlan.h"
 #import "JSON.h"
+#import "CustomTextField.h"
 
 @interface ReturnSample ()
 {
     IBOutlet UITableView *returnsample_table;
-    UITextField *return_products,*returnQty,*BatchNo,*ExpDate,*monthyear,*monthyearweb;
+    UITextField *BatchNo,*ExpDate,*monthyearweb;
+  //  UITextField *monthyear,*return_products,*returnQty;
     UIButton *Delete;
     IBOutlet UIButton *AddMore;
     
@@ -91,14 +93,20 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    monthyear = (UITextField *)[cell viewWithTag:1];
+   CustomTextField *monthyear = (CustomTextField *)[cell viewWithTag:1];
     monthyear.delegate = self;
-    return_products = (UITextField *)[cell viewWithTag:2];
+    monthyear.Tag1 = (int)indexPath.row;
+    
+    CustomTextField *return_products = (CustomTextField *)[cell viewWithTag:2];
     return_products.delegate = self;
+    return_products.Tag1 = (int)indexPath.row;
+    
     BatchNo = (UITextField *)[cell viewWithTag:3];
     ExpDate = (UITextField *)[cell viewWithTag:4];
-    returnQty = (UITextField *)[cell viewWithTag:5];
+    
+    CustomTextField *returnQty = (CustomTextField *)[cell viewWithTag:5];
     returnQty.delegate = self;
+    returnQty.Tag1 = (int)indexPath.row;
     
     BatchNo.userInteractionEnabled = NO;
     ExpDate.userInteractionEnabled = NO;
@@ -346,7 +354,7 @@
     
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+- (BOOL)textFieldShouldBeginEditing:(CustomTextField *)textField
 {
     if (textField.tag == 1)
     {
@@ -357,18 +365,13 @@
         }
         else
         {
-            rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            //rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+            
         }
-        
-        
-        
-        
-        
-        
         [toolbar_date removeFromSuperview];
         [DatePicker removeFromSuperview];
-        
-        
         
         
         // To create datepickers
@@ -377,7 +380,9 @@
         }
         else
         {
-            rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+           // rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
         }
         if(rowIndex.row<5)
             DatePicker = [[UIDatePicker alloc] initWithFrame: CGRectMake(textField.frame.origin.x+10,textField.frame.origin.y+164+(rowIndex.row)*61,250,150)];
@@ -386,7 +391,7 @@
         toolbar_date = [[UIToolbar alloc] initWithFrame:CGRectMake(DatePicker.frame.origin.x, DatePicker.frame.origin.y-50, 250, 50)];
         toolbar_date.barStyle=UIBarStyleBlackTranslucent;
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                       style:UIBarButtonItemStyleDone target:self action:@selector(HideDateLabel)];
+                                                                       style:UIBarButtonItemStyleDone target:self action:@selector(HideDateLabel:)];
         NSMutableArray *barItems = [[NSMutableArray alloc] init];
         UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         [barItems addObject:flexSpace];
@@ -421,12 +426,14 @@
         }
         else
         {
-            rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+           // rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
         }
         
         NSLog(@" ROW INDEX %ld",(long)rowIndex.row);
         UITableViewCell *cell = [returnsample_table cellForRowAtIndexPath:rowIndex];
-        UITextField *textField = (UITextField *)[cell viewWithTag:1];
+        CustomTextField *textField = (CustomTextField *)[cell viewWithTag:1];
         
         NSLog(@"Textfield 2 %@",textField.text);
         
@@ -482,12 +489,16 @@
             
             [Product_Picker removeFromSuperview];
              [Product_Picker_toolbar removeFromSuperview];
+            
             if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
                 rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
             }
             else
             {
-                rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+               // rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+                NSLog(@"%d",textField.Tag1);
+                rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+                
             }
             if(rowIndex.row<5)
                 Product_Picker = [[UIPickerView alloc] initWithFrame: CGRectMake(textField.frame.origin.x+100,(textField.frame.origin.y+104+(rowIndex.row)*61)+44,250,150)];
@@ -537,7 +548,7 @@
     [Product_Picker_toolbar removeFromSuperview];
     [Product_Picker removeFromSuperview];
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSLog(@"TeFe");
     if (textField.tag == 5)
@@ -551,7 +562,10 @@
         }
         else
         {
-            rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+           // rowIndex =[returnsample_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+
         }
         
         if ([[Product_Dictionary objectAtIndex:rowIndex.row] isKindOfClass:[NSDictionary class]])
@@ -649,9 +663,9 @@
     
     UITableViewCell *cell = [returnsample_table cellForRowAtIndexPath:rowIndex];
     
-    UITextField *monthyeartextField = (UITextField *)[cell viewWithTag:1];
+    CustomTextField *monthyeartextField = (CustomTextField *)[cell viewWithTag:1];
     
-    UITextField *textField = (UITextField *)[cell viewWithTag:2];
+    CustomTextField *textField = (CustomTextField *)[cell viewWithTag:2];
     textField.text=[itemAtIndex objectForKey:@"SampleName"];
     
     
@@ -661,7 +675,7 @@
     UITextField *ExpiryDatetextField = (UITextField *)[cell viewWithTag:4];
     ExpiryDatetextField.text=[itemAtIndex objectForKey:@"ExpiryDate"];
     
-    UITextField *returnqtytextField = (UITextField *)[cell viewWithTag:5];
+    CustomTextField *returnqtytextField = (CustomTextField *)[cell viewWithTag:5];
     
 //    UITextField *ReturnQtytextField = (UITextField *)[cell viewWithTag:5];
 //    ReturnQtytextField.text=[itemAtIndex objectForKey:@"Quantity"];

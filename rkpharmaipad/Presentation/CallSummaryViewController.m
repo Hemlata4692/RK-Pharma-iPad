@@ -9,6 +9,8 @@
 #import "DailyPlanListViewController.h"
 #import "DailyClinicPlannedViewController.h"
 #import "ProductManager.h"
+#import "ProductManager.h"
+#import "CustomTextField.h"
 
 NSString *datestring_selected = @"";
 NSString *calltype_selected = @"";
@@ -16,12 +18,15 @@ NSString *callsummaryplandate_selected = @"";
 NSString *callsummaryassistant_selected = @"0";
 int callsummaryproductoffset = 0;
 
-@interface CallSummaryViewController ()
+@interface CallSummaryViewController (){
+    CustomTextField *quantity;
+}
 
 @end
 
 @implementation CallSummaryViewController
-@synthesize product_table,date_picker,clinic_name,product_name,available_quantity,expiry_date,location_label,order_textview,remarks_textview,date_button,post_radio,current_radio,plan_id,location_string,clinicname_string,quantity,samplechitno,plan_date,call_assistant,back,product_button,product_picker_toolbar,date_picker_toolbar;
+@synthesize product_table,date_picker,clinic_name,product_name,available_quantity,expiry_date,location_label,order_textview,remarks_textview,date_button,post_radio,current_radio,plan_id,location_string,clinicname_string,samplechitno,plan_date,call_assistant,back,product_button,product_picker_toolbar,date_picker_toolbar;
+//@synthesize quantity;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -152,6 +157,11 @@ int callsummaryproductoffset = 0;
     NSLog(@" Plan ID DID LOAD %@",plan_id);
     
     [back setTitleColor:[UIColor colorWithRed:(3/255.0) green:(120/255.0) blue:(184/255.0) alpha:1]forState:UIControlStateNormal];
+    
+    
+   //[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
+
+    
     
     calltype_selected=@"Current Call";
     date_button.hidden = YES;
@@ -339,6 +349,7 @@ int callsummaryproductoffset = 0;
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+   // NSLog(@"Hello");
     return TRUE;
 }
 
@@ -393,48 +404,65 @@ int callsummaryproductoffset = 0;
     [self ProductService];
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+-(BOOL)textField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     //UITableViewCell *cell = (UITableViewCell *)[[textField superview] superview];
     NSLog(@"Check Method Cell");
     
-    UITableViewCell *cell;
+//    UITableViewCell *cell;
+//    NSLog(@"%d", textField.Tag1);
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//        
+//        cell=(UITableViewCell *)[[textField superview] superview];
+//        
+//    }
+//    else
+//    {
+//        cell =(UITableViewCell *)[[[textField superview] superview] superview];
+////        NSLog(@"%d",textField.Tag1);
+////        cell =(UITableViewCell *)[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+//
+//        
+//    }
+//    
+//    NSLog(@"Check Method");
+//    
+//    //UITableView *table = (UITableView *)[cell superview];
+//    
+//    UITableView *table;
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//        
+//        table =(UITableView *)[cell superview];
+//        
+//    }
+//    
+//    else
+//        
+//    {
+//        
+//        
+//        table =(UITableView *)[[cell superview] superview];
+//        
+//    }
+//    
+//    NSIndexPath *textFieldIndexPath = [table indexPathForCell:cell];
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+    NSIndexPath *indexPath;
+    
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+        indexPath =[product_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
         
-        cell=(UITableViewCell *)[[textField superview] superview];
+        // indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
         
     }
     else
     {
-        cell =(UITableViewCell *)[[[textField superview] superview] superview];
-        
+        indexPath=[product_table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        // indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
     }
     
-    NSLog(@"Check Method");
-    
-    //UITableView *table = (UITableView *)[cell superview];
-    
-    UITableView *table;
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        
-        table =(UITableView *)[cell superview];
-        
-    }
-    
-    else
-        
-    {
-        
-        
-        table =(UITableView *)[[cell superview] superview];
-        
-    }
-    
-    NSIndexPath *textFieldIndexPath = [table indexPathForCell:cell];
-    
-    [total_value removeObjectAtIndex:textFieldIndexPath.row];
-    [total_value insertObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndex:textFieldIndexPath.row];
+    [total_value removeObjectAtIndex:indexPath.row];
+    [total_value insertObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndex:indexPath.row];
     
     //samplechitno
     if (textField == samplechitno)
@@ -460,6 +488,35 @@ int callsummaryproductoffset = 0;
         NSLog(@"After Range");
     }
 }
+
+//-(void) updateFrame:(CGRect)rect{
+//    
+//    [UIView animateWithDuration:0.3f animations:^
+//     {
+//         self.view.frame=rect;
+//     }];
+//}
+
+
+//-(void)onKeyboardHide:(NSNotification *)notification
+//{
+//    //keyboard will hide
+//   // if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8){
+//        [self updateFrame:CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//  //  }
+////    else{
+////        if ([password isFirstResponder]) {
+////            [self animateTextField: password up: NO];
+////            
+////        }
+////        else if ([username isFirstResponder]) {
+////            [self animateTextField: username up: NO];
+////            // [self animateTextField: password up: NO];
+////        }
+////    }
+//    
+//}
+
 
 - (void)viewDidUnload
 {
@@ -515,10 +572,11 @@ int callsummaryproductoffset = 0;
     
     UIView *QuantitypaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 17)];
     
-    quantity=(UITextField *)[cell viewWithTag:2];
+    quantity=(CustomTextField *)[cell viewWithTag:2];
     quantity.leftView = QuantitypaddingView;
     quantity.leftViewMode = UITextFieldViewModeAlways;
     quantity.delegate=self;
+    quantity.Tag1 = (int)indexPath.row;
     
     quantity.keyboardType=UIKeyboardTypeNumberPad;
     

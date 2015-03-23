@@ -9,11 +9,13 @@
 #import "EditSample.h"
 #import "ProductManager.h"
 #import "JSON.h"
+#import "CustomTextField.h"
 
 @interface EditSample ()
 {
     IBOutlet UITableView *add_table;
-    UITextField *products,*DeliveryQty,*batchNo,*expiryDate;
+    UITextField *batchNo,*expiryDate;
+   // UITextField *products,*DeliveryQty;
     UIButton *Delete;
     IBOutlet UIButton *OrderDate,*AddMore, *DeliveryButton;
     IBOutlet UITextView *Remarks;
@@ -135,12 +137,17 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    products = (UITextField *)[cell viewWithTag:1];
+    CustomTextField *products = (CustomTextField *)[cell viewWithTag:1];
     products.delegate = self;
+    products.Tag1 = (int)indexPath.row;
+    
     batchNo = (UITextField *)[cell viewWithTag:2];
     expiryDate = (UITextField *)[cell viewWithTag:3];
-    DeliveryQty = (UITextField *)[cell viewWithTag:4];
+    
+    CustomTextField *DeliveryQty = (CustomTextField *)[cell viewWithTag:4];
     DeliveryQty.delegate = self;
+    DeliveryQty.Tag1 = (int)indexPath.row;
+    
     Delete = (UIButton *)[cell viewWithTag:5];
     
     batchNo.userInteractionEnabled = NO;
@@ -173,7 +180,7 @@
     return cell;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+- (BOOL)textFieldShouldBeginEditing:(CustomTextField *)textField
 {
     if (textField.tag == 1) {
         
@@ -185,7 +192,10 @@
         }
         else
         {
-            rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            //rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+
         }
         
         [Product_Picker removeFromSuperview];
@@ -232,7 +242,7 @@
     
     
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == 4) {
         if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
@@ -242,7 +252,10 @@
         }
         else
         {
-            rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            //rowIndex =[add_table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+            NSLog(@"%d",textField.Tag1);
+            rowIndex =[NSIndexPath indexPathForRow:textField.Tag1 inSection:0];
+
         }
         
         if ([[Product_Dictionary objectAtIndex:rowIndex.row] isKindOfClass:[NSDictionary class]]) {

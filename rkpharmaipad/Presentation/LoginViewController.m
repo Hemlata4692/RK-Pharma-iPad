@@ -58,6 +58,9 @@ int internet_connectivity_login = 0;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
+
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_image_new.png"]];
     UIView *usernamepaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 20)];
     username.leftView = usernamepaddingView;
@@ -138,8 +141,8 @@ int internet_connectivity_login = 0;
                     if([checklogin length] > 0)
                     {
                         NSString *fullname = (NSString *)[var objectForKey:@"FullName"];
-                        //NSString *UserId = (NSString *)[var objectForKey:@"UserId"];
-                        NSString *UserId = @"cae9bbc2-3b5a-4f1b-9a97-f379728c26d8";
+                        NSString *UserId = (NSString *)[var objectForKey:@"UserId"];
+                     //   NSString *UserId = @"cae9bbc2-3b5a-4f1b-9a97-f379728c26d8";
                          NSString *Role = (NSString *)[var objectForKey:@"RoleName"];
                         
                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -245,15 +248,55 @@ int internet_connectivity_login = 0;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: YES];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8){
+        [self updateFrame:CGRectMake(self.view.frame.origin.x, -165, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    else{
+        
+        [self animateTextField: textField up: YES];
+    }
+
 }
 
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8){
+        [self updateFrame:CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    else{
+        
+        [self animateTextField: textField up: NO];
+    }
 }
 
+-(void) updateFrame:(CGRect)rect{
+    
+    [UIView animateWithDuration:0.3f animations:^
+     {
+         self.view.frame=rect;
+     }];
+}
+
+
+-(void)onKeyboardHide:(NSNotification *)notification
+{
+    //keyboard will hide
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8){
+        [self updateFrame:CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    else{
+        if ([password isFirstResponder]) {
+            [self animateTextField: password up: NO];
+            
+        }
+        else if ([username isFirstResponder]) {
+            [self animateTextField: username up: NO];
+            // [self animateTextField: password up: NO];
+        }
+    }
+    
+}
 
 
 
