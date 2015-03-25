@@ -193,7 +193,7 @@
     }
     
     // Scroll the cell cell to the middle of the tableview
-    [tableView setContentOffset:CGPointMake(0, tableView.rowHeight * (indexPath.row - 2)) animated:YES];    
+    //[tableView setContentOffset:CGPointMake(0, tableView.rowHeight * (indexPath.row - 2)) animated:YES];
   }
   
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
