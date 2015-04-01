@@ -47,7 +47,7 @@ NSTimer *timer;
                                            selector: @selector(startTrackingBg)
                                            userInfo: nil
                                             repeats: YES];
-    
+    [timer fire];
     SampleDictionary = [NSDictionary new];
     //  NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
      //  NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
@@ -117,6 +117,16 @@ NSTimer *timer;
 
 - (void) startTrackingBg
 {
+    
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        // If the status is denied or only granted for when in use, display an alert
+        if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
+        } else if (status == kCLAuthorizationStatusNotDetermined) {
+            [locationManager requestAlwaysAuthorization];
+        }
+    }
+
     [locationManager startUpdatingLocation];
     NSLog(@"Timer did fire");
 }
