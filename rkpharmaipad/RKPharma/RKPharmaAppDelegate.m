@@ -36,7 +36,13 @@ NSTimer *timer;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     //[locationManager startUpdatingLocation];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval: 300
+//    if([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0 )
+//    {
+//        [locationManager requestWhenInUseAuthorization];
+//    }
+    
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5
                                              target: self
                                            selector: @selector(startTrackingBg)
                                            userInfo: nil
@@ -102,7 +108,7 @@ NSTimer *timer;
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
+        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] run];
     });
@@ -220,8 +226,8 @@ NSTimer *timer;
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   // NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
-  //   NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+  //  NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
+    // NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
     NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     

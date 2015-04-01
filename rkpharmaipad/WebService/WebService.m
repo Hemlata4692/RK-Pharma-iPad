@@ -1613,7 +1613,7 @@
         NSError *error = nil;
         responseData = [NSURLConnection sendSynchronousRequest:request_announcement returningResponse:&response error:&error];
         responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        
+        NSLog(@"Response is%@", responseString);
         return responseString;//return webservice response
     }
 }
