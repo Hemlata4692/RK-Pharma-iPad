@@ -49,7 +49,7 @@ NSTimer *timer;
                                             repeats: YES];
     [timer fire];
     SampleDictionary = [NSDictionary new];
-    //  NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
+     // NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
      //  NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
     NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
@@ -121,10 +121,10 @@ NSTimer *timer;
     if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
         // If the status is denied or only granted for when in use, display an alert
-        if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
-        } else if (status == kCLAuthorizationStatusNotDetermined) {
-            [locationManager requestAlwaysAuthorization];
-        }
+//        if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
+//        } else if (status == kCLAuthorizationStatusNotDetermined) {
+//            [locationManager requestAlwaysAuthorization];
+//        }
     }
 
     [locationManager startUpdatingLocation];
@@ -237,7 +237,7 @@ NSTimer *timer;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   //  NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
-    // NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+   //  NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
     NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     

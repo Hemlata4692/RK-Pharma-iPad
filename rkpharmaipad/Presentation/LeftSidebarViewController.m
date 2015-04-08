@@ -210,28 +210,28 @@
     return cell;
 }
 
--(void)viewDidLayoutSubviews
-{
-    if ([self.sidebar_table respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.sidebar_table setSeparatorInset:UIEdgeInsetsZero];
-    }
-
-    if ([self.sidebar_table respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.sidebar_table setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            [cell setSeparatorInset:UIEdgeInsetsZero];
-        }
-    
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:UIEdgeInsetsZero];
-        }
-
-}
+//-(void)viewDidLayoutSubviews
+//{
+//    if ([self.sidebar_table respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [self.sidebar_table setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//
+//    if ([self.sidebar_table respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [self.sidebar_table setLayoutMargins:UIEdgeInsetsZero];
+//    }
+//}
+//
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//            [cell setSeparatorInset:UIEdgeInsetsZero];
+//        }
+//    
+//        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//            [cell setLayoutMargins:UIEdgeInsetsZero];
+//        }
+//
+//}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
