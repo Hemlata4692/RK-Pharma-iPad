@@ -15,7 +15,9 @@
 #import "CallSummaryViewController.h"
 #import "DailyPlanListViewController.h"
 
-@interface DailyClinicPlannedViewController ()
+@interface DailyClinicPlannedViewController (){
+    BOOL dateChecker;
+}
 
 @end
 
@@ -153,6 +155,25 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     date.text = [defaults objectForKey:@"PlanDate"];
+   
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // this is imporant - we set our input date format to match our input string
+    // if format doesn't match you'll get nil from your string, so be careful
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    dateFromString = [dateFormatter dateFromString:date.text];
+    dateChecker= false;
+    if ([dateFromString compare:[NSDate date]] == NSOrderedDescending) {
+        dateChecker= true;
+        NSLog(@"Checking");
+    }
+    else
+    {
+        dateChecker= false;
+        NSLog(@"CheckingAgain");
+    }
+
+    
     [self DailyPlannedService];
         
 }
@@ -218,7 +239,9 @@
     fillsummary=(UIButton *)[cell viewWithTag:3];
     [fillsummary addTarget:self action:@selector(call_summary:)forControlEvents:UIControlEventTouchUpInside];
     
-    if([[itemAtIndex objectForKey:@"Summary"] intValue]==1 || [[itemAtIndex objectForKey:@"IsLocked"] intValue]==1)
+   
+    
+    if([[itemAtIndex objectForKey:@"Summary"] intValue]==1 || [[itemAtIndex objectForKey:@"IsLocked"] intValue]==1 || dateChecker==true)
     {
         fillsummary.hidden = YES;
     }
