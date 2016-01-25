@@ -431,7 +431,7 @@ NSString *clinicid_selected = @"";
         status_label.textColor= [UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(200/255.0) alpha:1];
     }
     
-    if([[itemAtIndex objectForKey:@"Status"] intValue] == 1)
+    if([[itemAtIndex objectForKey:@"CanDelete"] intValue] == 1)
     {
         // Added Custom delete button to get tableview indexpath value
         UIButton *accessory = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -441,6 +441,9 @@ NSString *clinicid_selected = @"";
         [accessory addTarget:self action:@selector(delete_reminder:) forControlEvents:UIControlEventTouchUpInside];
         accessory.backgroundColor = [UIColor clearColor];
         cell.accessoryView = accessory;
+    }
+    else{
+        cell.accessoryView=nil;
     }
     
     

@@ -478,23 +478,7 @@
                            NSLog(@"main array %@",MainArray);
                            NSLog(@"second array %@",Product_Dictionary);
                            
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           NSString *productString=@"";
+                                NSString *productString=@"";
                            for (int i = 0; i < MainArray.count; i++) {
                                NSDictionary *dict = [MainArray objectAtIndex:i];
                                NSString *delete=[dict valueForKey:@"delete"];

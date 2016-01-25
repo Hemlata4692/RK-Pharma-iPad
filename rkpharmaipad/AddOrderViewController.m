@@ -85,6 +85,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
 -(IBAction)button_select:(id)sender
 {
     UIButton *btn=(UIButton*)sender;
+    
     if(btn.tag==100 || btn.tag==101)
     {
         OT=[NSString stringWithFormat:@"%d",btn.tag];
@@ -498,8 +499,9 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         //Add Prodcut
         page=1;
         for (UIButton *but in [external_scrool subviews]) {
-            if(but.tag==100)
+                if(but.tag==100)
             {
+                
                 but.selected=YES;
             }
         }

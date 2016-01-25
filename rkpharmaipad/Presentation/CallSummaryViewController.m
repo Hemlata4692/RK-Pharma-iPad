@@ -74,7 +74,7 @@ int callsummaryproductoffset = 0;
     
     //Create domain class object
     DailyPlan *dailyplan_samples=[[DailyPlan alloc]init];
-    
+   // plan_id=@"234";
     NSLog(@"Check Plan ID %@",plan_id);
     dailyplan_samples.plan_id = plan_id;
     
