@@ -13,6 +13,7 @@
 #import "DailyPlanManager.h"
 #import "JSON.h"
 #import "UserManager.h"
+#import "ProductManager.h"
 #import "Clinic.h"
 #import "ClinicManager.h"
 #import "QuartzCore/QuartzCore.h"
@@ -21,14 +22,15 @@
 
 NSString *callcardareaid_selected = @"";
 NSString *callcardclinicid_selected = @"";
+NSString *callcarddivisionid_selected = @"";
 NSString *issuedbycompany_checked = @"1";
 @interface CallCardViewController ()
 
 @end
 
 @implementation CallCardViewController
-@synthesize date,products,sample,order,remarks,callcard_table,clinic_button,clinic_picker,location_button,location_picker,error,bonus,unofficialbonus,backbutton,search,backarrow,clinicname_label,clinicaddress_label,issuedby_company;
-@synthesize location_picker_toolbar,clinic_picker_toolbar;
+@synthesize date,products,sample,order,remarks,callcard_table,clinic_button,clinic_picker,location_button,location_picker,division_picker,division_button,error,bonus,unofficialbonus,backbutton,search,backarrow,clinicname_label,clinicaddress_label,issuedby_company;
+@synthesize location_picker_toolbar,clinic_picker_toolbar,division_picker_toolbar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -57,6 +59,8 @@ NSString *issuedbycompany_checked = @"1";
     clinic_picker_toolbar.hidden = YES;
     location_picker.hidden = YES;
     location_picker_toolbar.hidden = YES;
+    division_picker.hidden = YES;
+    division_picker_toolbar.hidden = YES;
 }
 
 - (void)pickerViewTapGestureRecognized:(UITapGestureRecognizer*)gestureRecognizer
@@ -73,6 +77,22 @@ NSString *issuedbycompany_checked = @"1";
         
     }
 }
+
+- (void)pickerViewTapGestureRecognizedDivisionPicker:(UITapGestureRecognizer*)gestureRecognizerdivisionpicker
+{
+    division_picker.hidden=YES;
+    division_picker_toolbar.hidden = YES;
+    CGPoint touchPoint = [gestureRecognizerdivisionpicker locationInView:gestureRecognizerdivisionpicker.view.superview];
+    
+    CGRect frame = division_picker.frame;
+    CGRect selectorFrame = CGRectInset( frame, 0.0, division_picker.bounds.size.height * 0.85 / 2.0 );
+    
+    if( CGRectContainsPoint( selectorFrame, touchPoint) )
+    {
+        
+    }
+}
+
 
 - (void)pickerViewTapGestureRecognizedclinicpicker:(UITapGestureRecognizer*)gestureRecognizerclinicpicker
 {
@@ -96,6 +116,7 @@ NSString *issuedbycompany_checked = @"1";
     
     daily_plan.clinic_id = callcardclinicid_selected;
     daily_plan.WebSummary = issuedbycompany_checked;
+    daily_plan.divisionid = callcarddivisionid_selected;
     
     //Create business manager class object
     DailyPlanManager *plan_business=[[DailyPlanManager alloc]init];
@@ -223,6 +244,34 @@ NSString *issuedbycompany_checked = @"1";
     [clinic_picker reloadAllComponents];
 }
 
+- (void)DivisionService
+{
+    //Create business manager class object
+    ProductManager *product_division=[[ProductManager alloc]init];
+    NSString *division_response=[product_division GetDivisionList];//call businessmanager method
+    NSLog(@"Division List response is %@",division_response);
+    
+    if (division_response.length !=0)
+    {
+        NSDictionary *var =  [division_response JSONValue];
+        NSLog(@"dict result List%@",var);
+        
+        [division_array addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"DivisionId",@"All",@"DivisionName",nil]];
+        for(NSDictionary *dictvar in var)
+        {
+            [division_array addObject:[NSDictionary dictionaryWithObjectsAndKeys:[dictvar objectForKey:@"DivisionId"],@"DivisionId",[dictvar objectForKey:@"DivisionName"],@"DivisionName",nil]];
+        }
+        
+        NSLog(@" Count Division Array %lu",(unsigned long)division_array.count);
+        
+        callcarddivisionid_selected = @"0";
+        NSString *division_name = @"    All";
+        [division_button setTitle:division_name forState:UIControlStateNormal];
+        [division_button setTitleColor:[UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(0/255.0) alpha:1] forState:UIControlStateNormal];
+        division_picker.showsSelectionIndicator = YES;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -235,6 +284,7 @@ NSString *issuedbycompany_checked = @"1";
     location_array = [[NSMutableArray alloc]init];
     clinic_array = [[NSMutableArray alloc]init];
     callcard_array = [[NSMutableArray alloc]init];
+    division_array = [[NSMutableArray alloc]init];
     
     callcard_table.layer.borderWidth = 1.0;
     callcard_table.layer.borderColor = [UIColor colorWithRed:(211/255.0) green:(211/255.0) blue:(211/255.0) alpha:1].CGColor;
@@ -253,12 +303,26 @@ NSString *issuedbycompany_checked = @"1";
     location_picker.hidden=YES;
     location_picker.backgroundColor = [UIColor colorWithWhite:0.872 alpha:1.000];
     
+    // To Show Location Picker View
+    UITapGestureRecognizer *gestureRecognizerdivisionpicker = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapGestureRecognizedDivisionPicker:)];
+    gestureRecognizerdivisionpicker.cancelsTouchesInView = NO;
+    
+    // To Set Location Picker
+    division_picker=[[UIPickerView alloc]initWithFrame:CGRectMake(522,52+30+14,200,100)];
+    [division_picker addGestureRecognizer:gestureRecognizer];
+    [self.view addSubview:division_picker];
+    
+    [division_picker setDelegate:self];
+    [division_picker setDataSource:self];
+    division_picker.hidden=YES;
+    division_picker.backgroundColor = [UIColor colorWithWhite:0.872 alpha:1.000];
+    
     // To Show Clinic Picker View
     UITapGestureRecognizer *gestureRecognizerclinicpicker = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapGestureRecognizedclinicpicker:)];
     gestureRecognizerclinicpicker.cancelsTouchesInView = NO;
     
-    // To Set Clinic Picker
-    clinic_picker=[[UIPickerView alloc]initWithFrame:CGRectMake(187,52+30+14,300,100)];
+    // To Set Clinic Picke
+    clinic_picker=[[UIPickerView alloc]initWithFrame:CGRectMake(175,52+30+14,300,100)];
     [clinic_picker addGestureRecognizer:gestureRecognizerclinicpicker];
     [self.view addSubview:clinic_picker];
     
@@ -268,7 +332,7 @@ NSString *issuedbycompany_checked = @"1";
     clinic_picker.backgroundColor = [UIColor colorWithWhite:0.872 alpha:1.000];
     
     
-    /** picker toolbar code **/
+    /** location picker toolbar code **/
     location_picker_toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(location_picker.frame.origin.x, 52,location_picker.frame.size.width,30+14)];
     location_picker_toolbar.barStyle = UIBarStyleBlackTranslucent;
     /************** toolbar custmzation *************/
@@ -286,6 +350,27 @@ NSString *issuedbycompany_checked = @"1";
     [location_picker_toolbar setItems:barItems animated:YES];
     [self.view addSubview:location_picker_toolbar];
     location_picker_toolbar.hidden = YES;
+    
+    /** division picker toolbar code **/
+    division_picker_toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(division_picker.frame.origin.x, 52,division_picker.frame.size.width,30+14)];
+    division_picker_toolbar.barStyle = UIBarStyleBlackTranslucent;
+    /************** toolbar custmzation *************/
+    NSMutableArray *barItems3 = [[NSMutableArray alloc] init];
+    UIBarButtonItem *flexSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [barItems3 addObject:flexSpace3];
+    UIBarButtonItem *doneBtn3 = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done_clicked:)];
+    doneBtn3.tag = 3;
+    [doneBtn3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                     [UIFont fontWithName:@"HelveticaNeue" size:15], NSFontAttributeName,
+                                     [UIColor whiteColor], NSForegroundColorAttributeName,
+                                     nil]
+                           forState:UIControlStateNormal];
+    [barItems3 addObject:doneBtn3];
+    [division_picker_toolbar setItems:barItems3 animated:YES];
+    [self.view addSubview:division_picker_toolbar];
+    division_picker_toolbar.hidden = YES;
+    
+     /** clicnic picker toolbar code **/
     clinic_picker_toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(clinic_picker.frame.origin.x, 52,clinic_picker.frame.size.width,30+14)];
     clinic_picker_toolbar.barStyle = UIBarStyleBlackTranslucent;
     /************** toolbar custmzation *************/
@@ -311,8 +396,7 @@ NSString *issuedbycompany_checked = @"1";
     self.callcard_table.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
     
     
-    
-    
+    [self DivisionService];
     
 }
 
@@ -397,11 +481,17 @@ NSString *issuedbycompany_checked = @"1";
         backarrow.hidden = NO;
         NSLog(@"Show Backarrow");
         
+//        CGRect frame = backbutton.frame;
+//        frame.origin.y=14;//pass the cordinate which you want
+//        frame.origin.x= 772;//pass the cordinate which you want
+//        backbutton.frame= frame;
+        
         clinicname_label.hidden = NO;
         clinicaddress_label.hidden = NO;
         
         clinic_button.hidden = YES;
         location_button.hidden = YES;
+        division_button.hidden = YES;
         search.hidden = YES;
     }
 }
@@ -413,6 +503,8 @@ NSString *issuedbycompany_checked = @"1";
     clinic_picker_toolbar.hidden = YES;
     location_picker.hidden = YES;
     location_picker_toolbar.hidden = YES;
+    division_picker.hidden = YES;
+    division_picker_toolbar.hidden = YES;
     [super touchesBegan:touches withEvent:event];
 }
 
@@ -595,6 +687,10 @@ NSString *issuedbycompany_checked = @"1";
     {
         return location_array.count;
     }
+    else if(pickerView==division_picker)
+    {
+        return division_array.count;
+    }
     else
     {
         return clinic_array.count;
@@ -623,7 +719,7 @@ NSString *issuedbycompany_checked = @"1";
     if (pickerLabel == nil)
     {
         //label size
-        if(pickerView==location_picker)
+        if(pickerView==location_picker || pickerView==division_picker)
         {
             CGRect frame = CGRectMake(20.0, 0.0, 150, 150);
             pickerLabel = [[UILabel alloc] initWithFrame:frame];
@@ -656,6 +752,13 @@ NSString *issuedbycompany_checked = @"1";
         //picker view array is the datasource
         [pickerLabel setText:[itemAtIndex objectForKey:@"LocationName"]];
     }
+    else if(pickerView==division_picker)
+    {
+        NSDictionary *itemAtIndex = (NSDictionary *)[division_array objectAtIndex:row];
+        
+        //picker view array is the datasource
+        [pickerLabel setText:[itemAtIndex objectForKey:@"DivisionName"]];
+    }
     else
     {
         NSDictionary *itemAtIndex = (NSDictionary *)[clinic_array objectAtIndex:row];
@@ -687,6 +790,22 @@ NSString *issuedbycompany_checked = @"1";
         location_picker_toolbar.hidden = NO;
         [self ClinicService];
     }
+    else if(pickerView==division_picker)
+    {
+        
+        NSDictionary *itemAtIndex = (NSDictionary *)[division_array objectAtIndex:row];
+        callcarddivisionid_selected=[itemAtIndex objectForKey:@"DivisionId"];
+        
+        NSString *division_name = @"   ";
+        division_name = [division_name stringByAppendingString:[itemAtIndex objectForKey:@"DivisionName"]];
+        
+        [division_button setTitle:[itemAtIndex objectForKey:@"DivisionName"] forState:UIControlStateNormal];
+        division_button.titleEdgeInsets=UIEdgeInsetsMake(0, 5, 0, 40);
+        [division_button setTitleColor:[UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(0/255.0) alpha:1] forState:UIControlStateNormal];
+        division_picker.showsSelectionIndicator = YES;
+        division_picker.hidden= NO;
+        division_picker_toolbar.hidden = NO;
+    }
     else
     {
         if(clinic_array.count>0)
@@ -715,8 +834,12 @@ NSString *issuedbycompany_checked = @"1";
     {
         location_picker.hidden=NO;
         location_picker_toolbar.hidden = NO;
+        
         clinic_picker.hidden = YES;
         clinic_picker_toolbar.hidden = YES;
+        
+        division_picker.hidden = YES;
+        division_picker_toolbar.hidden = YES;
     }
     else
     {
@@ -732,6 +855,9 @@ NSString *issuedbycompany_checked = @"1";
     clinic_picker_toolbar.hidden = YES;
     location_picker.hidden = YES;
     location_picker_toolbar.hidden = YES;
+    division_picker.hidden = YES;
+    division_picker_toolbar.hidden = YES;
+    
     [self displayActivityView];
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -753,6 +879,11 @@ NSString *issuedbycompany_checked = @"1";
         location_picker.hidden=YES;
         location_picker_toolbar.hidden = YES;
     }
+    else if(btn.tag ==3)
+    {
+        division_picker.hidden=YES;
+        division_picker_toolbar.hidden = YES;
+    }
     else
     {
         clinic_picker.hidden=YES;
@@ -760,6 +891,37 @@ NSString *issuedbycompany_checked = @"1";
     }
     
 }
+
+-(IBAction)GetDivisions
+{
+    if(division_array.count>0)
+    {
+        
+        if([division_picker isHidden])
+        {
+            division_picker.hidden=NO;
+            division_picker_toolbar.hidden = NO;
+            
+            location_picker.hidden=YES;
+            location_picker_toolbar.hidden = YES;
+            
+            clinic_picker.hidden=YES;
+            clinic_picker_toolbar.hidden = YES;
+            
+        }
+        else
+        {
+            division_picker.hidden=YES;
+            division_picker_toolbar.hidden = YES;
+        }
+    }
+    else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error" message:@"You don't have any assigned divisions." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 -(IBAction)GetClinics
 {
     if(clinic_array.count>0)
@@ -769,8 +931,12 @@ NSString *issuedbycompany_checked = @"1";
         {
             clinic_picker.hidden=NO;
             clinic_picker_toolbar.hidden = NO;
+            
             location_picker.hidden=YES;
             location_picker_toolbar.hidden = YES;
+            
+            division_picker.hidden=YES;
+            division_picker_toolbar.hidden = YES;
             
         }
         else

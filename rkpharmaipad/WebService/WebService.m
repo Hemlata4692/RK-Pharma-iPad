@@ -1128,8 +1128,11 @@
         
         NSString *issuedbycompany_string = [Request valueForKey:@"WebSummary"];
         int issuedbycompanyint = [issuedbycompany_string intValue];
-        //int clinicidint  = 76;
         
+        NSString *divisionid_string = [Request valueForKey:@"divisionid"];
+        int divisionid = [divisionid_string intValue];
+        //int clinicidint  = 76;
+        //int divisionidint  = 4;
         
         NSString *jsonRequest = [NSString stringWithFormat:@"{\"ClinicId\":\"%d\",\"UserId\":\"%@\",\"WebSummary\":\"%d\"}",clinicidint,[defaults objectForKey:@"UserId"],issuedbycompanyint];
         
@@ -1644,6 +1647,44 @@
         
         NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"StartDate\":\"%@\",\"EndDate\":\"%@\",\"ProductId\":\"%@\",\"LocationId\":\"%@\"}",[defaults objectForKey:@"UserId"],datefrom_string,dateto_string,[Request valueForKey:@"ProductId"],[Request valueForKey:@"LocationId"]];
         NSLog(@"json %@",jsonRequest);
+        NSURL *url = [NSURL URLWithString:WebserviceUrl];
+        NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSLog(@"response  %@",responseString);
+        return responseString;//return webservice response
+    }
+    
+}
+
+-(NSString*)GetDivisionList
+{
+    Internet *internet=[[Internet alloc] init];
+    if([internet start])
+    {
+        return @"";
+    }
+    else
+    {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
+        WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetDivisionList"];
+        
+        
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\"}",[defaults objectForKey:@"UserId"]];
+        NSLog(@"Json Division List Request %@",jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
         NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         

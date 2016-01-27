@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E46" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -2311,7 +2311,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0r-oX-hfI">
-                                <rect key="frame" x="187" y="10" width="341" height="34"/>
+                                <rect key="frame" x="175" y="10" width="341" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
                                 <state key="normal" title="   Search By Clinic" backgroundImage="selectboxbig.png">
@@ -2326,7 +2326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tth-sp-k2P">
-                                <rect key="frame" x="685" y="10" width="33" height="33"/>
+                                <rect key="frame" x="797" y="10" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="searchbutton.png">
@@ -2531,7 +2531,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0qz-UL-Ghl">
-                                <rect key="frame" x="773" y="10" width="58" height="26"/>
+                                <rect key="frame" x="772" y="14" width="58" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="13"/>
                                 <state key="normal" title="   Back" backgroundImage="submitbutton.png">
@@ -2546,7 +2546,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back.png" id="A5k-pl-RHh">
-                                <rect key="frame" x="782" y="17" width="6" height="11"/>
+                                <rect key="frame" x="781" y="21" width="6" height="11"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Clinic Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gbp-Wt-E1w">
@@ -2564,20 +2564,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issued by Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JlC-bq-c2f">
-                                <rect key="frame" x="564" y="16" width="110" height="21"/>
+                                <rect key="frame" x="686" y="16" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KCU-Kg-xbJ">
-                                <rect key="frame" x="538" y="17" width="18" height="20"/>
+                                <rect key="frame" x="665" y="17" width="18" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="checkedbox.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="toggleissuedbycompany" destination="Qkj-W3-o41" eventType="touchUpInside" id="F2F-fJ-Hup"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mkE-dm-2TK">
+                                <rect key="frame" x="522" y="9" width="138" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
+                                <state key="normal" title="  Select Division    " backgroundImage="selectbox_new.png">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GetDivisions" destination="Qkj-W3-o41" eventType="touchUpInside" id="kyA-pd-d9K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2590,6 +2602,7 @@
                         <outlet property="clinic_button" destination="e0r-oX-hfI" id="WzH-vJ-41F"/>
                         <outlet property="clinicaddress_label" destination="AgU-wL-IgO" id="ccK-xd-1ym"/>
                         <outlet property="clinicname_label" destination="Gbp-Wt-E1w" id="nP2-ca-zNw"/>
+                        <outlet property="division_button" destination="mkE-dm-2TK" id="6v9-FV-Et1"/>
                         <outlet property="error" destination="RsG-yI-Kqw" id="P7u-0Q-yq0"/>
                         <outlet property="issuedby_company" destination="KCU-Kg-xbJ" id="FO6-6P-jt0"/>
                         <outlet property="location_button" destination="zQ4-sb-ORq" id="asf-2y-Cbl"/>
@@ -2598,7 +2611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="504-pZ-RUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5237" y="825"/>
+            <point key="canvasLocation" x="5195" y="855"/>
         </scene>
         <!--Product List View Controller-->
         <scene sceneID="7rs-OW-9JH">

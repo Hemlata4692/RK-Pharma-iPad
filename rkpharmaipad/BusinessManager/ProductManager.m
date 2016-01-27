@@ -19,6 +19,14 @@
     return string;//get and return webservice response 
 }
 
+- (NSString*)GetDivisionList
+{
+    //Call webservice method of Order
+    WebService *web=[[WebService alloc]init];
+    NSString *string=[web GetDivisionList];
+    return string;//get and return webservice response
+}
+
 - (NSString*)GetAllProductList:(id)product_object
 {
     

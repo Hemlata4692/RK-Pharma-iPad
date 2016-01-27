@@ -55,5 +55,6 @@
 -(NSString*)EditOrder:(id)Request;
 -(NSString*)GetSampleReturnList:Request;
 -(NSString*)GetSampleDetails:Request;
+-(NSString*)GetDivisionList;
 
 @end

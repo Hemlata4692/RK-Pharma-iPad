@@ -13,6 +13,7 @@
     NSMutableData *responseData;
 }
 - (NSString*)GetProductList;
+- (NSString*)GetDivisionList;
 - (NSString*)GetAllProductList:(id)product_object;
 - (NSString*)GetSampleRequestList:(id)product_object;
 - (NSString*)GetSampleReturntList:(id)product_object;
