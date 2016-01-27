@@ -68,7 +68,7 @@
         NSDictionary *var =  [response JSONValue];
         NSLog(@"dict Product List%@",var);
         
-        [ProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"ProductId",@"All",@"ProductName",nil]];
+        [ProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"ProductId",@" All",@"ProductName",nil]];
         for(NSDictionary *product_dictvar in var)
         {
             [ProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[product_dictvar objectForKey:@"ProductId"],@"ProductId",[product_dictvar objectForKey:@"ProductName"],@"ProductName",nil]];
@@ -509,11 +509,42 @@
     return ProductArray.count;
 }
 
--(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
+    UILabel *pickerLabel = (UILabel *)view;
+    
+    if (pickerLabel == nil)
+    {
+        //label size
+        CGRect frame = CGRectMake(10.0, 0.0, 250, 150);
+        pickerLabel = [[UILabel alloc] initWithFrame:frame];
+        [pickerLabel setTextAlignment:NSTextAlignmentLeft];
+        [pickerLabel setBackgroundColor:[UIColor clearColor]];
+        //here you can play with fonts
+        [pickerLabel setFont:[UIFont fontWithName:@"Arial" size:13.0]];
+        
+    }
+    
+    
+    
     NSDictionary *itemAtIndex = (NSDictionary *)[ProductArray objectAtIndex:row];
-    return [itemAtIndex objectForKey:@"ProductName"];
+    
+    NSString *product_namestring = @"   ";
+    product_namestring = [product_namestring stringByAppendingString:[itemAtIndex objectForKey:@"ProductName"]];
+    
+    //picker view array is the datasource
+    [pickerLabel setText:product_namestring];
+    
+    return pickerLabel;
+    
 }
+
+//-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    NSDictionary *itemAtIndex = (NSDictionary *)[ProductArray objectAtIndex:row];
+//    return [itemAtIndex objectForKey:@"ProductName"];
+//}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     
