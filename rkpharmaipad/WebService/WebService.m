@@ -1134,7 +1134,7 @@
         //int clinicidint  = 76;
         //int divisionidint  = 4;
         
-        NSString *jsonRequest = [NSString stringWithFormat:@"{\"ClinicId\":\"%d\",\"UserId\":\"%@\",\"WebSummary\":\"%d\"}",clinicidint,[defaults objectForKey:@"UserId"],issuedbycompanyint];
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"ClinicId\":\"%d\",\"UserId\":\"%@\",\"WebSummary\":\"%d\",\"DivisionId\":\"%d\"}",clinicidint,[defaults objectForKey:@"UserId"],issuedbycompanyint,divisionid];
         
         NSLog(@"Json Request Call Card List: %@", jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
