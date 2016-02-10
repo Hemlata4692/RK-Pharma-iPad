@@ -2605,6 +2605,7 @@
                         <outlet property="division_button" destination="mkE-dm-2TK" id="6v9-FV-Et1"/>
                         <outlet property="error" destination="RsG-yI-Kqw" id="P7u-0Q-yq0"/>
                         <outlet property="issuedby_company" destination="KCU-Kg-xbJ" id="FO6-6P-jt0"/>
+                        <outlet property="issuedby_company_label" destination="JlC-bq-c2f" id="b0Z-6S-6ZS"/>
                         <outlet property="location_button" destination="zQ4-sb-ORq" id="asf-2y-Cbl"/>
                         <outlet property="search" destination="Tth-sp-k2P" id="1Vj-bj-9kN"/>
                     </connections>

@@ -29,7 +29,7 @@ NSString *issuedbycompany_checked = @"1";
 @end
 
 @implementation CallCardViewController
-@synthesize date,products,sample,order,remarks,callcard_table,clinic_button,clinic_picker,location_button,location_picker,division_picker,division_button,error,bonus,unofficialbonus,backbutton,search,backarrow,clinicname_label,clinicaddress_label,issuedby_company;
+@synthesize date,products,sample,order,remarks,callcard_table,clinic_button,clinic_picker,location_button,location_picker,division_picker,division_button,error,bonus,unofficialbonus,backbutton,search,backarrow,clinicname_label,clinicaddress_label,issuedby_company,issuedby_company_label;
 @synthesize location_picker_toolbar,clinic_picker_toolbar,division_picker_toolbar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -473,7 +473,10 @@ NSString *issuedbycompany_checked = @"1";
         
         clinic_button.hidden = NO;
         location_button.hidden = NO;
+        division_button.hidden = NO;
         search.hidden = NO;
+        issuedby_company.hidden = NO;
+        issuedby_company_label.hidden = NO;
     }
     else
     {
@@ -493,6 +496,8 @@ NSString *issuedbycompany_checked = @"1";
         location_button.hidden = YES;
         division_button.hidden = YES;
         search.hidden = YES;
+        issuedby_company.hidden = YES;
+        issuedby_company_label.hidden = YES;
     }
 }
 
