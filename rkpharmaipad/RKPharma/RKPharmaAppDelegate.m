@@ -238,8 +238,8 @@ NSTimer *timer;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    // NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
-     NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
-//   NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
+//     NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+   NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
 //    [defaults setInteger:0 forKey:@"incrementNotify"];
