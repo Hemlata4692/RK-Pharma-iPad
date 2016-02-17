@@ -41,8 +41,8 @@ NSTimer *timer;
 //        [locationManager requestWhenInUseAuthorization];
 //    }
     
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval: 5
+    [self startTrackingBg];
+    timer = [NSTimer scheduledTimerWithTimeInterval: 300
                                              target: self
                                            selector: @selector(startTrackingBg)
                                            userInfo: nil
@@ -108,7 +108,7 @@ NSTimer *timer;
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
+        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] run];
     });
