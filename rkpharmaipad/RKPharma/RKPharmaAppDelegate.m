@@ -41,17 +41,17 @@ NSTimer *timer;
 //        [locationManager requestWhenInUseAuthorization];
 //    }
     
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval: 5
+    [self startTrackingBg];
+    timer = [NSTimer scheduledTimerWithTimeInterval: 300
                                              target: self
                                            selector: @selector(startTrackingBg)
                                            userInfo: nil
                                             repeats: YES];
     [timer fire];
     SampleDictionary = [NSDictionary new];
-      NSString *main_url=@"http://192.168.1.148/rkp/RKService.svc/";
-//       NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
-    //NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
+//      NSString *main_url=@"http://192.168.1.148/rkp/RKService.svc/";
+    //   NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+    NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -108,7 +108,7 @@ NSTimer *timer;
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
+        NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(startTrackingBg) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] run];
     });
@@ -216,6 +216,7 @@ NSTimer *timer;
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [self startTrackingBg];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
@@ -237,7 +238,7 @@ NSTimer *timer;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    // NSString *main_url=@"http://192.168.1.53/rkp/RKService.svc/";
-    // NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+//     NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
    NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
