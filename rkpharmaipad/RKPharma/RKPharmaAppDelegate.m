@@ -50,7 +50,6 @@ NSTimer *timer;
     [timer fire];
     SampleDictionary = [NSDictionary new];
       NSString *main_url=@"http://192.168.1.148/rkp/RKService.svc/";
-//       NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
     //NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
