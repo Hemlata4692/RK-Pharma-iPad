@@ -22,6 +22,7 @@
 -(NSString*)GetReminder;
 -(NSString*)AddReminder:Request;
 -(NSString*)GetProductList;
+-(NSString*)GetProductListUsingClinicId:(NSString*)clinicId;
 -(NSString*)GetAllProductList:Request;
 -(NSString*)GetClinicDetail:Request;
 -(NSString*)GetAllAnnouncement;

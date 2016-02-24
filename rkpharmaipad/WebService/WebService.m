@@ -794,7 +794,7 @@
         NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
         WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetProductsList"];
         
-        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\"}",[defaults objectForKey:@"UserId"]];
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"ClinicId\":\"0\"}",[defaults objectForKey:@"UserId"]];
         
         NSLog(@"Json Request Product List: %@", jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
@@ -816,6 +816,44 @@
         return responseString;//return webservice response
     }
 }
+
+//Added by rohit modi
+- (NSString*)GetProductListUsingClinicId:(NSString*)clinicId
+{
+    Internet *internet=[[Internet alloc] init];
+    if([internet start])
+    {
+        return @"";
+    }
+    else
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
+        WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetProductsList"];
+        
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"ClinicId\":\"%@\"}",[defaults objectForKey:@"UserId"],clinicId];
+        
+        NSLog(@"Json Request Product List: %@", jsonRequest);
+        NSURL *url = [NSURL URLWithString:WebserviceUrl];
+        NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        
+        return responseString;//return webservice response
+    }
+}
+//end
 
 -(NSString*)GetAllProductList:(id)Request
 {

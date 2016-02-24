@@ -19,6 +19,16 @@
     return string;//get and return webservice response 
 }
 
+//Added by rohit modi
+- (NSString*)GetProductListUsingClinicId:(NSString*)clinicId
+{
+    //Call webservice method of Order
+    WebService *web=[[WebService alloc]init];
+    NSString *string=[web GetProductListUsingClinicId:clinicId];
+    return string;//get and return webservice response
+}
+//end
+
 - (NSString*)GetDivisionList
 {
     //Call webservice method of Order

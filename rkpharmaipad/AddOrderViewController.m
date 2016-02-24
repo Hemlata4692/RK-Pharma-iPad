@@ -15,6 +15,7 @@
 #import "DejalActivityView.h"
 #import "NewOrderListViewController.h"
 #import "CustomTextField.h"
+#import "ProductManager.h"
 @interface AddOrderViewController (){
     BOOL deleteSelection;
     int rowChecker;
@@ -23,7 +24,7 @@
 @end
 
 @implementation AddOrderViewController
-@synthesize areaArray,clinicArray,specializationArray,productArray,internal_scroll,external_scrool,orderId;
+@synthesize areaArray,clinicArray,specializationArray,productArray,internal_scroll,external_scrool,orderId,oldProductArray,latestProductArray;
 @synthesize table,productPicker,datePicker,ordeObject,area_picker_toolbar;
 @synthesize  toolBar,toolBar1,clinic_picker_toolbar;
 NSString *orderdatevalue=@"",*areaidvalue=@"",*clinicIdValue=@"",*productIdValue=@"",*deliveryDateValue=@"",*alert_msg=@"",*orderStatus=@"Delivered",*invoicereceived=@"0",*payment_received=@"0";
@@ -312,10 +313,15 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         [d setValue:[productArrayResponse1 valueForKey:@"MainStock"] forKey:@"stock"];
         [d setValue:[productArrayResponse1 valueForKey:@"OrderType"] forKey:@"OrderType"];
         [d setValue:[productArrayResponse1 valueForKey:@"OrderType"] forKey:@"Old_OrderType"];
-        
+        [d setValue:@"0" forKey:@"isOtherSalesPerson"];
+        [d setValue:@"0" forKey:@"isRepeatChecker"];
         [arr addObject:d];
         NSLog(@"arrain %@",arr);
         [old_arr addObject:d];
+        //    Added by rohit modi
+        oldProductArray = [productArray mutableCopy];
+        latestProductArray = [productArray mutableCopy];
+        //    end
     }
     
     NSLog(@"arra is %@",arr);
@@ -496,6 +502,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     }
     else{
         NSLog(@"in else");
+       
         //Add Prodcut
         page=1;
         for (UIButton *but in [external_scrool subviews]) {
@@ -520,7 +527,17 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         [d setValue:@"false" forKey:@"delete"];
         [d setValue:@"2" forKey:@"OrderType"];
         [d setValue:@"0" forKey:@"Old_OrderType"];
+        [d setValue:@"0" forKey:@"isOtherSalesPerson"];
+        [d setValue:@"0" forKey:@"isRepeatChecker"];
         [arr addObject:d];
+        
+        //    Added by rohit modi
+        table.frame=CGRectMake(6, 204, 809, page*116);
+        external_scrool.contentSize=CGSizeMake(0, 606+(page*116));
+        internal_scroll.frame=CGRectMake(1, table.frame.origin.y+page*120, 809, 248);
+        [orderDatepicker1 setFrame:CGRectMake(330, internal_scroll.frame.origin.y+200, 250, 150)];
+        [table reloadData];
+        //    end
         
     }
     
@@ -612,6 +629,8 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     [d setValue:@"false" forKey:@"delete"];
     [d setValue:@"2" forKey:@"OrderType"];
     [d setValue:@"0" forKey:@"Old_OrderType"];
+    [d setValue:@"0" forKey:@"isOtherSalesPerson"];
+    [d setValue:@"0" forKey:@"isRepeatChecker"];
     [arr addObject:d];
     page++;
       /* [table beginUpdates];
@@ -720,6 +739,336 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     }
 }
 
+//    Added by rohit modi. Add for new checkbox (Other sales product)
+- (void)otherSalesProductAction:(id)sender
+{
+    
+    NSLog(@"otherSalesProductAction");
+    //NSIndexPath *indexPath =[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+    
+    NSIndexPath *indexPath;
+    //    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+    //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+    //    }
+    //    else
+    //    {
+    //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview]superview ]];
+    //    }
+    
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)&& ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) ) {
+        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[sender superview] superview] superview]];
+        
+        //        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[textField superview] superview]];
+        
+    }
+    else
+    {
+        indexPath=[self.table indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+        //        indexPath =[self.table indexPathForCell:(UITableViewCell *)[[[textField superview] superview] superview]];
+    }
+    
+    UITableViewCell *cell = [table cellForRowAtIndexPath:indexPath];
+//    UIButton *repeatbtn = (UIButton *)[cell viewWithTag:9];
+    UIButton *otherSalesProduct = (UIButton *)[cell viewWithTag:15];
+    NSLog(@"%@",select_clinic.titleLabel);
+    
+    if (![select_clinic.titleLabel.text isEqualToString:@"  Select Clinic"]) {
+        d=[[NSMutableDictionary alloc]init];
+        if(!(otherSalesProduct.selected==YES))
+        {
+            NSLog(@"selected");
+            otherSalesProduct.selected=YES;
+            [d setValue:@"" forKey:@"p_name"];
+            [d setValue:@"" forKey:@"p_id"];
+            [d setValue:@"" forKey:@"batch"];
+            [d setValue:@"" forKey:@"expiry"];
+            [d setValue:@"" forKey:@"order"];
+            [d setValue:@"" forKey:@"delivery"];
+            [d setValue:@"" forKey:@"bonus"];
+            [d setValue:@"" forKey:@"unofficial"];
+            [d setValue:@"" forKey:@"netprice"];
+            [d setValue:@"0" forKey:@"isrepeat"];
+            [d setValue:@"" forKey:@"stock"];
+            [d setValue:@"false" forKey:@"delete"];
+            [d setValue:@"2" forKey:@"OrderType"];
+            [d setValue:@"0" forKey:@"Old_OrderType"];
+            [d setValue:@"1" forKey:@"isOtherSalesPerson"];
+            [d setValue:@"0" forKey:@"isRepeatChecker"];
+            [self setDataInTableView:cell index:indexPath];
+            
+            //-------call webservice-------
+            //Create business manager class object
+            
+            
+             [self displayActivityView];
+            double delayInSeconds = 0.2;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                           {
+                               ProductManager *pm_business=[[ProductManager alloc]init];
+                               NSString *response=[pm_business GetProductListUsingClinicId:clinicIdValue];//call businessmanager login method and handle response
+                               NSLog(@" Product List response is %@",response);
+                               
+                               if (response.length !=0)
+                               {
+                                   NSDictionary *var =  [response JSONValue];
+                                   NSLog(@"dict Product List%@",var);
+                                   [latestProductArray removeAllObjects];
+//                                   [productArray removeAllObjects];
+                                   [latestProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"ProductId",@"All",@"ProductName",nil]];
+//                                    [latestProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"ProductId",@"Alsl",@"ProductName",nil]];
+                                   for(NSDictionary *product_dictvar in var)
+                                   {
+                                       [latestProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[product_dictvar objectForKey:@"ProductId"],@"ProductId",[product_dictvar objectForKey:@"ProductName"],@"ProductName",nil]];
+                                   }
+                                   
+//                                   productArray = [latestProductArray mutableCopy];
+                                   
+                                   [arr replaceObjectAtIndex:indexPath.row withObject:d];
+                               }
+                               else{
+                                   otherSalesProduct.selected=NO;
+                               }
+                               //-------resoponse--------
+                               //response true:
+                               
+                               //false
+                               [table reloadData];
+                               
+                               [self removeActivityView];
+                           });
+           
+            
+            //        NSLog(@"selected");
+            //        Order *order=[[Order alloc]init];
+            //
+            //        //set Clinic Name value in domain class
+            //        order.product_id = [[arr objectAtIndex:indexPath.row]valueForKey:@"p_id"];
+            //        order.clinic_id=clinicIdValue;
+            //        //Create business manager class object
+            //        OrderManager *ordermanager=[[OrderManager alloc]init];
+            //        NSString *response=[ordermanager RepeatProduct:order];//call businessmanager  method and handle response
+            //        NSLog(@"repeatproduct %@",response);
+            //        //{"BonusQuantity":0,"IsRepeat":false,"OrderQuantity":0,"UnofficialBonus":0}
+            //        NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+            //        NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:indexPath.row];
+            //        [newDict addEntriesFromDictionary:oldDict];
+            //
+            //        NSMutableArray *var =  [response JSONValue];
+            //
+            //        NSLog(@"REPEAT ORDER QUAN %@",[var valueForKey:@"OrderQuantity"]);
+            //
+            //
+            //        //        UITextField *textField = (UITextField *)[cell viewWithTag:5];
+            //        //        textField.text=[NSString stringWithFormat:@"%@",[var valueForKey:@"OrderQuantity"]];
+            //        //        UITextField *textField1 = (UITextField *)[cell viewWithTag:6];
+            //        //        textField1.text=[NSString stringWithFormat:@"%@",[var valueForKey:@"BonusQuantity"]];
+            //        //        UITextField *textField2 = (UITextField *)[cell viewWithTag:7];
+            //        //        textField2.text=[NSString stringWithFormat:@"%@",[var valueForKey:@"UnofficialBonus"]];
+            //
+            //        NSInteger orderInteger = [[var valueForKey:@"OrderQuantity"]intValue];
+            //        NSString *textfield = [NSString stringWithFormat:@"%d", orderInteger];
+            //
+            //        NSInteger bonusInteger = [[var valueForKey:@"BonusQuantity"]intValue];
+            //        NSString *textfield1 = [NSString stringWithFormat:@"%d", bonusInteger];
+            //
+            //        NSInteger unofficialInteger = [[var valueForKey:@"UnofficialBonus"]intValue];
+            //        NSString *textfield2 = [NSString stringWithFormat:@"%d", unofficialInteger];
+            //
+            //
+            //        //        UITextField *textField = (UITextField *)[cell viewWithTag:5];
+            //        //        textField.text=[NSString stringWithFormat:@"%d",[[var valueForKey:@"OrderQuantity"]intValue]];
+            //        //        UITextField *textField1 = (UITextField *)[cell viewWithTag:6];
+            //        //        textField1.text=[NSString stringWithFormat:@"%d",[[var valueForKey:@"BonusQuantity"]intValue]];
+            //        //        UITextField *textField2 = (UITextField *)[cell viewWithTag:7];
+            //        //        textField2.text=[NSString stringWithFormat:@"%d",[[var valueForKey:@"UnofficialBonus"]intValue]];
+            //
+            //        [newDict setValue:textfield forKey:@"order"];
+            //        [newDict setValue:textfield1 forKey:@"bonus"];
+            //        [newDict setValue:textfield2 forKey:@"unofficial"];
+            //        NSLog([[var valueForKey:@"IsRepeat"] boolValue]?@"true":@"false");
+            //        [newDict setValue:[[var valueForKey:@"IsRepeat"]boolValue]?@"1":@"0" forKey:@"isrepeat"];
+            //
+            //        NSLog(@"arr before %@",arr);
+            //
+            //        [arr replaceObjectAtIndex:indexPath.row withObject:newDict];
+            //
+            //        NSLog(@"arr After %@",arr);
+        }
+        else{
+            
+            NSLog(@"notselected");
+            
+            otherSalesProduct.selected=NO;
+            NSLog(@"selected");
+            [d setValue:@"" forKey:@"p_name"];
+            [d setValue:@"" forKey:@"p_id"];
+            [d setValue:@"" forKey:@"batch"];
+            [d setValue:@"" forKey:@"expiry"];
+            [d setValue:@"" forKey:@"order"];
+            [d setValue:@"" forKey:@"delivery"];
+            [d setValue:@"" forKey:@"bonus"];
+            [d setValue:@"" forKey:@"unofficial"];
+            [d setValue:@"" forKey:@"netprice"];
+            [d setValue:@"0" forKey:@"isrepeat"];
+            [d setValue:@"" forKey:@"stock"];
+            [d setValue:@"false" forKey:@"delete"];
+            [d setValue:@"2" forKey:@"OrderType"];
+            [d setValue:@"0" forKey:@"Old_OrderType"];
+            [d setValue:@"0" forKey:@"isOtherSalesPerson"];
+            [d setValue:@"0" forKey:@"isRepeatChecker"];
+            
+            [self setDataInTableView:cell index:indexPath];
+            
+            [self displayActivityView];
+            double delayInSeconds = 0.2;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                           {
+                               ProductManager *pm_business=[[ProductManager alloc]init];
+                               NSString *response=[pm_business GetProductList];//call businessmanager login method and handle response
+                               NSLog(@" Product List response is %@",response);
+                               
+                               if (response.length !=0)
+                               {
+                                   NSDictionary *var =  [response JSONValue];
+                                   NSLog(@"dict Product List%@",var);
+                                   [oldProductArray removeAllObjects];
+//                                   [productArray removeAllObjects];
+                                   [oldProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"ProductId",@"All",@"ProductName",nil]];
+                                   //                 [productArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"ProductId",@"Alsl",@"ProductName",nil]];
+                                   for(NSDictionary *product_dictvar in var)
+                                   {
+                                       [oldProductArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[product_dictvar objectForKey:@"ProductId"],@"ProductId",[product_dictvar objectForKey:@"ProductName"],@"ProductName",nil]];
+                                   }
+                                   
+//                                   productArray = [oldProductArray mutableCopy];
+                                   [arr replaceObjectAtIndex:indexPath.row withObject:d];
+                               }
+                               else{
+                                   otherSalesProduct.selected=YES;
+                               }
+                               //-------resoponse--------
+                               //response true:
+                               
+                               //false
+                               [table reloadData];
+                               
+                               [self removeActivityView];
+                           });
+        }
+        
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please select clinic first." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+}
+
+-(void)setDataInTableView:(UITableViewCell*)cell index:(NSIndexPath*)indexPath{
+    UIButton *delete = (UIButton *)[cell viewWithTag:8];
+    
+    if([[d objectForKey:@"delete"] isEqualToString:@"false"])
+    {
+        delete.hidden=NO;
+    }
+    else{
+        delete.hidden=YES;
+    }
+    UIButton *repeat = (UIButton *)[cell viewWithTag:9];
+    
+    CustomTextField *selectProduct=(CustomTextField *)[cell viewWithTag:1];
+    
+    CustomTextField *expiryDate=(CustomTextField *)[cell viewWithTag:3];
+    
+    UITextField *batch=(UITextField *)[cell viewWithTag:2];
+    
+    CustomTextField *deliveryQty=(CustomTextField *)[cell viewWithTag:4];
+    
+    CustomTextField *orderQty=(CustomTextField *)[cell viewWithTag:5];
+    
+    CustomTextField *bonusQty=(CustomTextField *)[cell viewWithTag:6];
+    
+    CustomTextField *unofficial=(CustomTextField *)[cell viewWithTag:7];
+    
+    CustomTextField *netprice=(CustomTextField *)[cell viewWithTag:10];
+    
+    UIButton *generalPrice=(UIButton*)[cell viewWithTag:12];
+    UIButton *netPrice=(UIButton*)[cell viewWithTag:13];
+    OT=[NSString stringWithFormat:@"%@",[d objectForKey:@"OrderType"]];
+    [generalPrice setImage:[UIImage imageNamed:@"radiobutton1.png"] forState:UIControlStateSelected];
+    [generalPrice setImage:[UIImage imageNamed:@"radiobutton2.png"] forState:UIControlStateNormal];
+    [netPrice setImage:[UIImage imageNamed:@"radiobutton1.png"] forState:UIControlStateSelected];
+    [netPrice setImage:[UIImage imageNamed:@"radiobutton2.png"] forState:UIControlStateNormal];
+    
+    if([OT intValue]==2)
+    {
+        netPrice.selected=NO;
+        generalPrice.selected = YES;
+        
+        netprice.hidden=YES;
+        bonusQty.hidden=NO;
+        unofficial.hidden=NO;
+    }
+    else if([OT intValue]==1)
+    {
+        generalPrice.selected=NO;
+        netPrice.selected = YES;
+        
+        netprice.hidden=NO;
+        bonusQty.hidden=YES;
+        unofficial.hidden=YES;
+    }
+    
+    generalPrice.userInteractionEnabled=netPrice.userInteractionEnabled=YES;
+    
+    NSLog(@"index %d",(int)indexPath.row);
+    NSLog(@"arr %@ and %@",arr,[d objectForKey:@"expiry"]);
+    selectProduct.text=[d valueForKey:@"p_name"];
+    expiryDate.text=[d valueForKey:@"expiry"];
+    orderQty.text=[NSString stringWithFormat:@"%@",[d valueForKey:@"order"]];
+    deliveryQty.text=[NSString stringWithFormat:@"%@",[d valueForKey:@"delivery"]];
+    bonusQty.text=[NSString stringWithFormat:@"%@",[d valueForKey:@"bonus"]];
+    unofficial.text=[NSString stringWithFormat:@"%@",[d valueForKey:@"unofficial"]];
+    batch.text=[d valueForKey:@"batch"];
+    netprice.text=[NSString stringWithFormat:@"%@",[d valueForKey:@"netprice"]];
+    
+    
+    NSLog(@" CHECK OT VALUE %@",OT);
+    NSLog(@"otot");
+    NSLog(@"true/false %@",[d valueForKey:@"isrepeat"]);
+    if([[d valueForKey:@"isrepeat"]boolValue])
+    {
+        orderQty.enabled=NO;
+        bonusQty.enabled=NO;
+        unofficial.enabled=NO;
+    }
+    else{
+        orderQty.enabled=YES;
+        bonusQty.enabled=YES;
+        unofficial.enabled=YES;
+    }
+    
+    if([[d valueForKey:@"isOtherSalesPerson"]boolValue])
+    {
+        orderQty.enabled=NO;
+        bonusQty.enabled=NO;
+        unofficial.enabled=NO;
+        deliveryQty.enabled = NO;
+    }
+    else{
+        orderQty.enabled=YES;
+        bonusQty.enabled=YES;
+        unofficial.enabled=YES;
+        deliveryQty.enabled = YES;
+    }
+    
+}
+//    end
+
 - (void)repeatProduct:(id)sender
 {
     
@@ -766,6 +1115,10 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         //{"BonusQuantity":0,"IsRepeat":false,"OrderQuantity":0,"UnofficialBonus":0}
         NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
         NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:indexPath.row];
+        //    Added by rohit modi. State maintain of repeat checkbox
+         [oldDict setValue:@"1" forKey:@"isRepeatChecker"];
+        [arr replaceObjectAtIndex:indexPath.row withObject:oldDict];
+        //    end
         [newDict addEntriesFromDictionary:oldDict];
         
         NSMutableArray *var =  [response JSONValue];
@@ -800,6 +1153,7 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         [newDict setValue:textfield forKey:@"order"];
         [newDict setValue:textfield1 forKey:@"bonus"];
         [newDict setValue:textfield2 forKey:@"unofficial"];
+       
         NSLog([[var valueForKey:@"IsRepeat"] boolValue]?@"true":@"false");
         [newDict setValue:[[var valueForKey:@"IsRepeat"]boolValue]?@"1":@"0" forKey:@"isrepeat"];
         
@@ -812,7 +1166,11 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     else{
         
         NSLog(@"notselected");
-        
+        //    Added by rohit modi. State maintain of repeat checkbox
+        NSDictionary *oldDict = (NSDictionary *)[arr objectAtIndex:indexPath.row];
+        [oldDict setValue:@"0" forKey:@"isRepeatChecker"];
+        [arr replaceObjectAtIndex:indexPath.row withObject:oldDict];
+        //    end
         repeatbtn.selected=NO;
     }
     [table reloadData];
@@ -854,6 +1212,10 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
     UIButton *repeat = (UIButton *)[cell viewWithTag:9];
     [repeat addTarget:self action:@selector(repeatProduct:) forControlEvents:UIControlEventTouchUpInside];
     
+//    Added by rohit modi
+    UIButton *otherSalesProduct = (UIButton *)[cell viewWithTag:15];
+    [otherSalesProduct addTarget:self action:@selector(otherSalesProductAction:) forControlEvents:UIControlEventTouchUpInside];
+//    end
     CustomTextField *selectProduct=(CustomTextField *)[cell viewWithTag:1];
     selectProduct.delegate=self;
     selectProduct.Tag1 = (int)indexPath.row;
@@ -943,6 +1305,33 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         bonusQty.enabled=YES;
         unofficial.enabled=YES;
     }
+    
+    //    Added by rohit modi. State maintain of repeat checkbox
+    if(![[[arr objectAtIndex:indexPath.row]valueForKey:@"isRepeatChecker"]boolValue])
+    {
+        repeat.selected = NO;
+    }
+    else{
+       repeat.selected = YES;
+    }
+    //    end
+    //    Added by rohit modi
+    if([[[arr objectAtIndex:indexPath.row]valueForKey:@"isOtherSalesPerson"]boolValue])
+    {
+        otherSalesProduct.selected = YES;
+        orderQty.enabled=NO;
+        bonusQty.enabled=NO;
+        unofficial.enabled=NO;
+        deliveryQty.enabled = NO;
+    }
+    else{
+        otherSalesProduct.selected = NO;
+        orderQty.enabled=YES;
+        bonusQty.enabled=YES;
+        unofficial.enabled=YES;
+        deliveryQty.enabled = YES;
+    }
+    //    end
     return cell;
 }
 - (IBAction)selectGeneralPrice:(UIButton *)sender{
@@ -1026,6 +1415,19 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
         }
         switch (textField.tag) {
             case 1:
+                
+                //    Added by rohit modi
+                if([[[arr objectAtIndex:textField.Tag1]valueForKey:@"isOtherSalesPerson"]boolValue])
+                {
+                    [productArray removeAllObjects];
+                    productArray = [latestProductArray mutableCopy];
+                }
+                else{
+                    [productArray removeAllObjects];
+                    productArray = [oldProductArray mutableCopy];
+                }
+                //    end
+//                 [d setValue:@"0" forKey:@"isOtherSalesPerson"];
                 [productPicker setFrame:CGRectMake(textField.frame.origin.x, textField.frame.origin.y+284+(rowIndex.row)*116, 320, 400)];
                 [toolBar setFrame:CGRectMake(textField.frame.origin.x,productPicker.frame.origin.y-42,320, 42)];
                 productPicker.hidden=NO;
@@ -1654,6 +2056,40 @@ NSString *error=@"no";
         clinic_picker.showsSelectionIndicator = YES;
         clinic_picker.hidden= NO;
         clinic_picker_toolbar.hidden=NO;
+        
+        //    Added by rohit modi. Reset all data when clinic change
+        page = 1;
+        d=[[NSMutableDictionary alloc]init];
+        [d setValue:@"" forKey:@"p_name"];
+        [d setValue:@"" forKey:@"batch"];
+        [d setValue:@"" forKey:@"expiry"];
+        [d setValue:@"" forKey:@"delivery"];
+        [d setValue:@"" forKey:@"order"];
+        [d setValue:@"" forKey:@"bonus"];
+        [d setValue:@"" forKey:@"unofficial"];
+        [d setValue:@"" forKey:@"netprice"];
+        [d setValue:@"0" forKey:@"isrepeat"];
+        [d setValue:@"" forKey:@"p_id"];
+        [d setValue:@"" forKey:@"stock"];
+        [d setValue:@"false" forKey:@"delete"];
+        [d setValue:@"2" forKey:@"OrderType"];
+        [d setValue:@"0" forKey:@"Old_OrderType"];
+        [d setValue:@"0" forKey:@"isOtherSalesPerson"];
+        [d setValue:@"0" forKey:@"isRepeatChecker"];
+        [arr removeAllObjects];
+        [arr addObject:d];
+        [productArray removeAllObjects];
+        [latestProductArray removeAllObjects];
+        productArray = [oldProductArray mutableCopy];
+        latestProductArray = [oldProductArray mutableCopy];
+        NSLog(@"arra is %@",arr);
+        table.frame=CGRectMake(6, 204, 809, page*116);
+        external_scrool.contentSize=CGSizeMake(0, 606+(page*116));
+        internal_scroll.frame=CGRectMake(1, table.frame.origin.y+page*120, 809, 248);
+        [orderDatepicker1 setFrame:CGRectMake(330, internal_scroll.frame.origin.y+200, 250, 150)];
+        
+        [table reloadData];
+        //    end
     }
     else if (pickerView==specialization_Picker){
         NSDictionary *itemAtIndex = (NSDictionary *)[specializationArray objectAtIndex:row];
