@@ -35,7 +35,8 @@
 -(NSString*)AddCallSummary:Summary;
 -(NSString*)GetMeetingSummary:Summary;
 -(NSString*)DeleteReminder:ReminderId;
--(NSString*)GetDailyPlanWeb:Request;
+//-(NSString*)GetDailyPlanWeb:Request;
+-(NSString*)GetDailyPlanWeb:(id)Request latitude:(NSString*)latitude longitude:(NSString*)longitude  isLatLong:(NSString*)isLatLong;
 -(NSString*)GetSingaporeTime;
 -(NSString*)GetSpecialization;
 -(NSString*)SendUserLocation:Location;
@@ -57,5 +58,7 @@
 -(NSString*)GetSampleReturnList:Request;
 -(NSString*)GetSampleDetails:Request;
 -(NSString*)GetDivisionList;
+
+-(NSString*)GetAllClinicList;
 
 @end

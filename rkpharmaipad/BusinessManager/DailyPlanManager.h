@@ -12,7 +12,8 @@
 {
     NSMutableData *dailyplan_responseData;
 }
-- (NSString*)GetDailyPlan:(id)plandate_object;
+//- (NSString*)GetDailyPlan:(id)plandate_object;
+- (NSString*)GetDailyPlan:(id)plandate_object latitude:(NSString*)latitude longitude:(NSString*)longitude isLatLong:(NSString*)isLatLong;
 - (NSString*)DeleteDailyPlan:(id)plan_object;
 - (NSString*)AddClinics:(id)clinic_object;
 - (NSString*)GetDailyPlanSummarylist:(id)plan_object;

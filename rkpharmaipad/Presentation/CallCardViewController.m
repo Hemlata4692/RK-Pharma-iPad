@@ -202,10 +202,11 @@ NSString *issuedbycompany_checked = @"1";
     clinic.location = callcardareaid_selected;
     
     //Create business manager class object
+//    ClinicManager *cm_business=[[ClinicManager alloc]init];
+//    NSString *response=[cm_business GetClinicNameList:clinic];//call businessmanager login method and handle response
+    
     ClinicManager *cm_business=[[ClinicManager alloc]init];
-    NSString *response=[cm_business GetClinicNameList:clinic];//call businessmanager login method and handle response
-    
-    
+    NSString *response=[cm_business GetAllClinicList];
     NSDictionary *var =  [response JSONValue];
     NSLog(@"dict Clinic Name List%@",var);
     [clinic_array removeAllObjects];

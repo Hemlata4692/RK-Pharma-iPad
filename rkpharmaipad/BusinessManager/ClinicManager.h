@@ -17,4 +17,5 @@
 - (NSString*)GetClinicDetail:(id)clinic_object;
 - (NSString*)GetSpecialization;
 - (NSString*)GetKIVProducts:(id)KIV_object;
+- (NSString*)GetAllClinicList;
 @end

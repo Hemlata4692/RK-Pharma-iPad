@@ -21,8 +21,13 @@
 #import "UserManager.h"
 #import "CallCardViewController.h"
 
-@interface DashboardViewController ()
+@interface DashboardViewController (){
+    
+    int isUpdate;
+    int isLocationAlert;
+}
 
+@property (strong, nonatomic) IBOutlet UIButton *nearbyClinicOutlet;
 @end
 
 @implementation DashboardViewController
@@ -44,7 +49,6 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     [DejalBezelActivityView activityViewForView:self.view];
 }
 
-
 - (void)removeActivityView;
 {
     // Remove the activity view, with animation for the two styles that support it:
@@ -52,6 +56,41 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     [[self class] cancelPreviousPerformRequestsWithTarget:self];
 }
 
+//Added by rohit modi
+- (IBAction)nearbyClinic:(UIButton *)sender {
+    
+    if (self.nearbyClinicOutlet.selected) {
+        
+        [self displayActivityView];
+        self.nearbyClinicOutlet.selected = NO;
+        double delayInSeconds = 0.3;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                       {
+                            [dailyplan_array removeAllObjects];
+                               
+                            [self dailyplanservice];
+                           
+                           [self removeActivityView];
+                       });
+    }
+    else{
+   
+        self.nearbyClinicOutlet.selected = YES;
+        isUpdate = 1;
+        //        [self startTrackingBg];
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        //        locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest; // 100 m
+        if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [locationManager requestWhenInUseAuthorization];
+        }
+
+         NSLog(@"%@,%@",myDelegate.delegateLatitude,myDelegate.delegateLongitude);
+    }
+}
+//end
 - (void)dailyplanservice
 {
     NSDate *currentdateall = [NSDate date];
@@ -64,15 +103,30 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     
     dailyplan.plan_date = date_str;
     
-    
     //Create business manager class object
     DailyPlanManager *dm_business=[[DailyPlanManager alloc]init];
-    NSString * dailyplan_response=[dm_business GetDailyPlan:dailyplan];//call businessmanager login method and handle response
-    
+    NSString * dailyplan_response;//call businessmanager login method and handle response
+    //Added by rohit modi
+    if (_nearbyClinicOutlet.selected) {
+        NSLog(@"%@,%@",myDelegate.delegateLatitude,myDelegate.delegateLongitude);
+        dailyplan_response=[dm_business GetDailyPlan:dailyplan latitude:[NSString stringWithFormat:@"%@", myDelegate.delegateLatitude] longitude:[NSString stringWithFormat:@"%@", myDelegate.delegateLongitude] isLatLong:@"1"];
+        
+    }
+    else{
+        dailyplan_response=[dm_business GetDailyPlan:dailyplan latitude:@"" longitude:@"" isLatLong:@"0"];
+    }
+    //end
     if (dailyplan_response.length !=0) 
     {
         NSDictionary *var_dailyplan =  [dailyplan_response JSONValue];
         NSLog(@"dict Daily Plan%@",var_dailyplan);
+        if (_nearbyClinicOutlet.selected) {
+            
+            myDelegate.isChecked = @"1";
+        }
+        else{
+            myDelegate.isChecked = @"0";
+        }
         
         for(NSDictionary *dictvar_dailypan in var_dailyplan)
         {
@@ -101,14 +155,27 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
         {
             self.Todaysplan_table.frame = CGRectMake(10,193,821,105+129);
         }
+//        else if(dailyplan_array.count == 2)
+//        {
+//            self.Todaysplan_table.frame = CGRectMake(10,193,821,210+129);
+//        }
+//        else if(dailyplan_array.count >= 3)
+//        {
+//            self.Todaysplan_table.frame = CGRectMake(10,193,821,315+129);
+//        }
+        //Added by rohit modi
         else if(dailyplan_array.count == 2)
         {
-            self.Todaysplan_table.frame = CGRectMake(10,193,821,210+129);
+            self.Todaysplan_table.frame = CGRectMake(10,193,821,(105+129)*2);
         }
         else if(dailyplan_array.count >= 3)
         {
-            self.Todaysplan_table.frame = CGRectMake(10,193,821,315+129);
+            self.Todaysplan_table.frame = CGRectMake(10,193,821,(105+129)*2 + 50);
         }
+
+        //end
+        
+        
 //        else if(dailyplan_array.count == 4)
 //        {
 //            self.Todaysplan_table.frame = CGRectMake(10,193,821,420+46);
@@ -117,6 +184,10 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
 //        {
 //            self.Todaysplan_table.frame = CGRectMake(10,193,821,525+46);
 //        }
+    }
+    else{
+        
+        _nearbyClinicOutlet.selected = !_nearbyClinicOutlet.selected;
     }
 }
 
@@ -170,73 +241,83 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     
     //NSLog(@"aaya");
     CLLocationCoordinate2D here = newLocation.coordinate;
-    CLLocationCoordinate2D oldhere = oldLocation.coordinate;
-//    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%f %f",here.latitude,here.longitude] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//    [alert show];
-    //Create domain class object
-    User *user=[[User alloc]init];
     
-    NSString *latitude_string =[NSString stringWithFormat: @"%.2f", here.latitude];
-    NSString *longitude_string =[NSString stringWithFormat: @"%.2f", here.longitude];
+    myDelegate.delegateLatitude = [NSNumber numberWithDouble:here.latitude];
+    myDelegate.delegateLongitude = [NSNumber numberWithDouble:here.longitude];
     
-    NSString *oldlatitude_string =[NSString stringWithFormat: @"%.2f", oldhere.latitude];
-    NSString *oldlongitude_string =[NSString stringWithFormat: @"%.2f", oldhere.longitude];
-    
+    if (isUpdate == 1) {
+        
+        isUpdate = 2;
+            [self displayActivityView];
+            double delayInSeconds = 0.3;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                           {
+                               
+                               [dailyplan_array removeAllObjects];
+                               
+                               [self dailyplanservice];
+                               
+                               [self removeActivityView];
+                           });
+//        }
 
-    
-    
-    if([oldlatitude_string isEqualToString:latitude_string] && [oldlongitude_string isEqualToString:longitude_string])
-    {
-        //[locationManager stopUpdatingLocation];
     }
-    else 
-    {
-        user.latitude = latitude_string;
-        user.longitude = longitude_string;
-        NSLog(@" UPDATE LOCATION 1");
-        //Create business manager class object
-        UserManager *um_business=[[UserManager alloc]init];
-        NSString * response=[um_business SendUserLocation:user];//call businessmanager login method and handle response
-        [locationManager stopUpdatingLocation];
-        if (response.length !=0) 
-        {
-            //NSDictionary *var =  [response JSONValue];
-        } 
-    }
-} 
+    [locationManager stopUpdatingLocation];
+}
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 
     //NSLog(@"aaya");
     CLLocation *newLocation = (CLLocation *)[locations lastObject];
     CLLocationCoordinate2D here = newLocation.coordinate;
-    //    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%f %f",here.latitude,here.longitude] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    //    [alert show];
-    //Create domain class object
-    User *user=[[User alloc]init];
-    
-    NSString *latitude_string =[NSString stringWithFormat: @"%.2f", here.latitude];
-    NSString *longitude_string =[NSString stringWithFormat: @"%.2f", here.longitude];
-    
-    
+    myDelegate.delegateLatitude = [NSNumber numberWithDouble:here.latitude];
+    myDelegate.delegateLongitude = [NSNumber numberWithDouble:here.longitude];
 
-    user.latitude = latitude_string;
-    user.longitude = longitude_string;
-    NSLog(@" UPDATE LOCATION 2");
-    //Create business manager class object
-    UserManager *um_business=[[UserManager alloc]init];
-    NSString * response=[um_business SendUserLocation:user];//call businessmanager login method and handle response
-    [locationManager stopUpdatingLocation];
-    if (response.length !=0)
-    {
-        //NSDictionary *var =  [response JSONValue];
+    if (isUpdate == 1) {
+        
+        isUpdate = 2;
+        [self displayActivityView];
+        double delayInSeconds = 0.3;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                       {
+                           
+                           [dailyplan_array removeAllObjects];
+                           
+                           [self dailyplanservice];
+                           
+                           [self removeActivityView];
+                       });
     }
+    [locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+//    NSLog(@"Error while getting core location : %@",[error localizedFailureReason]);
+//    
+//    [locationManager stopUpdatingLocation];
+//    isLocationAlert = 1;
+//     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Setting" otherButtonTitles:@"Cancel", nil];
+    
+    NSLog(@"Error while getting core location : %@",[error localizedFailureReason]);
+    if ([error code] == kCLErrorDenied)
+    {
+        [locationManager stopUpdatingLocation];
+        isLocationAlert = 1;
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+        [alert show];
+    }
+
+//     UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Error" message:@"Turn on Location Service to allow “RKPharma” to determine your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [alert show];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
+    self.Todaysplan_table.frame = CGRectMake(10,193,821,0);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSLog(@"ROLE %@",[defaults objectForKey:@"Role"]);
@@ -253,8 +334,10 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     
 //    locationManager = [[CLLocationManager alloc] init];
 //    locationManager.delegate = self;
-//    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-//    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+//    //    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+//    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    
     
 //    NSTimer *timer;
 //    
@@ -277,9 +360,6 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     //[formatter_date setDateFormat:@"dd"];
     NSString *date_str = [formatter_date stringFromDate:currentdateall];
     NSLog(@"Current Date %@",date_str);
-    
-    
-    
     
     NSString *dashboard_usernamelabel = @"Welcome, ";
     dashboard_usernamelabel = [dashboard_usernamelabel stringByAppendingString:[defaults objectForKey:@"fullname"]];
@@ -336,9 +416,44 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     //dailyplan_domain.username=username.text;//set username value in domain class
     //dailyplan_domain.password=password.text;//set password value in domain class
     
-    
-    [self dailyplanservice];
-    
+       //    Added by rohit modi to dashboard checkbox
+    isLocationAlert = 2;
+    if ([myDelegate.isChecked isEqualToString:@"0"]) {
+        
+        _nearbyClinicOutlet.selected = NO;
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                       {
+                           [dailyplan_array removeAllObjects];
+                           
+                           [self dailyplanservice];
+                           
+                           [self removeActivityView];
+                       });
+
+//        [self dailyplanservice];
+    }
+    else{
+        
+        isUpdate = 1;
+        self.nearbyClinicOutlet.selected = YES;
+        //            [self startTrackingBg];
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        //        locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest; // 100 m
+        if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [locationManager requestWhenInUseAuthorization];
+        }
+        NSLog(@"%@,%@",myDelegate.delegateLatitude,myDelegate.delegateLongitude);
+//        isUpdate = 1;
+//            self.nearbyClinicOutlet.selected = YES;
+//            [self startTrackingBg];
+//            NSLog(@"%@,%@",myDelegate.delegateLatitude,myDelegate.delegateLongitude);
+        
+    }
+
     //Create business manager class object
     AnnouncementManager *am_business=[[AnnouncementManager alloc]init];
     NSString * announcement_response=[am_business GetAnnouncement];//call businessmanager login method and handle response
@@ -372,13 +487,121 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     
     [self GetSingaporeTime];
     
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+//    isUpdate = 1;
 }
 
 - (void) startTrackingBg
 {
-    [locationManager startUpdatingLocation];
-    NSLog(@"Timer Dashboard");
+    
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        
+        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        // If the status is denied or only granted for when in use, display an alert
+        if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+            
+            if (![CLLocationManager locationServicesEnabled]) {
+                isLocationAlert = 1;
+                UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Error" message:@"Turn on Location Service to allow “RKPharma” to determine your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+            }
+            else{
+                 [locationManager startUpdatingLocation];
+            }
+//            [locationManager requestAlwaysAuthorization];
+            
+        }
+        else if (status == kCLAuthorizationStatusDenied) {
+            
+//            if (![CLLocationManager locationServicesEnabled]) {
+                isLocationAlert = 1;
+                 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+//             UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Error" message:@"Turn on Location Service to allow “RKPharma” to determine your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+//            }
+           
+//            [locationManager requestAlwaysAuthorization];
+            
+        }
+        else if (status == kCLAuthorizationStatusNotDetermined) {
+//            }
+            isLocationAlert = 1;
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+//            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Error" message:@"Turn on Location Service to allow “RKPharma” to determine your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+
+            [locationManager requestAlwaysAuthorization];
+        }
+        else if (status == kCLAuthorizationStatusRestricted) {
+//            }
+            isLocationAlert = 1;
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+//            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Error" message:@"Turn on Location Service to allow “RKPharma” to determine your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+        else{
+                [locationManager startUpdatingLocation];
+        }
+   
+    }
+    NSLog(@"Timer did fire");
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    
+    //    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    // If the status is denied or only granted for when in use, display an alert
+    
+    if (self.nearbyClinicOutlet.selected) {
+        if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+            
+            if (![CLLocationManager locationServicesEnabled]) {
+                isLocationAlert = 1;
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+                [alert show];
+            }
+            else{
+                [locationManager startUpdatingLocation];
+            }
+            //            [locationManager requestAlwaysAuthorization];
+            
+        }
+        else if (status == kCLAuthorizationStatusDenied) {
+            
+            //            if (![CLLocationManager locationServicesEnabled]) {
+            isLocationAlert = 1;
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+            [alert show];
+            //            }
+            
+            //            [locationManager requestAlwaysAuthorization];
+            
+        }
+        else if (status == kCLAuthorizationStatusNotDetermined) {
+            //            }
+            isLocationAlert = 1;
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+            [alert show];
+            
+            [locationManager requestAlwaysAuthorization];
+        }
+        else if (status == kCLAuthorizationStatusRestricted) {
+            //            }
+            isLocationAlert = 1;
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Turn on Location Service to Allow \"RKPharma\" to Determine Your Location" message:@"Need location for this app" delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"Cancel", nil];
+            [alert show];
+        }
+        else{
+            [locationManager startUpdatingLocation];
+        }
+    }
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -572,12 +795,8 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     return cell;
 }
 
-
-
-
 - (void)announcement_btn_clicked
 {
-    
     
     [self displayActivityView];
     double delayInSeconds = 1.0;
@@ -691,36 +910,95 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0) 
-    {
-        NSLog(@"Cancel Button Pressed");
-    } 
-    else if (buttonIndex == 1) 
-    {
-        NSLog(@"Delete Button Pressed %d",alertView.tag);
-        [self displayActivityView];
-        double delayInSeconds = 1.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    if (isLocationAlert == 1) {
         
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+        isLocationAlert = 2;
+        if (buttonIndex == 0)
         {
-            DailyPlan *dailyplan=[[DailyPlan alloc]init];
-            NSString *planid = [NSString stringWithFormat:@"%d",alertView.tag];
-            dailyplan.plan_id = planid;
-            //Create business manager class object
-            DailyPlanManager *dm_business=[[DailyPlanManager alloc]init];
-            NSString * dailyplan_response=[dm_business DeleteDailyPlan:dailyplan];//call businessmanager login method and handle response
             
-            if (dailyplan_response.length !=0) 
-            {
-                NSDictionary *var_dailyplan =  [dailyplan_response JSONValue];
-                NSLog(@"dict Delete Daily Plan%@",var_dailyplan);
-                [dailyplan_array removeAllObjects];
+            self.nearbyClinicOutlet.selected = NO;
+            myDelegate.isChecked = @"0";
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        else if (buttonIndex == 1)
+        {
+            
+            self.nearbyClinicOutlet.selected = NO;
+            if ([myDelegate.isChecked isEqualToString:@"1"]) {
+                myDelegate.isChecked = @"0";
+                [self displayActivityView];
+                //        self.nearbyClinicOutlet.selected = NO;
+                double delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                               
+                               {
+                                   [dailyplan_array removeAllObjects];
+                                   
+                                   [self dailyplanservice];
+                                   
+                                   [self removeActivityView];
+                               });
                 
-                [self dailyplanservice];
             }
-            [self removeActivityView];
-        });
+            
+            //                self.nearbyClinicOutlet.selected = NO;
+            //        [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
+            //        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            //        [[UIApplication sharedApplication] openURL:url];
+            //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=General"]];
+            //               [defaults setObject:@"0" forKey:@"IsChecked"];
+            //        if ([myDelegate.isChecked isEqualToString:@"1"]) {
+            //            myDelegate.isChecked = @"0";
+            //            [self displayActivityView];
+            //            //        self.nearbyClinicOutlet.selected = NO;
+            //            double delayInSeconds = 0.3;
+            //            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            //            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+            //                           {
+            //                               [dailyplan_array removeAllObjects];
+            //
+            //                               [self dailyplanservice];
+            //
+            //                               [self removeActivityView];
+            //                           });
+        }
+        
+        
+    }
+    else{
+        if (buttonIndex == 0)
+        {
+            NSLog(@"Cancel Button Pressed");
+        }
+        else if (buttonIndex == 1)
+        {
+            NSLog(@"Delete Button Pressed %d",alertView.tag);
+            [self displayActivityView];
+            double delayInSeconds = 1.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                           {
+                               DailyPlan *dailyplan=[[DailyPlan alloc]init];
+                               NSString *planid = [NSString stringWithFormat:@"%d",alertView.tag];
+                               dailyplan.plan_id = planid;
+                               //Create business manager class object
+                               DailyPlanManager *dm_business=[[DailyPlanManager alloc]init];
+                               NSString * dailyplan_response=[dm_business DeleteDailyPlan:dailyplan];//call businessmanager login method and handle response
+                               
+                               if (dailyplan_response.length !=0) 
+                               {
+                                   NSDictionary *var_dailyplan =  [dailyplan_response JSONValue];
+                                   NSLog(@"dict Delete Daily Plan%@",var_dailyplan);
+                                   [dailyplan_array removeAllObjects];
+                                   
+                                   [self dailyplanservice];
+                               }
+                               [self removeActivityView];
+                           });
+        }
     }
 }
 

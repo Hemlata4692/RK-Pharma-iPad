@@ -499,7 +499,8 @@ int offset = 0;
     
     //Create business manager class object
     ClinicManager *cm_business=[[ClinicManager alloc]init];
-    NSString *response=[cm_business GetClinicNameList:clinic];//call businessmanager  method and handle response
+    //    NSString *response=[cm_business GetClinicNameList:clinic];//call businessmanager  method and handle response
+    NSString *response=[cm_business GetAllClinicList];
     
     if (response.length !=0)
     {
@@ -1762,6 +1763,10 @@ int offset = 0;
     //lblText.text = text;
     NSLog(@"Clinic Name %@",text);
     search_clinic_field.text = text;
+    
+    checkclinicpicker=0;
+    [self.view endEditing:YES];
+    [objYHCPickerView removeFromSuperview];
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField

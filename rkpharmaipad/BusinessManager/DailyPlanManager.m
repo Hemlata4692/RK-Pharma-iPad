@@ -12,11 +12,11 @@
 
 @implementation DailyPlanManager
 
-- (NSString*)GetDailyPlan:(id)plandate_object
+- (NSString*)GetDailyPlan:(id)plandate_object latitude:(NSString*)latitude longitude:(NSString*)longitude isLatLong:(NSString*)isLatLong
 {
     //Call webservice method of login
     WebService *dailyplan_web=[[WebService alloc]init];
-    NSString *dailyplan_string=[dailyplan_web GetDailyPlanWeb:plandate_object];
+    NSString *dailyplan_string=[dailyplan_web GetDailyPlanWeb:plandate_object latitude:(NSString*)latitude longitude:(NSString*)longitude isLatLong:(NSString*)isLatLong];
     return dailyplan_string;//get and return webservice response 
 }
 

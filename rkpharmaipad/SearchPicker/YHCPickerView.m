@@ -84,7 +84,7 @@
     self.backgroundColor = [UIColor clearColor];
     
     copyListOfItems = [[NSMutableArray alloc] init];
-    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0.0, frame1.origin.y, 320.0, 0.0)];
+    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0.0, frame1.origin.y, 320.0, frame1.size.height - 44 - 31)];
     
     // Added By Shiven
     // To Show Location Picker View

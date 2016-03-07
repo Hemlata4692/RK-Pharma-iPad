@@ -958,7 +958,7 @@ float newtotal = 0.0;
                        addordercontroller.view.frame=CGRectMake(0,0, 841, 784);
                        addordercontroller.areaArray=location_array;
                        addordercontroller.specializationArray=specialization_array;
-                       addordercontroller.productArray=product_array;
+                       addordercontroller.productArray=[product_array mutableCopy];
                        //    Added by rohit modi
                        // mentain last and new product array in add/edit order
                        addordercontroller.latestProductArray=[product_array mutableCopy];

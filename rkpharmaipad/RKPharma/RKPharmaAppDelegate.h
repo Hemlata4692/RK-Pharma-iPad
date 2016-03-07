@@ -19,4 +19,7 @@
 @property(nonatomic,retain) NSString *SampleId;
 @property (strong, nonatomic) UIWindow *window;
 
+@property(nonatomic,retain) NSNumber *delegateLatitude;
+@property(nonatomic,retain) NSNumber *delegateLongitude;
+@property(nonatomic,retain) NSString *isChecked;
 @end
