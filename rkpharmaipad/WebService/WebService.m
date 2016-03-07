@@ -56,7 +56,7 @@
     
 }
 
--(NSString*)GetDailyPlanWeb:(id)Request
+-(NSString*)GetDailyPlanWeb:(id)Request latitude:(NSString*)latitude longitude:(NSString*)longitude isLatLong:(NSString*)isLatLong
 {
     Internet *internet=[[Internet alloc] init];
     if([internet start])
@@ -78,13 +78,13 @@
     
         //To Get Daily Plan from Webservice
         //NSString *jsonRequest_dailyplan = [NSString stringWithFormat:@"{\"Date\":\"11-May-2013\",\"UserId\":\"%@\"}",[defaults objectForKey:@"UserId"]];
-        NSString *jsonRequest_dailyplan = [NSString stringWithFormat:@"{\"Date\":\"%@\",\"UserId\":\"%@\"}",date_str,[defaults objectForKey:@"UserId"]];
+        NSString *jsonRequest_dailyplan = [NSString stringWithFormat:@"{\"Date\":\"%@\",\"UserId\":\"%@\",\"Latitude\":\"%@\",\"Longitude\":\"%@\",\"IsLatLong\":\"%@\"}",date_str,[defaults objectForKey:@"UserId"],latitude, longitude, isLatLong];
     
         NSLog(@"Request Daily Plan: %@", jsonRequest_dailyplan);
         NSURL *url_dailyplan = [NSURL URLWithString:WebserviceUrl];
         NSData *postData_dailyplan = [jsonRequest_dailyplan dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
-        NSString *postLength_dailyplan = [NSString stringWithFormat:@"%d", [postData_dailyplan length]];
+        NSString *postLength_dailyplan = [NSString stringWithFormat:@"%d", (int)[postData_dailyplan length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:url_dailyplan];
@@ -570,6 +570,57 @@
     }
 }
 
+-(NSString*)GetAllClinicList
+{
+    Internet *internet=[[Internet alloc] init];
+    if([internet start])
+    {
+        return @"";
+    }
+    else
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
+        WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetAllClinicList"];
+        
+        //        NSString *location_string = [Request valueForKey:@"location"];
+        //        int locationint = [location_string intValue];
+        //
+        //        NSString * lastVisited = [Request valueForKey:@"LastVisited"];
+        //        if ([lastVisited isEqualToString:NULL] || [lastVisited isEqualToString:nil] || [lastVisited isEqualToString:@""] || lastVisited ==nil|| lastVisited==NULL)
+        //        {
+        //            lastVisited = [NSString stringWithFormat:@"%d",0];
+        //            NSLog(@"lastvisited is zero");
+        //        }
+        //        NSLog(@" Last Visited : %@",lastVisited);
+        //        NSLog(@" Location String : %d",locationint);
+        //        NSLog(@" User Id : %@",[defaults objectForKey:@"UserId"]);
+        
+        //To Get Clinic List from Webservice
+        
+        //        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"LocationId\":\"%d\",\"LastVisited\":\"%@\"}",[defaults objectForKey:@"UserId"],locationint,lastVisited];
+        
+        //        NSLog(@"Json Request Clinic Name List: %@", jsonRequest);
+        NSURL *url = [NSURL URLWithString:WebserviceUrl];
+        //        NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        //        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        //        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        //        [request setHTTPBody:postData];
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        
+        return responseString;//return webservice response
+    }
+}
+
 -(NSString*)AddReminder:Request
 {
     Internet *internet=[[Internet alloc] init];
@@ -794,7 +845,7 @@
         NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
         WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetProductsList"];
         
-        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\"}",[defaults objectForKey:@"UserId"]];
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"ClinicId\":\"0\"}",[defaults objectForKey:@"UserId"]];
         
         NSLog(@"Json Request Product List: %@", jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
@@ -816,6 +867,44 @@
         return responseString;//return webservice response
     }
 }
+
+//Added by rohit modi
+- (NSString*)GetProductListUsingClinicId:(NSString*)clinicId
+{
+    Internet *internet=[[Internet alloc] init];
+    if([internet start])
+    {
+        return @"";
+    }
+    else
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *WebserviceUrl = [defaults objectForKey:@"main_url"];
+        WebserviceUrl = [WebserviceUrl stringByAppendingString:@"GetProductsList"];
+        
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"ClinicId\":\"%@\"}",[defaults objectForKey:@"UserId"],clinicId];
+        
+        NSLog(@"Json Request Product List: %@", jsonRequest);
+        NSURL *url = [NSURL URLWithString:WebserviceUrl];
+        NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        
+        return responseString;//return webservice response
+    }
+}
+//end
 
 -(NSString*)GetAllProductList:(id)Request
 {

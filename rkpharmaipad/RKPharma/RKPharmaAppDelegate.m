@@ -15,6 +15,7 @@
 
 @synthesize window = _window;
 @synthesize SampleDictionary,SampleId;
+@synthesize delegateLatitude, delegateLongitude, isChecked;
 NSTimer *timer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -36,6 +37,10 @@ NSTimer *timer;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     //[locationManager startUpdatingLocation];
     
+    //    Added by rohit modi to dashboard checkbox
+    isChecked = @"0";
+    //    end
+    
 //    if([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0 )
 //    {
 //        [locationManager requestWhenInUseAuthorization];
@@ -50,7 +55,7 @@ NSTimer *timer;
     [timer fire];
     SampleDictionary = [NSDictionary new];
 //      NSString *main_url=@"http://192.168.1.148/rkp/RKService.svc/";
-    //   NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
+//       NSString *main_url=@"http://ranosys.info/rkpservice/RKService.svc/";
     NSString *main_url=@"http://rkpharma.com/rkpservice/rkservice.svc/";
     //NSString *main_url= @"http://rkpharma.com/email_issue/RKService.svc/";
     
@@ -70,6 +75,14 @@ NSTimer *timer;
         DashboardViewController *rvc = [storyboard instantiateViewControllerWithIdentifier:@"leftsidebar_screen"];
         self.window.rootViewController = rvc;
     }
+    
+    
+    
+////    Added by rohit modi to dashboard checkbox
+//    if ([defaults valueForKey:@"IsChecked"] == nil) {
+//        [defaults setObject:@"0" forKey:@"IsChecked"];
+//    }
+////    end
     
 //     UIApplication *app = [UIApplication sharedApplication];
 //    if ([app respondsToSelector:@selector(registerUserNotificationSettings:)])
@@ -157,7 +170,8 @@ NSTimer *timer;
     NSString *oldlongitude_string =[NSString stringWithFormat: @"%.2f", oldhere.longitude];
     
     
-
+//    delegateLatitude = [NSNumber numberWithDouble:here.latitude];
+//    delegateLongitude = [NSNumber numberWithDouble:here.longitude];
     
     
     if([oldlatitude_string isEqualToString:latitude_string] && [oldlongitude_string isEqualToString:longitude_string])
@@ -195,7 +209,8 @@ NSTimer *timer;
     NSString *latitude_string =[NSString stringWithFormat: @"%.2f", here.latitude];
     NSString *longitude_string =[NSString stringWithFormat: @"%.2f", here.longitude];
     
-    
+//    delegateLatitude = [NSNumber numberWithDouble:here.latitude];
+//    delegateLongitude = [NSNumber numberWithDouble:here.longitude];
     
     user.latitude = latitude_string;
     user.longitude = longitude_string;
@@ -230,9 +245,6 @@ NSTimer *timer;
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
-
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     

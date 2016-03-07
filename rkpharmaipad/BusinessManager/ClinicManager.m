@@ -27,6 +27,14 @@
     return string;//get and return webservice response 
 }
 
+- (NSString*)GetAllClinicList
+{
+    //Call webservice method of Clinic
+    WebService *web=[[WebService alloc]init];
+    NSString *string=[web GetAllClinicList];
+    return string;//get and return webservice response
+}
+
 - (NSString*)GetClinicDetail:(id)clinic_object
 {
     //Call webservice method of Clinic

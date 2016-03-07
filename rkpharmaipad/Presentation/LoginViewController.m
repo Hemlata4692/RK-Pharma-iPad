@@ -142,7 +142,8 @@ int internet_connectivity_login = 0;
                     {
                         NSString *fullname = (NSString *)[var objectForKey:@"FullName"];
                         NSString *UserId = (NSString *)[var objectForKey:@"UserId"];
-                     //  NSString *UserId = @"cae9bbc2-3b5a-4f1b-9a97-f379728c26d8";
+//                       NSString *UserId = @"b78f01bf-3d5b-42e5-815b-5703b0585420";//arun user
+//                        NSString *UserId = @"cae9bbc2-3b5a-4f1b-9a97-f379728c26d8";//kumar user
                         
                         // NSString *UserId = @"4f25cd15-42ec-4068-a629-ecd88925678a";
                          NSString *Role = (NSString *)[var objectForKey:@"RoleName"];

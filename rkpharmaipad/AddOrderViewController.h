@@ -39,7 +39,7 @@ NewOrderListViewController *neworderlistcontroller;
 @property(nonatomic,strong) UIToolbar *toolBar,*toolBar1,*clinic_picker_toolbar,*area_picker_toolbar;
 //Add
 //@property (nonatomic, retain) IBOutlet UITableView *productTableView;
-@property (nonatomic, retain) NSMutableArray *areaArray,*clinicArray,*specializationArray,*productArray;
+@property (nonatomic, retain) NSMutableArray *areaArray,*clinicArray,*specializationArray,*productArray,*oldProductArray,*latestProductArray;
 -(IBAction)Get_Specialization;
 - (IBAction)AddButtonAction:(id)sender;
 -(IBAction)button_select:(id)sender;

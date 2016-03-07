@@ -13,6 +13,9 @@
     NSMutableData *responseData;
 }
 - (NSString*)GetProductList;
+//Added by rohit modi
+- (NSString*)GetProductListUsingClinicId:(NSString*)clinicId;
+//end
 - (NSString*)GetDivisionList;
 - (NSString*)GetAllProductList:(id)product_object;
 - (NSString*)GetSampleRequestList:(id)product_object;

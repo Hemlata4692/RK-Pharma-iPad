@@ -166,7 +166,12 @@ float newtotal = 0.0;
                        addordercontroller.view.frame=CGRectMake(0,0, 841, 784);
                        addordercontroller.areaArray=location_array;
                        addordercontroller.specializationArray=specialization_array;
-                       addordercontroller.productArray=product_array;
+                       addordercontroller.productArray=[product_array mutableCopy];
+                       //    Added by rohit modi
+                       // mentain last and new product array in add/edit order
+                       addordercontroller.latestProductArray=[product_array mutableCopy];
+                       addordercontroller.oldProductArray=[product_array mutableCopy];
+                       //    end
                        [addordercontroller.view setFrame:CGRectMake( 0.0f, 480.0f, 841.0f, 784.0f)]; //notice this is OFF screen!
                        [UIView beginAnimations:@"animateTableView" context:nil];
                        [UIView setAnimationDuration:0.4];
@@ -953,7 +958,13 @@ float newtotal = 0.0;
                        addordercontroller.view.frame=CGRectMake(0,0, 841, 784);
                        addordercontroller.areaArray=location_array;
                        addordercontroller.specializationArray=specialization_array;
-                       addordercontroller.productArray=product_array;
+                       addordercontroller.productArray=[product_array mutableCopy];
+                       //    Added by rohit modi
+                       // mentain last and new product array in add/edit order
+                       addordercontroller.latestProductArray=[product_array mutableCopy];
+                       addordercontroller.oldProductArray=[product_array mutableCopy];
+                       //    end
+
                        [addordercontroller.view setFrame:CGRectMake( 0.0f, 480.0f, 841.0f, 784.0f)]; //notice this is OFF screen!
                        [UIView beginAnimations:@"animateTableView" context:nil];
                        [UIView setAnimationDuration:0.4];

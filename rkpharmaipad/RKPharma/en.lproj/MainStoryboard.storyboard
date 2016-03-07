@@ -705,7 +705,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lgV-bA-IBR" userLabel="Add Clinic">
-                                <rect key="frame" x="719" y="162" width="107" height="27"/>
+                                <rect key="frame" x="594" y="162" width="107" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="13"/>
                                 <state key="normal" title="    Add Clinic" backgroundImage="submitbutton.png">
@@ -720,9 +720,24 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="plusicon.png" id="tLy-7N-21s">
-                                <rect key="frame" x="727" y="168" width="14" height="14"/>
+                                <rect key="frame" x="601" y="168" width="14" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fTN-Pb-6yQ">
+                                <rect key="frame" x="706" y="166" width="123" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Nearby clinic" image="checkbox.png">
+                                    <color key="titleColor" red="0.099328762710000004" green="0.55753190969999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Nearby clinic" image="checkedbox.png"/>
+                                <connections>
+                                    <action selector="nearbyClinic:" destination="HHa-bv-81T" eventType="touchUpInside" id="JdX-h1-pIh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -736,6 +751,7 @@
                         <outlet property="currentmonth_label" destination="MEo-af-sMV" id="N4c-dX-gNv"/>
                         <outlet property="currentweek_label" destination="aPJ-Y4-JQE" id="zTl-sZ-HHP"/>
                         <outlet property="dashboardusername_label" destination="3Yq-h4-w6e" id="TXg-sR-8Bz"/>
+                        <outlet property="nearbyClinicOutlet" destination="fTN-Pb-6yQ" id="MRh-QM-J1S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTh-IG-Iq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6192,6 +6208,25 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.97439759039999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yss-u0-KYI">
+                                                            <rect key="frame" x="594" y="88" width="29" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                                            <state key="normal" image="checkbox.png">
+                                                                <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <state key="selected" image="checkedbox.png"/>
+                                                            <state key="highlighted">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Other Sales Person" lineBreakMode="tailTruncation" minimumFontSize="10" id="5Nc-UX-3JQ">
+                                                            <rect key="frame" x="638" y="89" width="117" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Qty" minimumFontSize="17" id="Aat-Er-j2h" customClass="CustomTextField">

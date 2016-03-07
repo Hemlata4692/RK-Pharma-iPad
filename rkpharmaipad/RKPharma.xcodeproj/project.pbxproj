@@ -22,6 +22,7 @@
 		4AEA8C5F17AE96CF0058D085 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5D17AE96CF0058D085 /* DataModel.m */; };
 		4AEA8C6817AEA0D00058D085 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6617AEA0D00058D085 /* Order.m */; };
 		4AEA8C6B17AEA0EB0058D085 /* OrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6917AEA0EB0058D085 /* OrderManager.m */; };
+		B7351DFF1C86A2C200122478 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7351DFE1C86A2C200122478 /* Images.xcassets */; };
 		B736A2E219C6C45A001A5E2E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E119C6C45A001A5E2E /* CoreData.framework */; };
 		B736A2E419C6C5D5001A5E2E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E319C6C5D5001A5E2E /* libz.dylib */; };
 		B736A2E619C6C69B001A5E2E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E519C6C69B001A5E2E /* EventKit.framework */; };
@@ -223,6 +224,7 @@
 		4AEA8C6717AEA0D00058D085 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		4AEA8C6917AEA0EB0058D085 /* OrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManager.m; sourceTree = "<group>"; };
 		4AEA8C6A17AEA0EB0058D085 /* OrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManager.h; sourceTree = "<group>"; };
+		B7351DFE1C86A2C200122478 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B736A2E119C6C45A001A5E2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B736A2E319C6C5D5001A5E2E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B736A2E519C6C69B001A5E2E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -775,6 +777,7 @@
 				CBF23B81172697A80013DB64 /* RKPharmaAppDelegate.m */,
 				4A34FDF318852FEF00F1AB37 /* GlobalVariable.h */,
 				CBF23B83172697A80013DB64 /* MainStoryboard.storyboard */,
+				B7351DFE1C86A2C200122478 /* Images.xcassets */,
 				CBF23B78172697A80013DB64 /* Supporting Files */,
 			);
 			path = RKPharma;
@@ -1093,6 +1096,7 @@
 				CBE4245F173F98A80096B3E2 /* listingbg_top.png in Resources */,
 				CBE42466173FDD430096B3E2 /* callicon.png in Resources */,
 				CBE42467173FDD430096B3E2 /* cardiologisticon.png in Resources */,
+				B7351DFF1C86A2C200122478 /* Images.xcassets in Resources */,
 				CBE42468173FDD430096B3E2 /* doctoricon.png in Resources */,
 				CBE42469173FDD430096B3E2 /* locationicon.png in Resources */,
 				CBE4246A173FDD430096B3E2 /* mailicon.png in Resources */,
@@ -1236,6 +1240,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1274,6 +1279,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1295,6 +1301,8 @@
 		CBF23B8C172697A80013DB64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1315,6 +1323,8 @@
 		CBF23B8D172697A80013DB64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
