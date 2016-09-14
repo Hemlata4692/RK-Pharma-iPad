@@ -30,8 +30,8 @@ CallCardViewController *callcardcontroller;
 
 }
 @property (nonatomic,retain) CLLocationManager *locationManager;
-@property(nonatomic,retain)UILabel *currentdate_label,*currentweek_label,*currentyear_label,*currentmonth_label,*announcementdate_label,*announcementtitle_label,*clinicname_label,*location_label,*phone_label,*doctor_label,*dashboardusername_label,*clinichrsfrom1_label,*clinichrsfrom2_label,*clinichrsto1_label,*clinichrsto2_label,*sno,*purchaserName,*clinicAddress,*planDate,*dayOff;
-@property(nonatomic,retain)UITextView *announcement_textview;
+@property(nonatomic,retain)UILabel *currentdate_label,*currentweek_label,*currentyear_label,*currentmonth_label,*announcementdate_label,*announcementtitle_label,*clinicname_label,*location_label,*phone_label,*doctor_label,*dashboardusername_label,*clinichrsfrom1_label,*clinichrsfrom2_label,*clinichrsto1_label,*clinichrsto2_label,*sno,*purchaserName,*planDate,*dayOff;
+@property(nonatomic,retain)UITextView *announcement_textview,*clinicAddress;
 @property(nonatomic,retain)UITableView *Todaysplan_table;
 @property(nonatomic,retain)UIButton *announcement_button,*delete_button,*fillsummary_button,*addclinic_button,*clinicname_button;
 
