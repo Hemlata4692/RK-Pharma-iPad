@@ -10,7 +10,7 @@
 
 @implementation Clinic
 
-@synthesize clinic_id,clinic_name,location,phone_number,pin_code,doctor_name,offset,dateto_string,datefrom_string,lastvisited,specialization_id;
+@synthesize clinic_id,clinic_name,location,phone_number,pin_code,doctor_name,offset,dateto_string,datefrom_string,lastvisited,specialization_id,isSearch;
 @synthesize LocationId,ProductId,LastVisited;
 
 @end

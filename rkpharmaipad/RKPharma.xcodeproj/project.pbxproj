@@ -22,6 +22,7 @@
 		4AEA8C5F17AE96CF0058D085 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C5D17AE96CF0058D085 /* DataModel.m */; };
 		4AEA8C6817AEA0D00058D085 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6617AEA0D00058D085 /* Order.m */; };
 		4AEA8C6B17AEA0EB0058D085 /* OrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA8C6917AEA0EB0058D085 /* OrderManager.m */; };
+		5D4346551D89341D000A74DD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD2655A173B743F005FA294 /* CoreLocation.framework */; };
 		B7351DFF1C86A2C200122478 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7351DFE1C86A2C200122478 /* Images.xcassets */; };
 		B736A2E219C6C45A001A5E2E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E119C6C45A001A5E2E /* CoreData.framework */; };
 		B736A2E419C6C5D5001A5E2E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B736A2E319C6C5D5001A5E2E /* libz.dylib */; };
@@ -122,7 +123,6 @@
 		CBCEB3E11753392F00F69026 /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCEB3DF1753392F00F69026 /* previous.png */; };
 		CBD0E0D71735FA1C00B4AB93 /* dashedline.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD0E0C41735FA1C00B4AB93 /* dashedline.png */; };
 		CBD2654F173B7300005FA294 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD2654E173B7300005FA294 /* MapKit.framework */; };
-		CBD26558173B7437005FA294 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD26557173B7437005FA294 /* CoreLocation.framework */; };
 		CBD6D11E174D0AD7006C34A6 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD6D11C174D0AD7006C34A6 /* checkbox.png */; };
 		CBD6D11F174D0AD7006C34A6 /* checkedbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD6D11D174D0AD7006C34A6 /* checkedbox.png */; };
 		CBDBA8C9173D07A4001C3F7A /* tablebg.png in Resources */ = {isa = PBXBuildFile; fileRef = CBDBA8C6173D07A4001C3F7A /* tablebg.png */; };
@@ -239,6 +239,7 @@
 		B75A2B5419DD505C004A2C49 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		B75A2B5519DD505C004A2C49 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		B75A2B5619DD51FF004A2C49 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		B787EB841D87E17700B59030 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreLocation.framework; sourceTree = "<group>"; };
 		B7FD56EC19C81FB600A17387 /* table-sep copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-sep copy.png"; sourceTree = "<group>"; };
 		B7FEDFD117BE06EE00112C2A /* ViewSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSample.h; sourceTree = "<group>"; };
 		B7FEDFD217BE06EE00112C2A /* ViewSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSample.m; sourceTree = "<group>"; };
@@ -362,7 +363,6 @@
 		CBD0E0C41735FA1C00B4AB93 /* dashedline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashedline.png; path = "Dasboard Images/dashedline.png"; sourceTree = "<group>"; };
 		CBD2654E173B7300005FA294 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CBD26551173B73B1005FA294 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		CBD26557173B7437005FA294 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CBD2655A173B743F005FA294 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CBD6D11C174D0AD7006C34A6 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		CBD6D11D174D0AD7006C34A6 /* checkedbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedbox.png; sourceTree = "<group>"; };
@@ -475,12 +475,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4346551D89341D000A74DD /* CoreLocation.framework in Frameworks */,
 				B736A2E619C6C69B001A5E2E /* EventKit.framework in Frameworks */,
 				B736A2E419C6C5D5001A5E2E /* libz.dylib in Frameworks */,
 				B736A2E219C6C45A001A5E2E /* CoreData.framework in Frameworks */,
 				CBC3E6A01754C57800D54EBF /* QuartzCore.framework in Frameworks */,
 				CBC8D52B1740AE4B00A85A35 /* SystemConfiguration.framework in Frameworks */,
-				CBD26558173B7437005FA294 /* CoreLocation.framework in Frameworks */,
 				CBD2654F173B7300005FA294 /* MapKit.framework in Frameworks */,
 				CBF23B72172697A80013DB64 /* UIKit.framework in Frameworks */,
 				B75A2B5719DD51FF004A2C49 /* libGoogleAnalyticsServices.a in Frameworks */,
@@ -716,7 +716,7 @@
 			children = (
 				CBC3E69F1754C57800D54EBF /* QuartzCore.framework */,
 				CBC8D52A1740AE4B00A85A35 /* SystemConfiguration.framework */,
-				CBD26557173B7437005FA294 /* CoreLocation.framework */,
+				B787EB841D87E17700B59030 /* CoreLocation.framework */,
 				CBD2654E173B7300005FA294 /* MapKit.framework */,
 				CBF7AD36172BCEFF00B5847A /* Images */,
 				CBF23B77172697A80013DB64 /* RKPharma */,
@@ -1305,6 +1305,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
 				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";
@@ -1327,6 +1328,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Technopreneur's Resource Centre Private Limited";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RKPharma/RKPharma-Prefix.pch";
 				INFOPLIST_FILE = "RKPharma/RKPharma-Info.plist";

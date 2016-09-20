@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C726F782-EDF2-49E2-A76E-8B093C0A4C2C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>RKPharma</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4E4C1ACAD75940DAE8311D2370BB80B3924D039F</key>
 		<string>https://gitlab.com/ranosys-bkn/RK-Pharma-iPad.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>rkpharmaipad/RKPharma.xcodeproj/project.xcworkspace</string>
+	<string>rkpharmaipad/RKPharma.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4E4C1ACAD75940DAE8311D2370BB80B3924D039F</key>

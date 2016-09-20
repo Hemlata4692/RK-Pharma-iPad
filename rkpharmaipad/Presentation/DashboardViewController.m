@@ -692,8 +692,28 @@ NSURLConnection *connection_dailyplan,*connection_announcement;
     purchaserName=(UILabel *)[cell viewWithTag:50];
     purchaserName.text = [itemAtIndex objectForKey:@"Purchaser_Name"];
     
-    clinicAddress=(UILabel *)[cell viewWithTag:51];
+    clinicAddress = (UITextView *)[cell viewWithTag:51];
+    
+    CGSize size = CGSizeMake(515,34);
+    
+
     clinicAddress.text = [itemAtIndex objectForKey:@"ClinicAddress"];
+
+    CGRect textRect=[clinicAddress.text
+                     boundingRectWithSize:size
+                     options:NSStringDrawingUsesLineFragmentOrigin
+                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Arial" size:13]}
+                     context:nil];
+    
+    if (textRect.size.height > 20 )
+    {
+        clinicAddress.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0);
+    }
+    else
+    {
+        clinicAddress.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     
     dayOff=(UILabel *)[cell viewWithTag:52];
     dayOff.text = [itemAtIndex objectForKey:@"Days_Off"];
