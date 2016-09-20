@@ -29,6 +29,7 @@ int offset = 0;
     YHCPickerView *objYHCPickerView;
     NSMutableDictionary *dictglobdate,*dictglobFromTime,*dictglobToTime;
     NSDate *globdate,*globFromTime,*globToTime;
+    NSString* isSearch;
 }
 @end
 
@@ -197,7 +198,7 @@ int offset = 0;
     NSString *offsetstring = [NSString stringWithFormat:@"%d",offset];
     
     clinic.offset = offsetstring;
-    
+    clinic.isSearch = isSearch;
     //Create business manager class object
     ClinicManager *cm_business=[[ClinicManager alloc]init];
     NSString *response=[cm_business GetClinicList:clinic];//call businessmanager login method and handle response
@@ -468,6 +469,7 @@ int offset = 0;
     self.clinic_table.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
     
     offset = 0;
+    isSearch = @"1";
     [self ClinicService];
     [self SpecializationService];
     
@@ -601,6 +603,7 @@ int offset = 0;
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
                            {
                                offset = offset + 20;
+                               isSearch = @"0";
                                [self ClinicService];
                                [self.indicator stopAnimating];
                                indicator.hidden = YES;
@@ -1711,6 +1714,7 @@ int offset = 0;
                        offset = 0;
                        // TO Reset TableView Scroll to Top
                        [clinic_table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+                       isSearch = @"1";
                        [self ClinicService];
                        
                        location_picker.showsSelectionIndicator = NO;
@@ -1734,6 +1738,7 @@ int offset = 0;
                        offset = 0;
                        // TO Reset TableView Scroll to Top
                        [clinic_table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+                       isSearch = @"1";
                        [self ClinicService];
                        if(clinic_array.count == 0)
                        {

@@ -10,9 +10,9 @@
 
 @interface Clinic : NSObject
 {
-    NSString *clinic_id,*clinic_name,*phone_number,*pin_code,*location,*doctor_name,*offset,*dateto_string,*datefrom_string,*lastvisited,*specialization_id;
+    NSString *clinic_id,*clinic_name,*phone_number,*pin_code,*location,*doctor_name,*offset,*dateto_string,*datefrom_string,*lastvisited,*specialization_id,*isSearch;
     //NSMutableArray *doctors,*Business_hours;
 }
-@property (nonatomic, retain) NSString *clinic_id,*clinic_name,*phone_number,*pin_code,*location,*doctor_name,*offset,*dateto_string,*datefrom_string,*lastvisited,*specialization_id;
+@property (nonatomic, retain) NSString *clinic_id,*clinic_name,*phone_number,*pin_code,*location,*doctor_name,*offset,*dateto_string,*datefrom_string,*lastvisited,*specialization_id,*isSearch;
 @property ( nonatomic,retain) NSString *LocationId,*ProductId,*LastVisited;
 @end

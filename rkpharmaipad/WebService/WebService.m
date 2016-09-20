@@ -166,7 +166,7 @@
         NSLog(@" Location String : %@",location_string);
         //To Get Clinic List from Webservice
         
-        NSString *jsonRequest = [NSString stringWithFormat:@"{\"Offset\":\"%d\",\"UserId\":\"%@\",\"Contact\":\"%@\",\"LocationId\":\"%d\",\"ClinicName\":\"%@\",\"SpecializationId\":\"%d\",\"Visited\":\"%@\"}",Offsetint,[defaults objectForKey:@"UserId"],phone_string,locationint,clinic_string,specializationint,lastvisited_string];
+        NSString *jsonRequest = [NSString stringWithFormat:@"{\"Offset\":\"%d\",\"UserId\":\"%@\",\"Contact\":\"%@\",\"LocationId\":\"%d\",\"ClinicName\":\"%@\",\"SpecializationId\":\"%d\",\"Visited\":\"%@\",\"IsSearch\":\"%@\"}",Offsetint,[defaults objectForKey:@"UserId"],phone_string,locationint,clinic_string,specializationint,lastvisited_string,[Request valueForKey:@"isSearch"]];
         
         NSLog(@"Json Request Clinic List: %@", jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
@@ -600,7 +600,7 @@
         
         //        NSString *jsonRequest = [NSString stringWithFormat:@"{\"UserId\":\"%@\",\"LocationId\":\"%d\",\"LastVisited\":\"%@\"}",[defaults objectForKey:@"UserId"],locationint,lastVisited];
         
-        //        NSLog(@"Json Request Clinic Name List: %@", jsonRequest);
+//                NSLog(@"Json Request Clinic Name List: %@", jsonRequest);
         NSURL *url = [NSURL URLWithString:WebserviceUrl];
         //        NSData *postData = [jsonRequest dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         

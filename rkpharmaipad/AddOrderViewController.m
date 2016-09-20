@@ -355,6 +355,17 @@ NSString *OT=@"100",*OS=@"",*TOD=@"";
 {
     NSLog(@"aayainload %@",areaArray);
     page=0;
+    
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+   	[dateformatter setDateStyle:NSDateFormatterShortStyle];
+    [dateformatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateformatter setDateFormat:@"dd-MMM-yyyy"];
+    NSString *datefrom_string = @"   ";
+    datefrom_string = [datefrom_string stringByAppendingString:[NSString stringWithFormat:@"%@",[dateformatter stringFromDate:[NSDate date]]]];
+    [orderDate setTitle:datefrom_string forState:UIControlStateNormal];
+    orderdatevalue = [NSString stringWithFormat:@"%@",[dateformatter stringFromDate:[NSDate date]]];
+    [orderDate setTitleColor:[UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(0/255.0) alpha:1] forState:UIControlStateNormal];
+    
     arr=[[NSMutableArray alloc]init ];
     
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];

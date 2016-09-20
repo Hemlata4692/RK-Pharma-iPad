@@ -200,13 +200,19 @@ NSString *issuedbycompany_checked = @"1";
     
     //set Clinic Name value in domain class
     clinic.location = callcardareaid_selected;
-    
     //Create business manager class object
-//    ClinicManager *cm_business=[[ClinicManager alloc]init];
-//    NSString *response=[cm_business GetClinicNameList:clinic];//call businessmanager login method and handle response
-    
     ClinicManager *cm_business=[[ClinicManager alloc]init];
-    NSString *response=[cm_business GetAllClinicList];
+    NSString *response;
+    
+    if ([callcardareaid_selected intValue] == 0) {
+        
+        response=[cm_business GetAllClinicList];
+    }
+    else{
+    
+        response =[cm_business GetClinicNameList:clinic];//call businessmanager login method and handle response
+    }
+    
     NSDictionary *var =  [response JSONValue];
     NSLog(@"dict Clinic Name List%@",var);
     [clinic_array removeAllObjects];
