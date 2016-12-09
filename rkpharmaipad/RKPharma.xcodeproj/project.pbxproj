@@ -239,7 +239,6 @@
 		B75A2B5419DD505C004A2C49 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		B75A2B5519DD505C004A2C49 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		B75A2B5619DD51FF004A2C49 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		B787EB841D87E17700B59030 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreLocation.framework; sourceTree = "<group>"; };
 		B7FD56EC19C81FB600A17387 /* table-sep copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-sep copy.png"; sourceTree = "<group>"; };
 		B7FEDFD117BE06EE00112C2A /* ViewSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSample.h; sourceTree = "<group>"; };
 		B7FEDFD217BE06EE00112C2A /* ViewSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSample.m; sourceTree = "<group>"; };
@@ -716,7 +715,6 @@
 			children = (
 				CBC3E69F1754C57800D54EBF /* QuartzCore.framework */,
 				CBC8D52A1740AE4B00A85A35 /* SystemConfiguration.framework */,
-				B787EB841D87E17700B59030 /* CoreLocation.framework */,
 				CBD2654E173B7300005FA294 /* MapKit.framework */,
 				CBF7AD36172BCEFF00B5847A /* Images */,
 				CBF23B77172697A80013DB64 /* RKPharma */,
